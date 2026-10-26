@@ -1,0 +1,19 @@
+{% extends "layout_auth.html" %}
+{% from "_macros.html" import password_field, csrf with context %}
+{% block title %}Sign in to RekamKu{% endblock %}
+{% block panel_title %}Welcome back. Your records are waiting, safely locked.{% endblock %}
+{% block content %}
+<h1>Sign in</h1>
+<p class="lead">Your password unlocks your vault. Without it, nobody can read what is inside, not even the people running the server.</p>
+<form method="post" class="form" novalidate>
+  {{ csrf() }}
+  <div class="field">
+    <label for="username">Username</label>
+    <input id="username" name="username" value="{{ username }}" autocomplete="username" required autofocus maxlength="64">
+  </div>
+  {{ password_field('password', 'Password', 'current-password') }}
+  <button class="btn btn--block">Sign in</button>
+</form>
+<p class="auth__alt">Forgot your password? <a href="{{ url_for('auth.recover') }}">Use your recovery code</a><br>
+  New to RekamKu? <a href="{{ url_for('auth.register') }}">Create an account</a></p>
+{% endblock %}

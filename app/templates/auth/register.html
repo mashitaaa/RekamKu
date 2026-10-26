@@ -1,0 +1,30 @@
+{% extends "layout_auth.html" %}
+{% from "_macros.html" import password_field, csrf with context %}
+{% block title %}Create your RekamKu account{% endblock %}
+{% block content %}
+<h1>Create your account</h1>
+<p class="lead">Your account is the key to your vault. Pick a password you have never used anywhere else.</p>
+
+<form method="post" class="form" novalidate>
+  {{ csrf() }}
+  <div class="field">
+    <label for="username">Username</label>
+    <p class="hint" id="username-hint">3 to 32 characters: letters, digits or underscores. It does not need to be your real name.</p>
+    <input id="username" name="username" value="{{ form.username }}" autocomplete="username" required
+           maxlength="32" pattern="[A-Za-z0-9_]{3,32}" aria-describedby="username-hint" autofocus>
+  </div>
+  {{ password_field('password', 'Password', 'new-password',
+                    'At least 12 characters. A short sentence you can remember beats a short random word.', strength=True) }}
+  {{ password_field('password2', 'Repeat password', 'new-password') }}
+
+  <div class="check">
+    <input type="checkbox" id="consent" name="consent" value="1" required>
+    <label for="consent">I allow RekamKu to process my health data for one purpose only: storing it so that I can open it again.
+      It is stored encrypted, never shared, and I can delete it at any time.
+      <a href="{{ url_for('pages.privacy') }}">How my data is processed</a></label>
+  </div>
+
+  <button class="btn btn--block">Create account</button>
+</form>
+<p class="auth__alt">Already have an account? <a href="{{ url_for('auth.login') }}">Sign in</a></p>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "_macros.html" import password_field, csrf with context %}
+{% block title %}Account & security - RekamKu{% endblock %}
+{% block heading %}Account &amp; security{% endblock %}
+{% block subheading %}Manage how your vault is unlocked, and see who opened it.{% endblock %}
+{% block content %}
+<div class="acc-sum">
+  <div><span>Signed in as</span><b>{{ username }}</b></div>
+  <div><span>Member since</span><b>{{ created|date }}</b></div>
+  <div><span>Your vault</span><b class="num">{{ stats.n }} file{{ 's' if stats.n != 1 }}, {{ stats.bytes|size }}</b></div>
+</div>
+
+<div class="settings">
+  <section class="card" id="password" aria-labelledby="pw-title">
+    <div class="card__head"><div class="card__title"><span class="ico ico--brand">{{ icon('key') }}</span><h2 id="pw-title">Change password</h2></div></div>
+    <p>Your account key is re-wrapped with the new password. Files do not need re-encryption, and other sessions are signed out.</p>
+    <form method="post" action="{{ url_for('account.change_password') }}" novalidate>
+      {{ csrf() }}
+      {{ password_field('current', 'Current password', 'current-password') }}
+      {{ password_field('password', 'New password', 'new-password', 'At least 12 characters.', strength=True) }}
+      {{ password_field('password2', 'Repeat new password', 'new-password') }}
+      <button class="btn">Change password</button>
+    </form>
+  </section>
+
+  <div class="side-stack">
+    <section class="card" id="recovery" aria-labelledby="rc-title">
+      <div class="card__head"><div class="card__title"><span class="ico ico--sun">{{ icon('refresh') }}</span><h2 id="rc-title">Recovery code</h2></div></div>
+      <p>Create a new code if you lost the old one or someone may have seen it. The old code stops working immediately.</p>
+      <form method="post" action="{{ url_for('account.new_recovery') }}" novalidate>
+        {{ csrf() }}
+        <div class="field">
+          <label for="rc-current">Current password</label>
+          <input id="rc-current" name="current" type="password" autocomplete="current-password" required>
+        </div>
+        <button class="btn btn--sun">Create new recovery code</button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="act-title">
+      <div class="card__head"><div class="card__title"><span class="ico ico--documents">{{ icon('clock') }}</span><h2 id="act-title">Recent activity</h2></div></div>
+      <ul class="timeline">
+        {% for a in acts %}
+        {% set ev = events.get(a.event, (a.event, 'info')) %}
+        <li class="{{ 'is-warn' if ev[1] == 'warn' }}"><span class="tdot tdot--{{ ev[1] }}"></span><span>{{ ev[0] }}</span><time datetime="{{ a.at }}">{{ a.at|date(true) }}</time></li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
+
+  <section class="card card--danger wide" id="delete" aria-labelledby="del-title">
+    <div class="card__head"><div class="card__title"><span class="ico ico--danger">{{ icon('trash') }}</span><h2 id="del-title">Delete account</h2></div></div>
+    <p>All files, your profile and every key are erased permanently (right to erasure, UU PDP Art. 8). Download anything you want to keep first.</p>
+    <form method="post" action="{{ url_for('account.delete_account') }}" class="form-row" novalidate>
+      {{ csrf() }}
+      <div class="field">
+        <label for="del-current">Password</label>
+        <input id="del-current" name="current" type="password" autocomplete="current-password" required>
+      </div>
+      <div class="field">
+        <label for="del-confirm">Type DELETE</label>
+        <input id="del-confirm" name="confirm" autocomplete="off" required>
+      </div>
+      <button class="btn btn--danger">Delete my account</button>
+    </form>
+  </section>
+</div>
+{% endblock %}

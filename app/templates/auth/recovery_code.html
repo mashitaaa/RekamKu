@@ -1,0 +1,27 @@
+{% extends "layout_auth.html" %}
+{% from "_icons.html" import icon %}
+{% block title %}Save your recovery code{% endblock %}
+{% block panel_title %}One code stands between a forgotten password and lost records.{% endblock %}
+{% block content %}
+<span class="ico ico--sun mb-1">{{ icon('key') }}</span>
+<h1>{{ 'Save your recovery code' if first else 'Your new recovery code' }}</h1>
+<p class="lead">This code is the only way to open your vault if you forget your password. It is shown once and RekamKu does not keep it.
+  {% if not first %}Your previous code no longer works.{% endif %}</p>
+
+<div class="recovery">
+  <p class="recovery__code" id="rcode">{{ code }}</p>
+  <div class="actions">
+    <button type="button" class="btn btn--light" data-copy="rcode">{{ icon('copy', 'i--sm') }}<span>Copy code</span></button>
+    <button type="button" class="btn btn--light" data-download-text="rcode" data-filename="rekamku-recovery-code.txt">{{ icon('download', 'i--sm') }}Download .txt</button>
+  </div>
+</div>
+<p class="hint mt-1">Write it on paper and keep it with your important documents, or store it in a password manager.
+  Never send it by chat or email.</p>
+
+<div class="check">
+  <input type="checkbox" id="saved" data-enables="continue">
+  <label for="saved">I have saved this code somewhere safe.</label>
+</div>
+<a class="btn btn--block is-disabled" id="continue" aria-disabled="true"
+   href="{{ url_for('profile.edit') if first else url_for('vault.dashboard') }}">{{ 'Continue to your health profile' if first else 'Back to my vault' }}</a>
+{% endblock %}

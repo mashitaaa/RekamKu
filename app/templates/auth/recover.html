@@ -1,0 +1,27 @@
+{% extends "layout_auth.html" %}
+{% from "_macros.html" import password_field, csrf with context %}
+{% block title %}Recover your account{% endblock %}
+{% block panel_title %}Lost your password? Your records are not lost.{% endblock %}
+{% block content %}
+<h1>Recover your account</h1>
+<p class="lead">Enter the 20-character recovery code you saved when you created your account, then choose a new password.
+  All your files stay intact. Once used, the old code stops working and you get a new one.</p>
+<form method="post" class="form" novalidate>
+  {{ csrf() }}
+  <div class="field">
+    <label for="username">Username</label>
+    <input id="username" name="username" value="{{ username }}" autocomplete="username" required maxlength="64">
+  </div>
+  <div class="field">
+    <label for="code">Recovery code</label>
+    <p class="hint" id="code-hint">Format: ABCD-EFGH-JKLM-NPQR-STUV. Lower case and missing dashes are fine.</p>
+    <input id="code" name="code" required autocomplete="off" spellcheck="false" class="code-input" maxlength="40"
+           aria-describedby="code-hint">
+  </div>
+  {{ password_field('password', 'New password', 'new-password', 'At least 12 characters.', strength=True) }}
+  {{ password_field('password2', 'Repeat new password', 'new-password') }}
+  <button class="btn btn--block">Recover and sign in</button>
+</form>
+<p class="auth__alt">Lost the recovery code too? Then nobody can open your records, including us.
+  That is the price of encryption only you can unlock.</p>
+{% endblock %}
