@@ -1,0 +1,36 @@
+{% from "_icons.html" import icon %}
+
+{% macro password_field(id, label, autocomplete, hint='', strength=False) -%}
+<div class="field">
+  <label for="{{ id }}">{{ label }}</label>
+  {% if hint %}<p class="hint" id="{{ id }}-hint">{{ hint }}</p>{% endif %}
+  <div class="pw">
+    <input id="{{ id }}" name="{{ id }}" type="password" autocomplete="{{ autocomplete }}" required maxlength="128"
+           {% if hint %}aria-describedby="{{ id }}-hint"{% endif %} {% if strength %}data-strength="{{ id }}-meter"{% endif %}>
+    <button type="button" class="pw__toggle" data-toggle-pw="{{ id }}" aria-pressed="false">Show</button>
+  </div>
+  {% if strength %}
+  <div class="meter" id="{{ id }}-meter" aria-live="polite"><span class="meter__bar"></span><span class="meter__label"></span></div>
+  {% endif %}
+  <p class="caps" hidden>Caps Lock is on.</p>
+</div>
+{%- endmacro %}
+
+{% macro csrf() -%}<input type="hidden" name="csrf" value="{{ csrf_token }}">{%- endmacro %}
+
+{% macro ext_tile(ext, category) -%}
+<span class="ext ext--{{ category }}" aria-hidden="true">{{ (ext or '?')|upper }}</span>
+{%- endmacro %}
+
+{% macro flashes() -%}
+{% with msgs = get_flashed_messages(with_categories=true) %}
+  {% if msgs %}
+  <div class="flashes">
+    {% for cat, m in msgs %}
+      <p class="flash flash--{{ cat }}" role="{{ 'alert' if cat == 'error' else 'status' }}">
+        {{ icon({'error': 'alert', 'ok': 'check-circle'}.get(cat, 'info')) }}<span>{{ m }}</span></p>
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endwith %}
+{%- endmacro %}

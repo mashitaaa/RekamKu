@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% from "_art.html" import logo_mark %}
+{% from "_macros.html" import flashes, csrf with context %}
+{% set nav_items = [
+  ('identity', 'Identity'), ('documents', 'Medical documents'), ('videos', 'Medical videos')] %}
+{% block body %}
+<div class="app">
+  <aside class="sidebar" aria-label="Main navigation">
+    <a class="logo" href="{{ url_for('vault.dashboard') }}">{{ logo_mark() }}<span>Rekam<b>Ku</b></span></a>
+
+    <nav class="nav">
+      <a href="{{ url_for('vault.dashboard') }}" {% if request.endpoint == 'vault.dashboard' %}aria-current="page"{% endif %}>
+        {{ icon('home') }}Dashboard</a>
+
+      <span class="nav__label">My vault</span>
+      {% for key, label in nav_items %}
+      <a href="{{ url_for('vault.folder', category=key) }}" {% if active_folder == key %}aria-current="page"{% endif %}>
+        <span class="dot dot--{{ key }}"></span>{{ label }}<span class="count">{{ nav_counts.get(key, 0) }}</span></a>
+      {% endfor %}
+
+      <span class="nav__label">Me</span>
+      <a href="{{ url_for('profile.edit') }}" {% if request.blueprint == 'profile' %}aria-current="page"{% endif %}>
+        {{ icon('heart') }}Health profile</a>
+      <a href="{{ url_for('account.settings') }}" {% if request.blueprint == 'account' %}aria-current="page"{% endif %}>
+        {{ icon('settings') }}Account &amp; security</a>
+      <a href="{{ url_for('pages.privacy') }}" {% if request.endpoint == 'pages.privacy' %}aria-current="page"{% endif %}>
+        {{ icon('book') }}Privacy &amp; your data</a>
+    </nav>
+
+    <div class="vault-badge">
+      <strong>{{ icon('lock', 'i--sm') }}Your vault is locked</strong>
+      <p>Every file is encrypted three times before it is stored.</p>
+      <div class="chips"><span class="chip chip--on-dark">DES-CBC</span><span class="chip chip--on-dark">RC4</span><span class="chip chip--on-dark">AES-256-GCM</span></div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="mobile-top">
+      <a class="logo" href="{{ url_for('vault.dashboard') }}">{{ logo_mark() }}<span>Rekam<b>Ku</b></span></a>
+      <a class="avatar" href="{{ url_for('account.settings') }}" aria-label="Account and security">{{ me.initials }}</a>
+    </header>
+
+    <header class="topbar">
+      <div class="topbar__title">
+        <h1>{% block heading %}{% endblock %}</h1>
+        {% set sub %}{% block subheading %}{% endblock %}{% endset %}
+        {% if sub|trim %}<p>{{ sub }}</p>{% endif %}
+      </div>
+      <div class="topbar__right">
+        <a class="user" href="{{ url_for('account.settings') }}"><span class="avatar">{{ me.initials }}</span>{{ me.first or 'My account' }}</a>
+        <form method="post" action="{{ url_for('auth.logout') }}">
+          {{ csrf() }}
+          <button class="btn btn--light btn--icon" aria-label="Sign out" title="Sign out">{{ icon('logout') }}</button>
+        </form>
+      </div>
+    </header>
+
+    <main class="content" id="content">
+      {{ flashes() }}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <nav class="tabbar" aria-label="Main navigation">
+    <a href="{{ url_for('vault.dashboard') }}" {% if request.endpoint == 'vault.dashboard' %}aria-current="page"{% endif %}>{{ icon('home') }}Home</a>
+    <a href="{{ url_for('vault.folder', category='identity') }}" {% if active_folder == 'identity' %}aria-current="page"{% endif %}>{{ icon('identity') }}Identity</a>
+    <a href="{{ url_for('vault.folder', category='documents') }}" {% if active_folder == 'documents' %}aria-current="page"{% endif %}>{{ icon('documents') }}Documents</a>
+    <a href="{{ url_for('vault.folder', category='videos') }}" {% if active_folder == 'videos' %}aria-current="page"{% endif %}>{{ icon('videos') }}Videos</a>
+    <a href="{{ url_for('profile.edit') }}" {% if request.blueprint == 'profile' %}aria-current="page"{% endif %}>{{ icon('heart') }}Profile</a>
+  </nav>
+</div>
+{% endblock %}

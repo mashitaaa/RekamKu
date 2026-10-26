@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% from "_art.html" import logo_mark, vault %}
+{% from "_macros.html" import flashes with context %}
+{% block body %}
+<div class="auth">
+  <section class="auth__panel">
+    <a class="logo" href="{{ url_for('pages.index') }}">{{ logo_mark() }}<span>Rekam<b>Ku</b></span></a>
+    <h2>{% block panel_title %}Your health records, in one vault only you can open.{% endblock %}</h2>
+    <div class="auth__art">{{ vault() }}</div>
+    <ul>
+      <li><span class="ico">{{ icon('lock', 'i--sm') }}</span><span>Files are encrypted with a key that only your password unlocks.</span></li>
+      <li><span class="ico">{{ icon('shield', 'i--sm') }}</span><span>Every download is verified. A modified file is refused, never shown.</span></li>
+      <li><span class="ico">{{ icon('trash', 'i--sm') }}</span><span>Delete a file or your account and its keys are destroyed with it.</span></li>
+    </ul>
+  </section>
+  <main class="auth__form" id="content">
+    <div class="auth__box">
+      {{ flashes() }}
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+</div>
+{% endblock %}
