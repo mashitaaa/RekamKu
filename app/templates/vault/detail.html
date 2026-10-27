@@ -1,0 +1,72 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "_art.html" import doc_preview %}
+{% from "_macros.html" import csrf, ext_tile with context %}
+{% block title %}{{ f.name }} - RekamKu{% endblock %}
+{% block heading %}{{ cat.title }}{% endblock %}
+{% block subheading %}File details{% endblock %}
+{% block content %}
+<a class="crumb" href="{{ url_for('vault.folder', category=f.category) }}">{{ icon('arrow-left', 'i--sm') }}Back to {{ cat.title }}</a>
+
+<div class="detail banner--{{ f.category }}">
+  <section class="card">
+    <div class="detail__head">
+      {{ ext_tile(f.ext, f.category) }}
+      <div>
+        <h2>{{ f.name }}</h2>
+        {% if f.desc %}<p class="muted small">{{ f.desc }}</p>{% endif %}
+      </div>
+    </div>
+
+    {% if inline and f.ext in ['jpg','jpeg','png'] %}
+      <img class="preview" src="{{ url_for('vault.content', fid=row.id) }}" alt="Scan of {{ f.name }}">
+    {% elif inline %}
+      <video class="preview" src="{{ url_for('vault.content', fid=row.id) }}" controls preload="metadata" playsinline>
+        Your browser cannot play this video. Download it to play it on your device.</video>
+    {% else %}
+      <div class="preview preview--doc">
+        {{ doc_preview(f.ext) }}
+        <p class="small">{{ f.ext|upper }} documents are not previewed in the browser, so no copy is sent to a third-party preview service.
+          Download it to open it on your device.</p>
+      </div>
+    {% endif %}
+
+    <div class="actions">
+      <a class="btn" href="{{ url_for('vault.content', fid=row.id, download=1) }}">{{ icon('download', 'i--sm') }}Download original</a>
+      <button type="button" class="btn btn--danger-ghost" data-open-dialog="delete-dialog">{{ icon('trash', 'i--sm') }}Delete</button>
+    </div>
+  </section>
+
+  <aside class="card">
+    <div class="card__head"><h2>About this file</h2><span class="chip chip--ok">{{ icon('lock', 'i--sm') }}Encrypted</span></div>
+    <dl class="facts">
+      <div><dt>Type</dt><dd>{{ f.ext|upper }}</dd></div>
+      <div><dt>Original size</dt><dd class="num">{{ f.size|size }}</dd></div>
+      <div><dt>Stored size</dt><dd class="num">{{ f.stored_size|size }}</dd></div>
+      <div><dt>Overhead</dt><dd class="num">+{{ f.stored_size - f.size }} bytes</dd></div>
+      <div class="wide"><dt>Uploaded</dt><dd>{{ f.uploaded|date(true) }}</dd></div>
+    </dl>
+
+    <section class="integrity" aria-labelledby="int-title">
+      <h3 id="int-title">{{ icon('shield', 'i--sm') }}Integrity check</h3>
+      <p>SHA-256 fingerprint taken at upload. Every 1 MiB chunk is also sealed with an AES-GCM tag.</p>
+      <p class="hash">{{ f.sha256 }}</p>
+      <button type="button" class="btn btn--sm" data-verify="{{ url_for('vault.verify', fid=row.id) }}">{{ icon('refresh', 'i--sm') }}Check integrity now</button>
+      <p class="integrity__result" aria-live="polite"></p>
+    </section>
+  </aside>
+</div>
+
+<dialog id="delete-dialog" class="dialog" aria-labelledby="delete-title">
+  <form method="post" action="{{ url_for('vault.delete', fid=row.id) }}">
+    {{ csrf() }}
+    <span class="ico ico--danger mb-1">{{ icon('trash') }}</span>
+    <h2 id="delete-title">Delete {{ f.name }}?</h2>
+    <p class="muted small">The file and its key are destroyed. This cannot be undone.</p>
+    <div class="actions">
+      <button class="btn btn--danger">Delete file</button>
+      <button type="button" class="btn btn--light" data-close-dialog>Cancel</button>
+    </div>
+  </form>
+</dialog>
+{% endblock %}

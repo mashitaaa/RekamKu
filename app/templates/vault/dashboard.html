@@ -1,0 +1,108 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "_art.html" import hero, empty %}
+{% from "_macros.html" import ext_tile %}
+{% block title %}Dashboard - RekamKu{% endblock %}
+{% block heading %}{{ ('Hello, ' ~ me.first) if me.first else 'Hello' }}{% endblock %}
+{% block subheading %}Here is everything in your health vault.{% endblock %}
+{% block content %}
+{% set total = recent|length %}
+<div class="dash">
+  <section class="hero-card" aria-labelledby="hero-title">
+    <h2 id="hero-title">Bring the right record to every check-up.</h2>
+    <p>Lab results, discharge summaries, your ID and medical videos, together in one place and encrypted with a key only your password unlocks.</p>
+    <div class="actions">
+      <a class="btn btn--sun" href="{{ url_for('vault.folder', category='documents') }}">{{ icon('upload') }}Upload a document</a>
+      <a class="btn btn--light" href="{{ url_for('vault.folder', category='videos') }}">{{ icon('videos') }}Add a video</a>
+    </div>
+    <div class="hero-card__art">{{ hero() }}</div>
+  </section>
+
+  <section class="medid" aria-labelledby="medid-title">
+    <div class="medid__head">
+      <h2 id="medid-title">{{ icon('heart') }}Medical ID</h2>
+      <a class="btn btn--sm btn--light" href="{{ url_for('profile.edit') }}">Edit</a>
+    </div>
+    {% if profile.get('blood_type') or profile.get('allergies') or profile.get('conditions') %}
+    <div class="medid__grid">
+      <div class="blood">{{ profile.get('blood_type') or '?' }}<small>Blood type</small></div>
+      <dl>
+        <div><dt>Allergies</dt><dd>{{ profile.get('allergies') or 'None recorded' }}</dd></div>
+        <div><dt>Conditions</dt><dd>{{ profile.get('conditions') or 'None recorded' }}</dd></div>
+        {% if profile.get('medications') %}<div><dt>Regular medication</dt><dd>{{ profile.medications.splitlines()|join(', ') }}</dd></div>{% endif %}
+      </dl>
+    </div>
+    {% if profile.get('emergency_name') %}
+    <div class="medid__contact">{{ icon('phone', 'i--sm') }}<span><b>{{ profile.emergency_name }}</b>{% if profile.get('emergency_phone') %}, {{ profile.emergency_phone }}{% endif %}</span></div>
+    {% endif %}
+    {% else %}
+    <p class="medid__empty">Add your blood type, allergies and conditions so they are ready when a doctor asks.</p>
+    <a class="btn btn--sun btn--sm" href="{{ url_for('profile.edit') }}">{{ icon('plus', 'i--sm') }}Fill in health profile</a>
+    {% endif %}
+  </section>
+
+  <div class="tiles">
+    {% for key, c in categories.items() %}
+    {% set items = files[key] %}
+    <a class="tile tile--{{ key }}" href="{{ url_for('vault.folder', category=key) }}">
+      <div class="tile__top"><span class="ico ico--{{ key }}">{{ icon(key) }}</span>{{ icon('arrow-right', 'i--sm muted') }}</div>
+      <div><div class="tile__num num">{{ items|length }}</div><div class="tile__label">{{ c.title }}</div></div>
+      <div class="tile__foot"><span>{{ items|sum(attribute='size')|size if items else 'Empty' }}</span>
+        <span>{{ ('Last added ' ~ items[0].created_at|ago) if items else 'Add your first' }}</span></div>
+    </a>
+    {% endfor %}
+    <div class="tile tile--storage">
+      <div class="tile__top"><span class="ico ico--violet">{{ icon('database') }}</span></div>
+      <div><div class="tile__num num">{{ stored|size }}</div><div class="tile__label">Encrypted storage</div></div>
+      <div class="tile__foot"><span>3 cipher layers</span><span>32 bytes per MiB</span></div>
+    </div>
+  </div>
+
+  <section class="card recent" aria-labelledby="recent-title">
+    <div class="card__head">
+      <h2 id="recent-title">Recently added</h2>
+    </div>
+    {% if recent %}
+    <ul class="rows">
+      {% for f in recent %}
+      <li class="row">
+        {{ ext_tile(f.ext, f.category) }}
+        <div>
+          <a class="row__name" href="{{ url_for('vault.detail', fid=f.id) }}">{{ f.name }}</a>
+          <div class="row__meta"><span>{{ categories[f.category].title }}</span><span class="num">{{ f.size|size }}</span><span>{{ f.created_at|ago }}</span></div>
+        </div>
+        <a class="btn btn--light btn--icon" href="{{ url_for('vault.content', fid=f.id, download=1) }}" aria-label="Download {{ f.name }}" title="Download">{{ icon('download', 'i--sm') }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class="empty-mini">{{ empty('documents') }}<p>Nothing here yet. Start with a scan of your KTP or your latest lab result.</p></div>
+    {% endif %}
+  </section>
+
+  <div class="side-stack">
+    <section class="card" aria-labelledby="sec-title">
+      <div class="card__head"><h2 id="sec-title">Security</h2><a class="small" href="{{ url_for('account.settings') }}">Activity log</a></div>
+      <ul class="sec-list">
+        <li><span class="ico ico--brand">{{ icon('lock', 'i--sm') }}</span><div><b>Encrypted at rest</b><span>DES-CBC, RC4-drop3072 and AES-256-GCM</span></div></li>
+        <li><span class="ico ico--documents">{{ icon('clock', 'i--sm') }}</span><div><b>Previous sign-in</b><span>{{ security.previous_login|date(true) if security.previous_login else 'This is your first session' }}</span></div></li>
+        {% if security.failed or security.integrity_failed %}
+        <li><span class="ico ico--danger">{{ icon('alert', 'i--sm') }}</span><div><b>{{ security.failed }} failed sign-in{{ 's' if security.failed != 1 }}{% if security.integrity_failed %}, {{ security.integrity_failed }} rejected file{{ 's' if security.integrity_failed != 1 }}{% endif %}</b><span>Not you? Change your password now.</span></div></li>
+        {% else %}
+        <li><span class="ico ico--brand">{{ icon('shield', 'i--sm') }}</span><div><b>No warnings</b><span>No failed sign-ins or rejected files recently</span></div></li>
+        {% endif %}
+      </ul>
+    </section>
+
+    {% set filled = profile.values()|select|list|length %}
+    {% if filled < 8 %}
+    <section class="card" aria-labelledby="pf-title">
+      <div class="card__head"><h2 id="pf-title">Health profile</h2><span class="chip chip--specific">{{ filled }} of 13 filled</span></div>
+      <p class="small muted">Doctors usually ask for these first. They are encrypted like your files.</p>
+      <progress class="bar" value="{{ filled }}" max="13" aria-label="Profile completeness"></progress>
+      <div class="actions"><a class="btn btn--sm btn--ghost" href="{{ url_for('profile.edit') }}">Complete profile</a></div>
+    </section>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% import "_art.html" as art %}
+{% block title %}{{ cat.title }} - RekamKu{% endblock %}
+{% block heading %}{{ cat.title }}{% endblock %}
+{% block subheading %}{{ items|length }} file{{ 's' if items|length != 1 }}, all encrypted{% endblock %}
+{% block content %}
+<section class="banner banner--{{ key }}">
+  <div>
+    <h2>{{ {'identity': 'Your identity documents', 'documents': 'Your medical documents', 'videos': 'Your medical videos'}[key] }}</h2>
+    <p>{{ cat.hint }}</p>
+    <div class="banner__chips">{% for e in cat.examples %}<span class="chip">{{ e }}</span>{% endfor %}</div>
+    <div class="banner__stats">
+      <div><b class="num">{{ items|length }}</b><span>files</span></div>
+      <div><b class="num">{{ total_size|size if items else '0 KB' }}</b><span>original size</span></div>
+      <div><b>{{ cat.max_mb }} MB</b><span>max per file</span></div>
+    </div>
+  </div>
+  <div class="banner__art">{{ art[key]() }}</div>
+</section>
+
+<div class="folder-grid banner--{{ key }}">
+  <section class="card uploader" aria-labelledby="up-title">
+    <div class="card__head"><h2 id="up-title">Add a {{ cat.noun }}</h2></div>
+    <form class="upload" data-upload="{{ url_for('vault.upload', category=key) }}" data-exts="{{ cat.exts|join(',') }}"
+          data-max-mb="{{ cat.max_mb }}" novalidate>
+      <label class="drop" for="file-input">
+        <input type="file" id="file-input" accept=".{{ cat.exts|join(',.') }}" class="drop__input">
+        <span class="drop__icon">{{ icon('upload', 'i--lg') }}</span>
+        <span class="drop__main">Drop a file here or <u>browse</u></span>
+        <span class="drop__sub">{{ cat.exts|map('upper')|join(', ') }} up to {{ cat.max_mb }} MB</span>
+      </label>
+      <div class="picked" hidden>
+        <span class="ext ext--{{ key }} picked__ext">?</span>
+        <div class="num"><div class="picked__name"></div><div class="picked__size"></div></div>
+      </div>
+      <div class="upload__more" hidden>
+        <div class="field">
+          <label for="desc">Note <span class="optional">(optional)</span></label>
+          <input id="desc" maxlength="300" placeholder="{{ cat.placeholder }}">
+        </div>
+        <div class="actions">
+          <button class="btn" type="submit">{{ icon('lock', 'i--sm') }}Encrypt and save</button>
+          <button class="btn btn--light" type="button" data-upload-cancel>Cancel</button>
+        </div>
+      </div>
+      <div class="progress" hidden>
+        <progress class="bar" value="0" max="100" aria-label="Upload progress"></progress>
+        <p class="progress__label" aria-live="polite"></p>
+      </div>
+      <p class="upload__error" role="alert"></p>
+    </form>
+    <p class="howto">{{ icon('shield', 'i--sm') }}<span>The file is encrypted while it uploads. The server never writes the original to disk.</span></p>
+  </section>
+
+  <section aria-labelledby="list-title">
+    <div class="list-head">
+      <h2 id="list-title">Saved {{ cat.noun }}s</h2>
+      {% if items|length > 1 %}
+      <div class="search">{{ icon('search', 'i--sm') }}<input type="search" placeholder="Search by name or note" data-filter="file-list" aria-label="Search files"></div>
+      {% endif %}
+    </div>
+    {% if items %}
+    <ul class="files" id="file-list">
+      {% for f in items %}
+      <li class="fcard" data-search="{{ (f.name ~ ' ' ~ f.desc)|lower }}">
+        {% set is_doc = f.ext not in ['jpg', 'jpeg', 'png'] and key != 'videos' %}
+        <div class="fcard__thumb {{ 'fcard__thumb--doc' if is_doc }}">
+          {% if f.ext in ['jpg', 'jpeg', 'png'] %}
+            <img src="{{ url_for('vault.content', fid=f.id) }}" alt="" loading="lazy">
+          {% elif key == 'videos' %}
+            <span class="fcard__play">{{ icon('play') }}</span>
+          {% else %}
+            <span class="doc-ico">{{ icon('documents') }}</span><span class="big-ext">{{ f.ext|upper }}</span>
+          {% endif %}
+          <span class="lock">{{ icon('lock', 'i--sm') }}Encrypted</span>
+        </div>
+        <div class="fcard__body">
+          <a class="fcard__name" href="{{ url_for('vault.detail', fid=f.id) }}">{{ f.name }}</a>
+          {% if f.desc %}<p class="fcard__desc">{{ f.desc }}</p>{% endif %}
+          <div class="fcard__meta"><span>{{ f.created_at|date }}</span><span class="num">{{ f.size|size }}</span></div>
+        </div>
+        <div class="fcard__foot">
+          <a class="btn btn--sm btn--light" href="{{ url_for('vault.detail', fid=f.id) }}">{{ icon('eye', 'i--sm') }}Open</a>
+          <a class="btn btn--sm btn--light" href="{{ url_for('vault.content', fid=f.id, download=1) }}" aria-label="Download {{ f.name }}">{{ icon('download', 'i--sm') }}Download</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="no-match" hidden>No file matches your search.</p>
+    {% else %}
+    <div class="empty">
+      {{ art.empty(key) }}
+      <h3>No {{ cat.noun }}s yet</h3>
+      <p class="small">Files you add are encrypted before they are stored.</p>
+    </div>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}
