@@ -14,7 +14,8 @@ CATEGORIES = {
         "max_mb": 10,
         "data_type": "Scanned identity documents",
         "class": SPECIFIC,
-        "basis": "KTP: name, NIK, address (Art. 4(3) a, f) and a face photo (biometric, Art. 4(2) b). "
+        "basis": "KTP: name, NIK, address (Art. 4(3) a, f) and a face photo (potentially biometric, Art. 4(2) b; "
+                 "RekamKu does not run face recognition). "
                  "The BPJS card reveals use of health services (Art. 4(2) a).",
         "placeholder": "e.g. KTP, valid for life",
     },
@@ -43,8 +44,8 @@ CATEGORIES = {
         "max_mb": 200,
         "data_type": "Video",
         "class": SPECIFIC,
-        "basis": "Records a health condition (Art. 4(2) a) and usually the patient's face, which allows unique "
-                 "identification (Art. 4(2) b).",
+        "basis": "Records a health condition (Art. 4(2) a) and usually the patient's face "
+                 "(potentially biometric, Art. 4(2) b).",
         "placeholder": "e.g. Night-time seizure, 2 minutes",
     },
 }
