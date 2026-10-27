@@ -1,0 +1,16 @@
+{% extends "layout_app.html" if signed_in else "layout_public.html" %}
+{% from "_icons.html" import icon %}
+{% from "_art.html" import empty %}
+{% set titles = {400: 'We could not process that request', 401: 'Please sign in first', 403: 'Access denied',
+                 404: 'Page or file not found', 409: 'This file is not intact', 413: 'File too large',
+                 415: 'File format not accepted', 429: 'Too many attempts'} %}
+{% block title %}{{ code }} - RekamKu{% endblock %}
+{% block heading %}{{ titles.get(code, 'Something went wrong') }}{% endblock %}
+{% block content %}
+<div class="empty">
+  {{ empty('videos' if code == 409 else 'documents') }}
+  {% if not signed_in %}<h1>{{ titles.get(code, 'Something went wrong') }}</h1>{% endif %}
+  <p>{{ error.description }}</p>
+  <a class="btn" href="{{ url_for('vault.dashboard') if signed_in else url_for('pages.index') }}">{{ icon('arrow-left', 'i--sm') }}{{ 'Back to my vault' if signed_in else 'Back to home' }}</a>
+</div>
+{% endblock %}

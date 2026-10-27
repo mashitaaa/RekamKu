@@ -1,0 +1,70 @@
+{% extends "layout_public.html" %}
+{% from "_icons.html" import icon %}
+{% import "_art.html" as art %}
+{% block title %}RekamKu: your health records, in a vault only you can open{% endblock %}
+{% block content %}
+<section class="landing-hero">
+  <div>
+    <span class="chip chip--general mb-1">{{ icon('heart', 'i--sm') }}For patients with chronic conditions</span>
+    <h1>All your health records in <span class="hl">one locked vault</span>.</h1>
+    <p class="lead">Check-ups at the puskesmas, referrals to the hospital, tests at a private lab: your records end up on paper
+      and scattered across your phone's gallery. RekamKu keeps them in one place, encrypted with a key only your password unlocks.</p>
+    <div class="actions">
+      <a class="btn" href="{{ url_for('auth.register') }}">Create free account</a>
+      <a class="btn btn--light" href="{{ url_for('auth.login') }}">I already have an account</a>
+    </div>
+    <div class="trust">
+      <span>{{ icon('lock', 'i--sm') }}Encrypted three times</span>
+      <span>{{ icon('shield', 'i--sm') }}Verified on every download</span>
+      <span>{{ icon('book', 'i--sm') }}Built around UU PDP</span>
+    </div>
+  </div>
+  <div class="landing-art">{{ art.vault() }}</div>
+</section>
+
+<section aria-labelledby="keep">
+  <div class="section-title">
+    <h2 id="keep">What you can keep in RekamKu</h2>
+    <p>Three folders for the records doctors ask for most, plus a health profile with your Medical ID.</p>
+  </div>
+  <div class="cats">
+    {% for key, c in categories.items() %}
+    <article class="cat cat--{{ key }}">
+      <div class="cat__art">{{ art[key]() }}</div>
+      <h3>{{ c.title }}</h3>
+      <p>{{ c.hint }}</p>
+      <div class="chips">{% for e in c.examples %}<span class="chip">{{ e }}</span>{% endfor %}</div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="how" aria-labelledby="how-title">
+  <div class="section-title">
+    <h2 id="how-title">How it works</h2>
+    <p>Three steps from a messy phone gallery to records you can show any doctor.</p>
+  </div>
+  <ol class="steps">
+    <li class="step"><span class="step__n">1</span><h3>Create your account</h3>
+      <p>Your password creates the key to your vault. You also get a recovery code, so a forgotten password never means lost records.</p></li>
+    <li class="step"><span class="step__n">2</span><h3>Add your records</h3>
+      <p>Upload a KTP scan, a lab PDF or a seizure video. Each file is encrypted while it uploads, with its own key.</p></li>
+    <li class="step"><span class="step__n">3</span><h3>Open them at your check-up</h3>
+      <p>Sign in on any device, open or download the file, and show it to your doctor. Videos play straight away.</p></li>
+  </ol>
+</section>
+
+<section class="band" aria-labelledby="layers-title">
+  <div>
+    <h2 id="layers-title">Three layers of encryption, one rule: if it changed, you never see it.</h2>
+    <p>Every file is split into 1 MiB pieces. Each piece goes through DES, then RC4, then AES-256-GCM, with keys unique to that file.
+      When you open it, every piece is checked first. A single flipped bit and the file is refused.</p>
+    <a class="btn btn--sun" href="{{ url_for('pages.privacy') }}">See what we store and why</a>
+  </div>
+  <div class="layers">
+    <div class="layer"><i>3</i><b>AES-256-GCM</b><span>outer layer, detects any change</span></div>
+    <div class="layer"><i>2</i><b>RC4-drop3072</b><span>fresh key for every piece</span></div>
+    <div class="layer"><i>1</i><b>DES-CBC</b><span>random IV for every piece</span></div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "_macros.html" import csrf with context %}
+{% block title %}Health profile - RekamKu{% endblock %}
+{% block heading %}Health profile{% endblock %}
+{% block subheading %}Saved as one encrypted record. Every field is optional.{% endblock %}
+{% block content %}
+<section class="profile-head">
+  <span class="avatar">{{ me.initials }}</span>
+  <div>
+    <h2>{{ profile.get('name') or 'Your profile' }}</h2>
+    <p>{{ filled }} of {{ total }} fields filled. Fields marked <span class="chip chip--specific">specific data</span> are health data under UU PDP Art. 4(2).</p>
+    <progress class="bar" value="{{ filled }}" max="{{ total }}" aria-label="Profile completeness"></progress>
+  </div>
+</section>
+
+<form method="post" class="profile-form" novalidate>
+  {{ csrf() }}
+  {% set group_style = {'identity': ('identity', 'ico--identity'), 'health': ('heart', 'ico--videos'), 'emergency': ('phone', 'ico--documents')} %}
+  {% for gkey, gtitle, gdesc in groups %}
+  <fieldset class="group">
+    <legend><span class="ico {{ group_style[gkey][1] }}">{{ icon(group_style[gkey][0]) }}</span><span class="legend__text"><b>{{ gtitle }}</b><small>{{ gdesc }}</small></span></legend>
+    <div class="group__grid">
+    {% for key, label, grp, cls, basis, hint, kind in fields if grp == gkey %}
+      <div class="field {{ 'field--wide' if kind == 'textarea' }}">
+        <label for="{{ key }}">{{ label }}{% if cls == 'specific' %}<span class="chip chip--specific" title="{{ basis }}">specific data</span>{% endif %}</label>
+        {% if hint %}<p class="hint" id="{{ key }}-hint">{{ hint }}</p>{% endif %}
+        {% set v = profile.get(key, '') %}
+        {% set desc = ('aria-describedby=' ~ key ~ '-hint') if hint else '' %}
+        {% if kind == 'textarea' %}
+          <textarea id="{{ key }}" name="{{ key }}" rows="3" maxlength="600" {{ desc }}>{{ v }}</textarea>
+        {% elif kind == 'blood' %}
+          <select id="{{ key }}" name="{{ key }}">{% for b in blood_types %}<option value="{{ b }}" {{ 'selected' if b == v }}>{{ b or 'Choose' }}</option>{% endfor %}</select>
+        {% elif kind == 'sex' %}
+          <select id="{{ key }}" name="{{ key }}">{% for s in sexes %}<option value="{{ s }}" {{ 'selected' if s == v }}>{{ s or 'Choose' }}</option>{% endfor %}</select>
+        {% elif kind == 'date' %}
+          <input id="{{ key }}" name="{{ key }}" type="date" value="{{ v }}">
+        {% elif kind == 'nik' %}
+          <input id="{{ key }}" name="{{ key }}" value="{{ v }}" inputmode="numeric" maxlength="16" data-digits="16" autocomplete="off" {{ desc }}>
+        {% elif kind == 'digits' %}
+          <input id="{{ key }}" name="{{ key }}" value="{{ v }}" inputmode="numeric" maxlength="13" data-digits="13" autocomplete="off" {{ desc }}>
+        {% elif kind == 'tel' %}
+          <input id="{{ key }}" name="{{ key }}" value="{{ v }}" type="tel" maxlength="20" autocomplete="{{ 'tel' if key == 'phone' else 'off' }}" {{ desc }}>
+        {% else %}
+          <input id="{{ key }}" name="{{ key }}" value="{{ v }}" maxlength="120" autocomplete="{{ 'name' if key == 'name' else 'off' }}" {{ desc }}>
+        {% endif %}
+      </div>
+    {% endfor %}
+    </div>
+  </fieldset>
+  {% endfor %}
+  <div class="savebar">
+    <p>{{ icon('lock', 'i--sm') }}Saved encrypted with your key, like your files.</p>
+    <button class="btn">{{ icon('check', 'i--sm') }}Save profile</button>
+  </div>
+</form>
+{% endblock %}

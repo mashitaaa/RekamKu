@@ -1,0 +1,58 @@
+{% extends "layout_app.html" if signed_in else "layout_public.html" %}
+{% from "_icons.html" import icon %}
+{% block title %}Privacy and data classification - RekamKu{% endblock %}
+{% block heading %}Privacy &amp; your data{% endblock %}
+{% block subheading %}What we store, how each item is classified, and how it is protected.{% endblock %}
+{% block content %}
+<div class="prose">
+  {% if not signed_in %}<h1 class="mt-1">Privacy &amp; your data</h1>{% endif %}
+  <p>Classification follows Indonesian Law No. 27 of 2022 on Personal Data Protection (UU PDP). Article 4(2) treats health and
+    biometric data as <b>specific</b> personal data; the GDPR equivalent is Article 9 (special categories).</p>
+
+  <h2><span class="ico ico--documents">{{ icon('documents') }}</span>Files</h2>
+  <div class="table-wrap">
+  <table class="table">
+    <thead><tr><th scope="col">Folder</th><th scope="col">Data type</th><th scope="col">UU PDP class</th><th scope="col">Legal basis</th></tr></thead>
+    <tbody>
+    {% for key, c in categories.items() %}
+      <tr><th scope="row"><span class="chip chip--{{ key }}">{{ c.title }}</span></th><td>{{ c.data_type }}</td>
+        <td><span class="chip chip--{{ c['class'] }}">{{ c['class'] }}</span></td><td>{{ c.basis }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+  <h2><span class="ico ico--violet">{{ icon('heart') }}</span>Health profile</h2>
+  <div class="table-wrap">
+  <table class="table">
+    <thead><tr><th scope="col">Field</th><th scope="col">UU PDP class</th><th scope="col">Legal basis</th></tr></thead>
+    <tbody>
+    {% for key, label, grp, cls, basis, hint, kind in fields %}
+      <tr><th scope="row">{{ label }}</th><td><span class="chip chip--{{ cls }}">{{ cls }}</span></td><td>{{ basis }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <p>We encrypt <b>general</b> personal data too. Article 4(3)(f) explains why: a name, NIK and address combined with a medical
+    record identify the patient together with their illness, so treating fields differently would leave a gap. The classification
+    still decides the legal basis: specific data is only processed with explicit consent, given when you register.</p>
+
+  <h2><span class="ico ico--sun">{{ icon('info') }}</span>What stays readable in storage, and why</h2>
+  <dl class="def-grid">
+    {% for what, why in not_encrypted %}<div><dt>{{ what }}</dt><dd>{{ why }}</dd></div>{% endfor %}
+  </dl>
+
+  <h2><span class="ico ico--brand">{{ icon('check-circle') }}</span>Your rights, and where to use them</h2>
+  <dl class="def-grid">
+    <div><dt>Access and obtain a copy (Art. 7)</dt><dd>Open or download any file and your profile at any time.</dd></div>
+    <div><dt>Update and correct (Art. 6)</dt><dd>Edit your health profile; upload a file again to replace it.</dd></div>
+    <div><dt>Stop processing and erase (Art. 8)</dt><dd>Delete a single file, or delete your account with all its keys under Account &amp; security.</dd></div>
+    <div><dt>Accountability (Art. 16(2)(h))</dt><dd>An activity log without file names or content, under Account &amp; security.</dd></div>
+  </dl>
+
+  <h2><span class="ico ico--danger">{{ icon('lock') }}</span>Who can open your data</h2>
+  <p>Only you. Each file key is wrapped by your account key, and your account key is wrapped by a key derived from your password
+    (scrypt) and a server secret. Someone holding both the database and the server secret still cannot open your vault without
+    your password or recovery code. The flip side: if you lose both, nobody can recover your data.</p>
+</div>
+{% endblock %}
