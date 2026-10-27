@@ -15,7 +15,7 @@ This is Assignment 1 (Symmetric Encryption) for the Information Security course.
 
 Live demo: https://rekamku.pythonanywhere.com/ (use fictional data only).
 
-## Team
+## Team 10
 
 | Name | NRP |
 |---|---|
@@ -51,6 +51,10 @@ variable (64 hex characters) instead, so that someone who steals only the databa
 For hosting, use `wsgi.py` with a single process, for example `gunicorn -w 1 --threads 8 wsgi:app`, because the
 keys of signed-in users are kept in that process's memory. Set `REKAMKU_HTTPS=1` when the site runs over HTTPS.
 
+## Deployment
+
+The live demo runs on a free PythonAnywhere account. Its WSGI configuration file sets `REKAMKU_HTTPS=1`, `REKAMKU_BEHIND_PROXY=1` and `REKAMKU_SERVER_KEY` as environment variables and then loads the app with `create_app()`. A free account runs a single worker and must be renewed every month. RekamKu needs a single process anyway, because signed-in users' keys are kept in memory. The server key must never be committed to git.
+
 ## Tests and benchmark
 
 ```bash
@@ -69,6 +73,10 @@ The benchmark encrypts fictional sample files that look like what a patient woul
 PDF, a DOCX, an XLSX and two videos) and writes the results to `bench/results/`. It takes about 15 minutes. We ran
 it twice on our laptop: the first run is in `bench/results_1/`, the second in `bench/results/`, and
 `bench/compare.py` shows how much the two runs differ.
+
+## Results of the cipher comparison
+
+We measured encryption time, the share of each cipher in the cascade, server memory, and tamper detection on fictional files that look like a patient's uploads (from a 16 KB XLSX to a 90 MB video). **AES-256-GCM is the cheapest layer and the only one that detects tampering**; on the 90 MB video it is about 70 times faster than DES and about 5 times faster than RC4, while DES alone takes about nine tenths of the cascade time. For this reason the security of RekamKu rests on AES-256-GCM, and DES and RC4 are included because the assignment requires them.
 
 ## How it works
 
@@ -117,3 +125,15 @@ File contents, file names, notes, categories, sizes, upload times, the profile, 
 creation date and the activity log are all encrypted. The only readable values are random IDs, a keyed hash of the
 username used to find the account at sign-in, salts and scrypt settings, and the public key used to write the
 activity log while the user is signed out. A test checks every database column for this.
+
+## Known limitations
+
+* The server sees the plain file while it is being uploaded or downloaded. This is server-side encryption, not
+  end-to-end encryption.
+* Keys of signed-in users live in memory, so the app must run as one process, and restarting it signs everyone out.
+  Python also cannot fully wipe a key from memory.
+* If a chunk fails the check in the middle of a download, the download stops. The user may get an incomplete file,
+  but never a modified one.
+* An old but valid copy of a record could be put back (rollback) without being noticed, because the chunks do not
+  carry a version number.
+* `run.py` uses Flask's development server. A real deployment should run behind a proper WSGI server with HTTPS.
