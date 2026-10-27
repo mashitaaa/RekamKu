@@ -269,5 +269,5 @@ def delete(fid):
     db.commit()
     _silent_remove(blob_path(row["blob_name"]))
     log_activity(g.uid, "file_deleted")
-    flash("The file was deleted. Its key was destroyed too, so even a leftover backup cannot be opened.", "ok")
+    flash("The file was deleted and its key destroyed. Copies in older backups are not affected.", "ok")
     return redirect(url_for("vault.folder", category=category))
