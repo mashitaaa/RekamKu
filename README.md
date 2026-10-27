@@ -1,5 +1,7 @@
 # RekamKu
 
+![Landing](docs/screenshots/landing.png)
+
 RekamKu is a small web app where patients with a chronic illness can keep their own medical records in one place.
 We picked this scenario because these patients are usually treated at several places (a puskesmas, a hospital, a
 private lab), so their lab results, KTP and BPJS scans, and the videos their doctor asks for end up scattered on
