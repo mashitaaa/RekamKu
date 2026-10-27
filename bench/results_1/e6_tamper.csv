@@ -1,0 +1,6 @@
+cipher,attack,detected,decrypted
+RC4-drop3072,flip 1 ciphertext byte,no,Fasting glucose: 35 mg/dL
+DES-CBC,flip byte in previous block,no,Fasti�ݷ�����se: 35 mg/dL
+AES-256-GCM,flip 1 ciphertext byte,yes,"(rejected, no plaintext released)"
+Cascade RekamKu,flip 1 ciphertext byte,yes,"(rejected, no plaintext released)"
+RC4 with a reused key,c1 XOR c2 XOR known p2,-,Diagnosis: epilepsy 

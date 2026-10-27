@@ -1,0 +1,7 @@
+file,size_MB,upload_ms,download_ms,plain_write_ms,plain_read_ms,seek_1MiB_ms,upload_at_10Mbps_s
+BP & sugar log (XLSX),0.016,13.0,22.6,1.4,17.6,,0.0
+Discharge summary (DOCX),0.038,15.8,26.3,1.5,21.6,,0.0
+KTP scan (JPG),0.21,26.6,35.8,1.8,14.3,,0.2
+Lab result (PDF),1.753,115.7,111.6,20.1,90.4,,1.4
+Video 30 s (MP4),15.047,842.7,778.0,34.5,25.7,111.1,12.0
+Video 3 min (MP4),90.303,4905.2,4574.9,171.6,68.2,112.5,72.2

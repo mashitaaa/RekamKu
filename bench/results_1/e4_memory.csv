@@ -1,0 +1,4 @@
+approach,peak_MB,file_size_MB
+"Streaming, 1 MiB chunks (RekamKu)",5.3,90.3
+Streaming decryption (RekamKu),7.4,90.3
+Whole file at once (first version),270.9,90.3

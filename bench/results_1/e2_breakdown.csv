@@ -1,0 +1,7 @@
+operation,layer,median_ms,percent
+encrypt,DES-CBC,696.39,91.6
+encrypt,RC4-drop3072,55.12,7.3
+encrypt,AES-256-GCM,8.66,1.1
+decrypt,DES-CBC,680.64,91.3
+decrypt,RC4-drop3072,54.05,7.3
+decrypt,AES-256-GCM,10.41,1.4

@@ -1,0 +1,13 @@
+{
+  "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "cores": 16,
+  "aes_ni": null,
+  "python": "3.13.3",
+  "os": "Windows-11-10.0.26200-SP0",
+  "cryptography": "50.0.2",
+  "openssl": "OpenSSL 4.0.3 29 Sep 2026",
+  "chunk_bytes": 1048576,
+  "quick": false,
+  "date": "2026-10-25 17:03",
+  "register_ms_scrypt_2x": 1239.1
+}

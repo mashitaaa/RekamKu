@@ -1,0 +1,49 @@
+file,size_MB,cipher,operation,n,median_ms,q1_ms,q3_ms,MB_per_s
+BP & sugar log (XLSX),0.016,AES-256-GCM,encrypt,40,0.009,0.007,0.012,1771.0
+BP & sugar log (XLSX),0.016,AES-256-GCM,decrypt,40,0.009,0.008,0.013,1771.0
+BP & sugar log (XLSX),0.016,DES-CBC,encrypt,40,0.726,0.701,0.848,21.9
+BP & sugar log (XLSX),0.016,DES-CBC,decrypt,40,0.734,0.681,0.833,21.7
+BP & sugar log (XLSX),0.016,RC4-drop3072,encrypt,40,0.078,0.072,0.094,205.4
+BP & sugar log (XLSX),0.016,RC4-drop3072,decrypt,40,0.078,0.071,0.093,204.1
+BP & sugar log (XLSX),0.016,Cascade,encrypt,40,0.891,0.814,0.999,17.9
+BP & sugar log (XLSX),0.016,Cascade,decrypt,40,0.822,0.78,0.953,19.4
+Discharge summary (DOCX),0.038,AES-256-GCM,encrypt,40,0.02,0.016,0.025,1858.3
+Discharge summary (DOCX),0.038,AES-256-GCM,decrypt,40,0.02,0.019,0.024,1862.9
+Discharge summary (DOCX),0.038,DES-CBC,encrypt,40,2.072,2.011,2.137,18.3
+Discharge summary (DOCX),0.038,DES-CBC,decrypt,40,2.01,1.966,2.087,18.9
+Discharge summary (DOCX),0.038,RC4-drop3072,encrypt,40,0.177,0.167,0.206,214.5
+Discharge summary (DOCX),0.038,RC4-drop3072,decrypt,40,0.179,0.17,0.211,211.8
+Discharge summary (DOCX),0.038,Cascade,encrypt,40,2.331,2.273,2.461,16.3
+Discharge summary (DOCX),0.038,Cascade,decrypt,40,2.243,2.118,2.374,16.9
+KTP scan (JPG),0.21,AES-256-GCM,encrypt,40,0.082,0.069,0.104,2557.0
+KTP scan (JPG),0.21,AES-256-GCM,decrypt,40,0.08,0.069,0.104,2615.8
+KTP scan (JPG),0.21,DES-CBC,encrypt,40,9.881,9.464,10.999,21.3
+KTP scan (JPG),0.21,DES-CBC,decrypt,40,9.462,9.054,10.531,22.2
+KTP scan (JPG),0.21,RC4-drop3072,encrypt,40,0.737,0.692,0.817,285.1
+KTP scan (JPG),0.21,RC4-drop3072,decrypt,40,0.748,0.69,0.83,280.9
+KTP scan (JPG),0.21,Cascade,encrypt,40,10.556,10.397,11.818,19.9
+KTP scan (JPG),0.21,Cascade,decrypt,40,11.109,10.332,12.457,18.9
+Lab result (PDF),1.753,AES-256-GCM,encrypt,40,1.033,0.896,1.097,1696.7
+Lab result (PDF),1.753,AES-256-GCM,decrypt,40,1.034,0.858,1.165,1696.1
+Lab result (PDF),1.753,DES-CBC,encrypt,40,81.245,79.946,85.575,21.6
+Lab result (PDF),1.753,DES-CBC,decrypt,40,79.759,77.538,82.626,22.0
+Lab result (PDF),1.753,RC4-drop3072,encrypt,40,6.102,5.902,6.218,287.3
+Lab result (PDF),1.753,RC4-drop3072,decrypt,40,6.03,5.924,6.469,290.8
+Lab result (PDF),1.753,Cascade,encrypt,40,92.235,89.875,95.266,19.0
+Lab result (PDF),1.753,Cascade,decrypt,40,88.485,86.273,92.32,19.8
+Video 30 s (MP4),15.047,AES-256-GCM,encrypt,12,9.471,9.285,10.349,1588.7
+Video 30 s (MP4),15.047,AES-256-GCM,decrypt,12,9.493,9.261,10.031,1585.1
+Video 30 s (MP4),15.047,DES-CBC,encrypt,12,697.536,688.789,705.658,21.6
+Video 30 s (MP4),15.047,DES-CBC,decrypt,12,676.025,672.228,680.784,22.3
+Video 30 s (MP4),15.047,RC4-drop3072,encrypt,12,52.814,52.584,54.099,284.9
+Video 30 s (MP4),15.047,RC4-drop3072,decrypt,12,52.605,50.992,52.919,286.0
+Video 30 s (MP4),15.047,Cascade,encrypt,12,804.707,793.482,813.845,18.7
+Video 30 s (MP4),15.047,Cascade,decrypt,12,758.346,749.97,761.618,19.8
+Video 3 min (MP4),90.303,AES-256-GCM,encrypt,7,57.883,56.672,60.826,1560.1
+Video 3 min (MP4),90.303,AES-256-GCM,decrypt,7,61.696,59.935,63.267,1463.7
+Video 3 min (MP4),90.303,DES-CBC,encrypt,7,4202.685,4177.964,4203.43,21.5
+Video 3 min (MP4),90.303,DES-CBC,decrypt,7,4074.456,4064.387,4097.061,22.2
+Video 3 min (MP4),90.303,RC4-drop3072,encrypt,7,317.883,314.703,320.88,284.1
+Video 3 min (MP4),90.303,RC4-drop3072,decrypt,7,321.528,315.988,323.19,280.9
+Video 3 min (MP4),90.303,Cascade,encrypt,7,4929.875,4902.366,4944.697,18.3
+Video 3 min (MP4),90.303,Cascade,decrypt,7,4562.442,4537.698,4591.857,19.8
