@@ -1,0 +1,1433 @@
+file,cipher,operation,ms
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.074
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0084
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0099
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0073
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0084
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0161
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.026
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0094
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0068
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0072
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0073
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.007
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0086
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0075
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0076
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.024
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0097
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0067
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0065
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0093
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.012
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0085
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0067
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0077
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0088
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0087
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0077
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0086
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0079
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0075
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0095
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0078
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0071
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0066
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0076
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0262
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0151
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0117
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0106
+BP & sugar log (XLSX),AES-256-GCM,encrypt,0.0204
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0088
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0102
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0128
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0086
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0076
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0203
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0097
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0082
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0064
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0145
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0115
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0088
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0085
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0072
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0073
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0226
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0143
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0087
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0081
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0118
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0095
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0082
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0079
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0065
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0072
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0086
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0092
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0082
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0077
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0077
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0074
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0074
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.007
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0079
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0072
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0088
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0119
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0119
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0094
+BP & sugar log (XLSX),AES-256-GCM,decrypt,0.0136
+BP & sugar log (XLSX),DES-CBC,encrypt,0.8461
+BP & sugar log (XLSX),DES-CBC,encrypt,0.8367
+BP & sugar log (XLSX),DES-CBC,encrypt,0.748
+BP & sugar log (XLSX),DES-CBC,encrypt,0.8449
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7017
+BP & sugar log (XLSX),DES-CBC,encrypt,0.8329
+BP & sugar log (XLSX),DES-CBC,encrypt,1.1647
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7022
+BP & sugar log (XLSX),DES-CBC,encrypt,0.717
+BP & sugar log (XLSX),DES-CBC,encrypt,0.694
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7063
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7103
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7134
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7212
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7025
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7829
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7112
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7369
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7088
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7158
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7174
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7244
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7101
+BP & sugar log (XLSX),DES-CBC,encrypt,0.6966
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7077
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7091
+BP & sugar log (XLSX),DES-CBC,encrypt,0.6963
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7011
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7061
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7096
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7021
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7031
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7185
+BP & sugar log (XLSX),DES-CBC,encrypt,0.709
+BP & sugar log (XLSX),DES-CBC,encrypt,0.7128
+BP & sugar log (XLSX),DES-CBC,encrypt,0.9381
+BP & sugar log (XLSX),DES-CBC,encrypt,0.9985
+BP & sugar log (XLSX),DES-CBC,encrypt,1.0194
+BP & sugar log (XLSX),DES-CBC,encrypt,1.0096
+BP & sugar log (XLSX),DES-CBC,encrypt,0.9689
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6834
+BP & sugar log (XLSX),DES-CBC,decrypt,0.7266
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6834
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6849
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6814
+BP & sugar log (XLSX),DES-CBC,decrypt,0.7234
+BP & sugar log (XLSX),DES-CBC,decrypt,0.946
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6897
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6864
+BP & sugar log (XLSX),DES-CBC,decrypt,0.713
+BP & sugar log (XLSX),DES-CBC,decrypt,0.8945
+BP & sugar log (XLSX),DES-CBC,decrypt,0.729
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6831
+BP & sugar log (XLSX),DES-CBC,decrypt,0.7218
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6739
+BP & sugar log (XLSX),DES-CBC,decrypt,0.7876
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6733
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6784
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6824
+BP & sugar log (XLSX),DES-CBC,decrypt,0.8582
+BP & sugar log (XLSX),DES-CBC,decrypt,0.682
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6723
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6886
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6874
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6829
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6969
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6702
+BP & sugar log (XLSX),DES-CBC,decrypt,0.7196
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6872
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6728
+BP & sugar log (XLSX),DES-CBC,decrypt,0.7706
+BP & sugar log (XLSX),DES-CBC,decrypt,0.7004
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6863
+BP & sugar log (XLSX),DES-CBC,decrypt,0.7318
+BP & sugar log (XLSX),DES-CBC,decrypt,0.6882
+BP & sugar log (XLSX),DES-CBC,decrypt,0.8577
+BP & sugar log (XLSX),DES-CBC,decrypt,1.0608
+BP & sugar log (XLSX),DES-CBC,decrypt,1.0179
+BP & sugar log (XLSX),DES-CBC,decrypt,0.9772
+BP & sugar log (XLSX),DES-CBC,decrypt,0.8345
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.1445
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0814
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0775
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0742
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0735
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.1128
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0827
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0773
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0763
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0706
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0895
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0757
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0749
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0707
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0794
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.1028
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0716
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0722
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0768
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0763
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0751
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0749
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0733
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0762
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0719
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0755
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0723
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0795
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0883
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0728
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.075
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0729
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0732
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0766
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0693
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0957
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.0963
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.1128
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.1036
+BP & sugar log (XLSX),RC4-drop3072,encrypt,0.1038
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0731
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0785
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0979
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0705
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0726
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0803
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0871
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0772
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0736
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0955
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0826
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0708
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0752
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0734
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0745
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0778
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0989
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0701
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0746
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.097
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.1074
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0731
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0825
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0766
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0745
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0756
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0715
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0732
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0933
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0786
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0749
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.074
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0736
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0725
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0759
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0784
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.1493
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.1054
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.1046
+BP & sugar log (XLSX),RC4-drop3072,decrypt,0.0826
+BP & sugar log (XLSX),Cascade,encrypt,0.845
+BP & sugar log (XLSX),Cascade,encrypt,1.0199
+BP & sugar log (XLSX),Cascade,encrypt,0.8486
+BP & sugar log (XLSX),Cascade,encrypt,0.8181
+BP & sugar log (XLSX),Cascade,encrypt,0.8209
+BP & sugar log (XLSX),Cascade,encrypt,1.0832
+BP & sugar log (XLSX),Cascade,encrypt,0.8847
+BP & sugar log (XLSX),Cascade,encrypt,0.8983
+BP & sugar log (XLSX),Cascade,encrypt,0.8058
+BP & sugar log (XLSX),Cascade,encrypt,0.8109
+BP & sugar log (XLSX),Cascade,encrypt,0.9769
+BP & sugar log (XLSX),Cascade,encrypt,0.8316
+BP & sugar log (XLSX),Cascade,encrypt,0.8668
+BP & sugar log (XLSX),Cascade,encrypt,0.814
+BP & sugar log (XLSX),Cascade,encrypt,0.9241
+BP & sugar log (XLSX),Cascade,encrypt,1.0143
+BP & sugar log (XLSX),Cascade,encrypt,0.8891
+BP & sugar log (XLSX),Cascade,encrypt,0.8114
+BP & sugar log (XLSX),Cascade,encrypt,0.8077
+BP & sugar log (XLSX),Cascade,encrypt,0.9594
+BP & sugar log (XLSX),Cascade,encrypt,0.8569
+BP & sugar log (XLSX),Cascade,encrypt,0.8304
+BP & sugar log (XLSX),Cascade,encrypt,0.8643
+BP & sugar log (XLSX),Cascade,encrypt,0.8214
+BP & sugar log (XLSX),Cascade,encrypt,0.8275
+BP & sugar log (XLSX),Cascade,encrypt,0.8376
+BP & sugar log (XLSX),Cascade,encrypt,0.8717
+BP & sugar log (XLSX),Cascade,encrypt,0.8473
+BP & sugar log (XLSX),Cascade,encrypt,0.8041
+BP & sugar log (XLSX),Cascade,encrypt,0.8088
+BP & sugar log (XLSX),Cascade,encrypt,0.9095
+BP & sugar log (XLSX),Cascade,encrypt,0.8112
+BP & sugar log (XLSX),Cascade,encrypt,0.8012
+BP & sugar log (XLSX),Cascade,encrypt,0.8285
+BP & sugar log (XLSX),Cascade,encrypt,0.8111
+BP & sugar log (XLSX),Cascade,encrypt,0.9958
+BP & sugar log (XLSX),Cascade,encrypt,1.2202
+BP & sugar log (XLSX),Cascade,encrypt,1.2526
+BP & sugar log (XLSX),Cascade,encrypt,1.1113
+BP & sugar log (XLSX),Cascade,encrypt,0.9707
+BP & sugar log (XLSX),Cascade,decrypt,1.2322
+BP & sugar log (XLSX),Cascade,decrypt,1.0253
+BP & sugar log (XLSX),Cascade,decrypt,0.857
+BP & sugar log (XLSX),Cascade,decrypt,0.7873
+BP & sugar log (XLSX),Cascade,decrypt,0.8244
+BP & sugar log (XLSX),Cascade,decrypt,0.9224
+BP & sugar log (XLSX),Cascade,decrypt,1.0687
+BP & sugar log (XLSX),Cascade,decrypt,1.0582
+BP & sugar log (XLSX),Cascade,decrypt,0.7952
+BP & sugar log (XLSX),Cascade,decrypt,0.9467
+BP & sugar log (XLSX),Cascade,decrypt,0.8404
+BP & sugar log (XLSX),Cascade,decrypt,0.7829
+BP & sugar log (XLSX),Cascade,decrypt,0.7857
+BP & sugar log (XLSX),Cascade,decrypt,0.7769
+BP & sugar log (XLSX),Cascade,decrypt,0.7729
+BP & sugar log (XLSX),Cascade,decrypt,0.8985
+BP & sugar log (XLSX),Cascade,decrypt,0.9983
+BP & sugar log (XLSX),Cascade,decrypt,0.7801
+BP & sugar log (XLSX),Cascade,decrypt,0.7767
+BP & sugar log (XLSX),Cascade,decrypt,0.7723
+BP & sugar log (XLSX),Cascade,decrypt,0.9567
+BP & sugar log (XLSX),Cascade,decrypt,0.7926
+BP & sugar log (XLSX),Cascade,decrypt,0.7977
+BP & sugar log (XLSX),Cascade,decrypt,0.7754
+BP & sugar log (XLSX),Cascade,decrypt,0.7738
+BP & sugar log (XLSX),Cascade,decrypt,0.7809
+BP & sugar log (XLSX),Cascade,decrypt,0.793
+BP & sugar log (XLSX),Cascade,decrypt,0.7817
+BP & sugar log (XLSX),Cascade,decrypt,0.7895
+BP & sugar log (XLSX),Cascade,decrypt,0.8013
+BP & sugar log (XLSX),Cascade,decrypt,0.9323
+BP & sugar log (XLSX),Cascade,decrypt,0.8141
+BP & sugar log (XLSX),Cascade,decrypt,0.7949
+BP & sugar log (XLSX),Cascade,decrypt,0.7936
+BP & sugar log (XLSX),Cascade,decrypt,0.8355
+BP & sugar log (XLSX),Cascade,decrypt,1.0245
+BP & sugar log (XLSX),Cascade,decrypt,1.0902
+BP & sugar log (XLSX),Cascade,decrypt,1.1312
+BP & sugar log (XLSX),Cascade,decrypt,1.1734
+BP & sugar log (XLSX),Cascade,decrypt,0.9357
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0216
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0158
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.029
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0145
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0194
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0165
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0168
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0193
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0214
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0127
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0122
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0158
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0128
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.02
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0276
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0291
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0269
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0248
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0217
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0224
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0154
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0264
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0138
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0306
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0168
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0148
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0227
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0194
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0128
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0157
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0184
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0218
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0145
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0148
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0131
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0152
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0264
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0135
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0154
+Discharge summary (DOCX),AES-256-GCM,encrypt,0.0301
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0362
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.016
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0175
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0167
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0208
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0173
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0149
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0167
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0245
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0161
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0127
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0155
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0126
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0174
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0206
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0243
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0228
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0627
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0206
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0177
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0144
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0222
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0131
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0135
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0171
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0155
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0237
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0194
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0148
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0196
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.015
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0209
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0293
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0154
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0135
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0283
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0142
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0229
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.0171
+Discharge summary (DOCX),AES-256-GCM,decrypt,0.036
+Discharge summary (DOCX),DES-CBC,encrypt,1.6896
+Discharge summary (DOCX),DES-CBC,encrypt,1.7118
+Discharge summary (DOCX),DES-CBC,encrypt,1.7385
+Discharge summary (DOCX),DES-CBC,encrypt,1.6636
+Discharge summary (DOCX),DES-CBC,encrypt,2.2212
+Discharge summary (DOCX),DES-CBC,encrypt,1.7074
+Discharge summary (DOCX),DES-CBC,encrypt,1.6543
+Discharge summary (DOCX),DES-CBC,encrypt,2.4636
+Discharge summary (DOCX),DES-CBC,encrypt,2.5245
+Discharge summary (DOCX),DES-CBC,encrypt,1.6521
+Discharge summary (DOCX),DES-CBC,encrypt,1.6839
+Discharge summary (DOCX),DES-CBC,encrypt,1.6759
+Discharge summary (DOCX),DES-CBC,encrypt,1.6749
+Discharge summary (DOCX),DES-CBC,encrypt,1.6641
+Discharge summary (DOCX),DES-CBC,encrypt,2.5556
+Discharge summary (DOCX),DES-CBC,encrypt,2.5586
+Discharge summary (DOCX),DES-CBC,encrypt,2.2904
+Discharge summary (DOCX),DES-CBC,encrypt,2.5518
+Discharge summary (DOCX),DES-CBC,encrypt,2.5519
+Discharge summary (DOCX),DES-CBC,encrypt,2.2857
+Discharge summary (DOCX),DES-CBC,encrypt,1.6631
+Discharge summary (DOCX),DES-CBC,encrypt,1.6804
+Discharge summary (DOCX),DES-CBC,encrypt,1.6645
+Discharge summary (DOCX),DES-CBC,encrypt,1.6727
+Discharge summary (DOCX),DES-CBC,encrypt,1.6648
+Discharge summary (DOCX),DES-CBC,encrypt,2.5392
+Discharge summary (DOCX),DES-CBC,encrypt,2.5683
+Discharge summary (DOCX),DES-CBC,encrypt,1.8423
+Discharge summary (DOCX),DES-CBC,encrypt,1.6443
+Discharge summary (DOCX),DES-CBC,encrypt,1.7248
+Discharge summary (DOCX),DES-CBC,encrypt,2.1081
+Discharge summary (DOCX),DES-CBC,encrypt,2.4953
+Discharge summary (DOCX),DES-CBC,encrypt,2.0483
+Discharge summary (DOCX),DES-CBC,encrypt,1.6556
+Discharge summary (DOCX),DES-CBC,encrypt,1.7304
+Discharge summary (DOCX),DES-CBC,encrypt,1.6831
+Discharge summary (DOCX),DES-CBC,encrypt,1.6519
+Discharge summary (DOCX),DES-CBC,encrypt,1.7996
+Discharge summary (DOCX),DES-CBC,encrypt,1.6554
+Discharge summary (DOCX),DES-CBC,encrypt,2.5311
+Discharge summary (DOCX),DES-CBC,decrypt,1.9925
+Discharge summary (DOCX),DES-CBC,decrypt,1.739
+Discharge summary (DOCX),DES-CBC,decrypt,1.9311
+Discharge summary (DOCX),DES-CBC,decrypt,1.6103
+Discharge summary (DOCX),DES-CBC,decrypt,2.1749
+Discharge summary (DOCX),DES-CBC,decrypt,1.8414
+Discharge summary (DOCX),DES-CBC,decrypt,1.5983
+Discharge summary (DOCX),DES-CBC,decrypt,2.092
+Discharge summary (DOCX),DES-CBC,decrypt,2.278
+Discharge summary (DOCX),DES-CBC,decrypt,1.7666
+Discharge summary (DOCX),DES-CBC,decrypt,1.6659
+Discharge summary (DOCX),DES-CBC,decrypt,1.6084
+Discharge summary (DOCX),DES-CBC,decrypt,1.7079
+Discharge summary (DOCX),DES-CBC,decrypt,1.6143
+Discharge summary (DOCX),DES-CBC,decrypt,2.1218
+Discharge summary (DOCX),DES-CBC,decrypt,2.2018
+Discharge summary (DOCX),DES-CBC,decrypt,1.9275
+Discharge summary (DOCX),DES-CBC,decrypt,2.7696
+Discharge summary (DOCX),DES-CBC,decrypt,2.4909
+Discharge summary (DOCX),DES-CBC,decrypt,2.4638
+Discharge summary (DOCX),DES-CBC,decrypt,1.7042
+Discharge summary (DOCX),DES-CBC,decrypt,1.801
+Discharge summary (DOCX),DES-CBC,decrypt,1.608
+Discharge summary (DOCX),DES-CBC,decrypt,1.7351
+Discharge summary (DOCX),DES-CBC,decrypt,1.6289
+Discharge summary (DOCX),DES-CBC,decrypt,1.9672
+Discharge summary (DOCX),DES-CBC,decrypt,2.4147
+Discharge summary (DOCX),DES-CBC,decrypt,2.4123
+Discharge summary (DOCX),DES-CBC,decrypt,1.6025
+Discharge summary (DOCX),DES-CBC,decrypt,1.6083
+Discharge summary (DOCX),DES-CBC,decrypt,1.5997
+Discharge summary (DOCX),DES-CBC,decrypt,2.588
+Discharge summary (DOCX),DES-CBC,decrypt,1.6365
+Discharge summary (DOCX),DES-CBC,decrypt,1.6196
+Discharge summary (DOCX),DES-CBC,decrypt,1.6594
+Discharge summary (DOCX),DES-CBC,decrypt,1.7784
+Discharge summary (DOCX),DES-CBC,decrypt,1.7172
+Discharge summary (DOCX),DES-CBC,decrypt,1.6838
+Discharge summary (DOCX),DES-CBC,decrypt,2.1586
+Discharge summary (DOCX),DES-CBC,decrypt,2.4756
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1651
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.148
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1419
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1378
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.226
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1913
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1623
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1666
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.2489
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1681
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1401
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1416
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1765
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1443
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.2229
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.2182
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.2299
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.2302
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.2405
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.226
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1872
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1219
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1424
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1578
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1419
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1591
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.2134
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.212
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1454
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1434
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.2731
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1801
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1492
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1392
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1429
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1438
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1813
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1423
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.1438
+Discharge summary (DOCX),RC4-drop3072,encrypt,0.2539
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2332
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1444
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1516
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1432
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2074
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1544
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1672
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1439
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1977
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1416
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1543
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1392
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1811
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2134
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2322
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2166
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1798
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.213
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2236
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2135
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1535
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1259
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1199
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1413
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1404
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.157
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2442
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2196
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1718
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1445
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2117
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1818
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1994
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1373
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1615
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2006
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1409
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1371
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.1441
+Discharge summary (DOCX),RC4-drop3072,decrypt,0.2103
+Discharge summary (DOCX),Cascade,encrypt,2.0996
+Discharge summary (DOCX),Cascade,encrypt,1.9769
+Discharge summary (DOCX),Cascade,encrypt,2.083
+Discharge summary (DOCX),Cascade,encrypt,2.0881
+Discharge summary (DOCX),Cascade,encrypt,3.2982
+Discharge summary (DOCX),Cascade,encrypt,1.8636
+Discharge summary (DOCX),Cascade,encrypt,1.9792
+Discharge summary (DOCX),Cascade,encrypt,2.0436
+Discharge summary (DOCX),Cascade,encrypt,2.4542
+Discharge summary (DOCX),Cascade,encrypt,1.9407
+Discharge summary (DOCX),Cascade,encrypt,1.875
+Discharge summary (DOCX),Cascade,encrypt,1.8505
+Discharge summary (DOCX),Cascade,encrypt,2.2158
+Discharge summary (DOCX),Cascade,encrypt,1.9252
+Discharge summary (DOCX),Cascade,encrypt,3.0584
+Discharge summary (DOCX),Cascade,encrypt,2.8728
+Discharge summary (DOCX),Cascade,encrypt,2.5616
+Discharge summary (DOCX),Cascade,encrypt,3.1415
+Discharge summary (DOCX),Cascade,encrypt,2.8656
+Discharge summary (DOCX),Cascade,encrypt,2.3934
+Discharge summary (DOCX),Cascade,encrypt,1.8588
+Discharge summary (DOCX),Cascade,encrypt,2.0422
+Discharge summary (DOCX),Cascade,encrypt,1.9562
+Discharge summary (DOCX),Cascade,encrypt,2.1516
+Discharge summary (DOCX),Cascade,encrypt,1.8572
+Discharge summary (DOCX),Cascade,encrypt,1.9
+Discharge summary (DOCX),Cascade,encrypt,2.8175
+Discharge summary (DOCX),Cascade,encrypt,2.5428
+Discharge summary (DOCX),Cascade,encrypt,1.8857
+Discharge summary (DOCX),Cascade,encrypt,1.992
+Discharge summary (DOCX),Cascade,encrypt,2.9113
+Discharge summary (DOCX),Cascade,encrypt,2.5886
+Discharge summary (DOCX),Cascade,encrypt,2.2486
+Discharge summary (DOCX),Cascade,encrypt,1.8748
+Discharge summary (DOCX),Cascade,encrypt,1.8607
+Discharge summary (DOCX),Cascade,encrypt,1.9639
+Discharge summary (DOCX),Cascade,encrypt,1.9154
+Discharge summary (DOCX),Cascade,encrypt,2.0247
+Discharge summary (DOCX),Cascade,encrypt,1.8676
+Discharge summary (DOCX),Cascade,encrypt,2.8284
+Discharge summary (DOCX),Cascade,decrypt,2.4779
+Discharge summary (DOCX),Cascade,decrypt,1.814
+Discharge summary (DOCX),Cascade,decrypt,1.8726
+Discharge summary (DOCX),Cascade,decrypt,1.8481
+Discharge summary (DOCX),Cascade,decrypt,2.7097
+Discharge summary (DOCX),Cascade,decrypt,2.2052
+Discharge summary (DOCX),Cascade,decrypt,1.8936
+Discharge summary (DOCX),Cascade,decrypt,1.8574
+Discharge summary (DOCX),Cascade,decrypt,2.6805
+Discharge summary (DOCX),Cascade,decrypt,2.1833
+Discharge summary (DOCX),Cascade,decrypt,1.8544
+Discharge summary (DOCX),Cascade,decrypt,1.7871
+Discharge summary (DOCX),Cascade,decrypt,1.8232
+Discharge summary (DOCX),Cascade,decrypt,1.7925
+Discharge summary (DOCX),Cascade,decrypt,1.9259
+Discharge summary (DOCX),Cascade,decrypt,2.6423
+Discharge summary (DOCX),Cascade,decrypt,2.1642
+Discharge summary (DOCX),Cascade,decrypt,2.7642
+Discharge summary (DOCX),Cascade,decrypt,2.7863
+Discharge summary (DOCX),Cascade,decrypt,2.0409
+Discharge summary (DOCX),Cascade,decrypt,1.7919
+Discharge summary (DOCX),Cascade,decrypt,1.9765
+Discharge summary (DOCX),Cascade,decrypt,1.8096
+Discharge summary (DOCX),Cascade,decrypt,2.0523
+Discharge summary (DOCX),Cascade,decrypt,1.7873
+Discharge summary (DOCX),Cascade,decrypt,2.6236
+Discharge summary (DOCX),Cascade,decrypt,2.6927
+Discharge summary (DOCX),Cascade,decrypt,2.1531
+Discharge summary (DOCX),Cascade,decrypt,1.7898
+Discharge summary (DOCX),Cascade,decrypt,1.8307
+Discharge summary (DOCX),Cascade,decrypt,1.9537
+Discharge summary (DOCX),Cascade,decrypt,3.0307
+Discharge summary (DOCX),Cascade,decrypt,1.8917
+Discharge summary (DOCX),Cascade,decrypt,1.8114
+Discharge summary (DOCX),Cascade,decrypt,1.853
+Discharge summary (DOCX),Cascade,decrypt,1.8061
+Discharge summary (DOCX),Cascade,decrypt,1.8193
+Discharge summary (DOCX),Cascade,decrypt,2.0239
+Discharge summary (DOCX),Cascade,decrypt,1.8228
+Discharge summary (DOCX),Cascade,decrypt,2.819
+KTP scan (JPG),AES-256-GCM,encrypt,0.1503
+KTP scan (JPG),AES-256-GCM,encrypt,0.0612
+KTP scan (JPG),AES-256-GCM,encrypt,0.0909
+KTP scan (JPG),AES-256-GCM,encrypt,0.0593
+KTP scan (JPG),AES-256-GCM,encrypt,0.0866
+KTP scan (JPG),AES-256-GCM,encrypt,0.0824
+KTP scan (JPG),AES-256-GCM,encrypt,0.1419
+KTP scan (JPG),AES-256-GCM,encrypt,0.06
+KTP scan (JPG),AES-256-GCM,encrypt,0.098
+KTP scan (JPG),AES-256-GCM,encrypt,0.0595
+KTP scan (JPG),AES-256-GCM,encrypt,0.0796
+KTP scan (JPG),AES-256-GCM,encrypt,0.1342
+KTP scan (JPG),AES-256-GCM,encrypt,0.148
+KTP scan (JPG),AES-256-GCM,encrypt,0.1087
+KTP scan (JPG),AES-256-GCM,encrypt,0.0615
+KTP scan (JPG),AES-256-GCM,encrypt,0.0661
+KTP scan (JPG),AES-256-GCM,encrypt,0.112
+KTP scan (JPG),AES-256-GCM,encrypt,0.1408
+KTP scan (JPG),AES-256-GCM,encrypt,0.1495
+KTP scan (JPG),AES-256-GCM,encrypt,0.1482
+KTP scan (JPG),AES-256-GCM,encrypt,0.1461
+KTP scan (JPG),AES-256-GCM,encrypt,0.0822
+KTP scan (JPG),AES-256-GCM,encrypt,0.1217
+KTP scan (JPG),AES-256-GCM,encrypt,0.0701
+KTP scan (JPG),AES-256-GCM,encrypt,0.1436
+KTP scan (JPG),AES-256-GCM,encrypt,0.1545
+KTP scan (JPG),AES-256-GCM,encrypt,0.1112
+KTP scan (JPG),AES-256-GCM,encrypt,0.0763
+KTP scan (JPG),AES-256-GCM,encrypt,0.2322
+KTP scan (JPG),AES-256-GCM,encrypt,0.0692
+KTP scan (JPG),AES-256-GCM,encrypt,0.1241
+KTP scan (JPG),AES-256-GCM,encrypt,0.1234
+KTP scan (JPG),AES-256-GCM,encrypt,0.068
+KTP scan (JPG),AES-256-GCM,encrypt,0.2327
+KTP scan (JPG),AES-256-GCM,encrypt,0.1548
+KTP scan (JPG),AES-256-GCM,encrypt,0.122
+KTP scan (JPG),AES-256-GCM,encrypt,0.1395
+KTP scan (JPG),AES-256-GCM,encrypt,0.1233
+KTP scan (JPG),AES-256-GCM,encrypt,0.1316
+KTP scan (JPG),AES-256-GCM,encrypt,0.1435
+KTP scan (JPG),AES-256-GCM,decrypt,0.1428
+KTP scan (JPG),AES-256-GCM,decrypt,0.0678
+KTP scan (JPG),AES-256-GCM,decrypt,0.1167
+KTP scan (JPG),AES-256-GCM,decrypt,0.1424
+KTP scan (JPG),AES-256-GCM,decrypt,0.1344
+KTP scan (JPG),AES-256-GCM,decrypt,0.1263
+KTP scan (JPG),AES-256-GCM,decrypt,0.0867
+KTP scan (JPG),AES-256-GCM,decrypt,0.1365
+KTP scan (JPG),AES-256-GCM,decrypt,0.0622
+KTP scan (JPG),AES-256-GCM,decrypt,0.1401
+KTP scan (JPG),AES-256-GCM,decrypt,0.2808
+KTP scan (JPG),AES-256-GCM,decrypt,0.2476
+KTP scan (JPG),AES-256-GCM,decrypt,0.0937
+KTP scan (JPG),AES-256-GCM,decrypt,0.0667
+KTP scan (JPG),AES-256-GCM,decrypt,0.0929
+KTP scan (JPG),AES-256-GCM,decrypt,0.1609
+KTP scan (JPG),AES-256-GCM,decrypt,0.0651
+KTP scan (JPG),AES-256-GCM,decrypt,0.1365
+KTP scan (JPG),AES-256-GCM,decrypt,0.0697
+KTP scan (JPG),AES-256-GCM,decrypt,0.0781
+KTP scan (JPG),AES-256-GCM,decrypt,0.0625
+KTP scan (JPG),AES-256-GCM,decrypt,0.0651
+KTP scan (JPG),AES-256-GCM,decrypt,0.0608
+KTP scan (JPG),AES-256-GCM,decrypt,0.0959
+KTP scan (JPG),AES-256-GCM,decrypt,0.0983
+KTP scan (JPG),AES-256-GCM,decrypt,0.1497
+KTP scan (JPG),AES-256-GCM,decrypt,0.1158
+KTP scan (JPG),AES-256-GCM,decrypt,0.162
+KTP scan (JPG),AES-256-GCM,decrypt,0.0913
+KTP scan (JPG),AES-256-GCM,decrypt,0.11
+KTP scan (JPG),AES-256-GCM,decrypt,0.0908
+KTP scan (JPG),AES-256-GCM,decrypt,0.1029
+KTP scan (JPG),AES-256-GCM,decrypt,0.0822
+KTP scan (JPG),AES-256-GCM,decrypt,0.0745
+KTP scan (JPG),AES-256-GCM,decrypt,0.07
+KTP scan (JPG),AES-256-GCM,decrypt,0.0692
+KTP scan (JPG),AES-256-GCM,decrypt,0.1284
+KTP scan (JPG),AES-256-GCM,decrypt,0.1469
+KTP scan (JPG),AES-256-GCM,decrypt,0.0573
+KTP scan (JPG),AES-256-GCM,decrypt,0.0963
+KTP scan (JPG),DES-CBC,encrypt,12.3703
+KTP scan (JPG),DES-CBC,encrypt,9.5198
+KTP scan (JPG),DES-CBC,encrypt,13.6248
+KTP scan (JPG),DES-CBC,encrypt,9.3779
+KTP scan (JPG),DES-CBC,encrypt,9.4276
+KTP scan (JPG),DES-CBC,encrypt,13.6851
+KTP scan (JPG),DES-CBC,encrypt,9.4371
+KTP scan (JPG),DES-CBC,encrypt,10.4314
+KTP scan (JPG),DES-CBC,encrypt,11.0626
+KTP scan (JPG),DES-CBC,encrypt,9.3561
+KTP scan (JPG),DES-CBC,encrypt,9.5058
+KTP scan (JPG),DES-CBC,encrypt,11.8505
+KTP scan (JPG),DES-CBC,encrypt,9.3545
+KTP scan (JPG),DES-CBC,encrypt,9.3725
+KTP scan (JPG),DES-CBC,encrypt,11.5651
+KTP scan (JPG),DES-CBC,encrypt,13.9572
+KTP scan (JPG),DES-CBC,encrypt,10.0144
+KTP scan (JPG),DES-CBC,encrypt,9.357
+KTP scan (JPG),DES-CBC,encrypt,9.9874
+KTP scan (JPG),DES-CBC,encrypt,9.6605
+KTP scan (JPG),DES-CBC,encrypt,9.3189
+KTP scan (JPG),DES-CBC,encrypt,9.1694
+KTP scan (JPG),DES-CBC,encrypt,9.4254
+KTP scan (JPG),DES-CBC,encrypt,9.4765
+KTP scan (JPG),DES-CBC,encrypt,9.4059
+KTP scan (JPG),DES-CBC,encrypt,12.5829
+KTP scan (JPG),DES-CBC,encrypt,10.3174
+KTP scan (JPG),DES-CBC,encrypt,9.436
+KTP scan (JPG),DES-CBC,encrypt,9.6735
+KTP scan (JPG),DES-CBC,encrypt,10.6517
+KTP scan (JPG),DES-CBC,encrypt,11.8185
+KTP scan (JPG),DES-CBC,encrypt,13.8556
+KTP scan (JPG),DES-CBC,encrypt,9.6061
+KTP scan (JPG),DES-CBC,encrypt,9.3911
+KTP scan (JPG),DES-CBC,encrypt,9.1752
+KTP scan (JPG),DES-CBC,encrypt,9.2444
+KTP scan (JPG),DES-CBC,encrypt,9.5557
+KTP scan (JPG),DES-CBC,encrypt,9.6948
+KTP scan (JPG),DES-CBC,encrypt,9.4242
+KTP scan (JPG),DES-CBC,encrypt,10.6369
+KTP scan (JPG),DES-CBC,decrypt,12.8892
+KTP scan (JPG),DES-CBC,decrypt,9.2666
+KTP scan (JPG),DES-CBC,decrypt,9.6568
+KTP scan (JPG),DES-CBC,decrypt,9.2527
+KTP scan (JPG),DES-CBC,decrypt,9.2448
+KTP scan (JPG),DES-CBC,decrypt,9.2575
+KTP scan (JPG),DES-CBC,decrypt,9.2779
+KTP scan (JPG),DES-CBC,decrypt,10.0261
+KTP scan (JPG),DES-CBC,decrypt,10.0989
+KTP scan (JPG),DES-CBC,decrypt,9.1016
+KTP scan (JPG),DES-CBC,decrypt,9.6375
+KTP scan (JPG),DES-CBC,decrypt,9.0662
+KTP scan (JPG),DES-CBC,decrypt,13.446
+KTP scan (JPG),DES-CBC,decrypt,9.2661
+KTP scan (JPG),DES-CBC,decrypt,9.5162
+KTP scan (JPG),DES-CBC,decrypt,9.7869
+KTP scan (JPG),DES-CBC,decrypt,11.6107
+KTP scan (JPG),DES-CBC,decrypt,9.5573
+KTP scan (JPG),DES-CBC,decrypt,9.1372
+KTP scan (JPG),DES-CBC,decrypt,9.4475
+KTP scan (JPG),DES-CBC,decrypt,13.1945
+KTP scan (JPG),DES-CBC,decrypt,9.2664
+KTP scan (JPG),DES-CBC,decrypt,9.0059
+KTP scan (JPG),DES-CBC,decrypt,9.2426
+KTP scan (JPG),DES-CBC,decrypt,9.3531
+KTP scan (JPG),DES-CBC,decrypt,10.1461
+KTP scan (JPG),DES-CBC,decrypt,8.9525
+KTP scan (JPG),DES-CBC,decrypt,9.2275
+KTP scan (JPG),DES-CBC,decrypt,9.2494
+KTP scan (JPG),DES-CBC,decrypt,13.8083
+KTP scan (JPG),DES-CBC,decrypt,9.4003
+KTP scan (JPG),DES-CBC,decrypt,9.5812
+KTP scan (JPG),DES-CBC,decrypt,9.533
+KTP scan (JPG),DES-CBC,decrypt,9.5635
+KTP scan (JPG),DES-CBC,decrypt,9.3066
+KTP scan (JPG),DES-CBC,decrypt,9.2867
+KTP scan (JPG),DES-CBC,decrypt,9.3014
+KTP scan (JPG),DES-CBC,decrypt,8.9187
+KTP scan (JPG),DES-CBC,decrypt,10.034
+KTP scan (JPG),DES-CBC,decrypt,9.0575
+KTP scan (JPG),RC4-drop3072,encrypt,0.8099
+KTP scan (JPG),RC4-drop3072,encrypt,0.6884
+KTP scan (JPG),RC4-drop3072,encrypt,0.7529
+KTP scan (JPG),RC4-drop3072,encrypt,0.7142
+KTP scan (JPG),RC4-drop3072,encrypt,0.8204
+KTP scan (JPG),RC4-drop3072,encrypt,0.9673
+KTP scan (JPG),RC4-drop3072,encrypt,0.7382
+KTP scan (JPG),RC4-drop3072,encrypt,0.8454
+KTP scan (JPG),RC4-drop3072,encrypt,0.7626
+KTP scan (JPG),RC4-drop3072,encrypt,0.7628
+KTP scan (JPG),RC4-drop3072,encrypt,0.6806
+KTP scan (JPG),RC4-drop3072,encrypt,0.7992
+KTP scan (JPG),RC4-drop3072,encrypt,0.8528
+KTP scan (JPG),RC4-drop3072,encrypt,0.7882
+KTP scan (JPG),RC4-drop3072,encrypt,0.7286
+KTP scan (JPG),RC4-drop3072,encrypt,0.7699
+KTP scan (JPG),RC4-drop3072,encrypt,0.6833
+KTP scan (JPG),RC4-drop3072,encrypt,0.6838
+KTP scan (JPG),RC4-drop3072,encrypt,0.6938
+KTP scan (JPG),RC4-drop3072,encrypt,0.7963
+KTP scan (JPG),RC4-drop3072,encrypt,0.7571
+KTP scan (JPG),RC4-drop3072,encrypt,0.7836
+KTP scan (JPG),RC4-drop3072,encrypt,0.6864
+KTP scan (JPG),RC4-drop3072,encrypt,0.7647
+KTP scan (JPG),RC4-drop3072,encrypt,0.6763
+KTP scan (JPG),RC4-drop3072,encrypt,0.7336
+KTP scan (JPG),RC4-drop3072,encrypt,0.7794
+KTP scan (JPG),RC4-drop3072,encrypt,0.6821
+KTP scan (JPG),RC4-drop3072,encrypt,1.0434
+KTP scan (JPG),RC4-drop3072,encrypt,0.779
+KTP scan (JPG),RC4-drop3072,encrypt,0.9581
+KTP scan (JPG),RC4-drop3072,encrypt,1.0014
+KTP scan (JPG),RC4-drop3072,encrypt,0.7905
+KTP scan (JPG),RC4-drop3072,encrypt,0.7505
+KTP scan (JPG),RC4-drop3072,encrypt,0.7105
+KTP scan (JPG),RC4-drop3072,encrypt,0.741
+KTP scan (JPG),RC4-drop3072,encrypt,0.7042
+KTP scan (JPG),RC4-drop3072,encrypt,0.7769
+KTP scan (JPG),RC4-drop3072,encrypt,0.7022
+KTP scan (JPG),RC4-drop3072,encrypt,0.7982
+KTP scan (JPG),RC4-drop3072,decrypt,0.7311
+KTP scan (JPG),RC4-drop3072,decrypt,0.7838
+KTP scan (JPG),RC4-drop3072,decrypt,0.8161
+KTP scan (JPG),RC4-drop3072,decrypt,0.6873
+KTP scan (JPG),RC4-drop3072,decrypt,0.7682
+KTP scan (JPG),RC4-drop3072,decrypt,0.7048
+KTP scan (JPG),RC4-drop3072,decrypt,0.691
+KTP scan (JPG),RC4-drop3072,decrypt,0.6776
+KTP scan (JPG),RC4-drop3072,decrypt,0.796
+KTP scan (JPG),RC4-drop3072,decrypt,0.6969
+KTP scan (JPG),RC4-drop3072,decrypt,0.7808
+KTP scan (JPG),RC4-drop3072,decrypt,0.7592
+KTP scan (JPG),RC4-drop3072,decrypt,0.7051
+KTP scan (JPG),RC4-drop3072,decrypt,0.8073
+KTP scan (JPG),RC4-drop3072,decrypt,0.9861
+KTP scan (JPG),RC4-drop3072,decrypt,0.7967
+KTP scan (JPG),RC4-drop3072,decrypt,0.6875
+KTP scan (JPG),RC4-drop3072,decrypt,0.7395
+KTP scan (JPG),RC4-drop3072,decrypt,0.7492
+KTP scan (JPG),RC4-drop3072,decrypt,0.7684
+KTP scan (JPG),RC4-drop3072,decrypt,0.6791
+KTP scan (JPG),RC4-drop3072,decrypt,0.7686
+KTP scan (JPG),RC4-drop3072,decrypt,0.7746
+KTP scan (JPG),RC4-drop3072,decrypt,0.8606
+KTP scan (JPG),RC4-drop3072,decrypt,0.7238
+KTP scan (JPG),RC4-drop3072,decrypt,0.6817
+KTP scan (JPG),RC4-drop3072,decrypt,0.7447
+KTP scan (JPG),RC4-drop3072,decrypt,0.7126
+KTP scan (JPG),RC4-drop3072,decrypt,0.7919
+KTP scan (JPG),RC4-drop3072,decrypt,0.6812
+KTP scan (JPG),RC4-drop3072,decrypt,1.036
+KTP scan (JPG),RC4-drop3072,decrypt,0.8942
+KTP scan (JPG),RC4-drop3072,decrypt,0.7429
+KTP scan (JPG),RC4-drop3072,decrypt,0.7683
+KTP scan (JPG),RC4-drop3072,decrypt,0.6821
+KTP scan (JPG),RC4-drop3072,decrypt,0.6811
+KTP scan (JPG),RC4-drop3072,decrypt,0.6722
+KTP scan (JPG),RC4-drop3072,decrypt,0.7172
+KTP scan (JPG),RC4-drop3072,decrypt,0.7003
+KTP scan (JPG),RC4-drop3072,decrypt,0.7375
+KTP scan (JPG),Cascade,encrypt,13.0131
+KTP scan (JPG),Cascade,encrypt,10.4037
+KTP scan (JPG),Cascade,encrypt,10.5328
+KTP scan (JPG),Cascade,encrypt,10.3118
+KTP scan (JPG),Cascade,encrypt,10.6402
+KTP scan (JPG),Cascade,encrypt,10.8646
+KTP scan (JPG),Cascade,encrypt,10.6596
+KTP scan (JPG),Cascade,encrypt,11.4741
+KTP scan (JPG),Cascade,encrypt,10.4066
+KTP scan (JPG),Cascade,encrypt,10.6779
+KTP scan (JPG),Cascade,encrypt,10.8115
+KTP scan (JPG),Cascade,encrypt,11.0952
+KTP scan (JPG),Cascade,encrypt,13.7069
+KTP scan (JPG),Cascade,encrypt,10.6108
+KTP scan (JPG),Cascade,encrypt,10.3328
+KTP scan (JPG),Cascade,encrypt,10.3821
+KTP scan (JPG),Cascade,encrypt,10.451
+KTP scan (JPG),Cascade,encrypt,10.4553
+KTP scan (JPG),Cascade,encrypt,11.0768
+KTP scan (JPG),Cascade,encrypt,10.512
+KTP scan (JPG),Cascade,encrypt,10.5473
+KTP scan (JPG),Cascade,encrypt,10.5749
+KTP scan (JPG),Cascade,encrypt,10.5195
+KTP scan (JPG),Cascade,encrypt,10.5241
+KTP scan (JPG),Cascade,encrypt,10.7143
+KTP scan (JPG),Cascade,encrypt,11.1811
+KTP scan (JPG),Cascade,encrypt,10.7211
+KTP scan (JPG),Cascade,encrypt,10.5869
+KTP scan (JPG),Cascade,encrypt,12.2277
+KTP scan (JPG),Cascade,encrypt,11.2389
+KTP scan (JPG),Cascade,encrypt,10.247
+KTP scan (JPG),Cascade,encrypt,11.1777
+KTP scan (JPG),Cascade,encrypt,10.7262
+KTP scan (JPG),Cascade,encrypt,11.7676
+KTP scan (JPG),Cascade,encrypt,10.5516
+KTP scan (JPG),Cascade,encrypt,10.2907
+KTP scan (JPG),Cascade,encrypt,10.6983
+KTP scan (JPG),Cascade,encrypt,10.6013
+KTP scan (JPG),Cascade,encrypt,10.5809
+KTP scan (JPG),Cascade,encrypt,11.2152
+KTP scan (JPG),Cascade,decrypt,10.5348
+KTP scan (JPG),Cascade,decrypt,10.5817
+KTP scan (JPG),Cascade,decrypt,14.4474
+KTP scan (JPG),Cascade,decrypt,10.4183
+KTP scan (JPG),Cascade,decrypt,10.58
+KTP scan (JPG),Cascade,decrypt,11.0055
+KTP scan (JPG),Cascade,decrypt,13.6316
+KTP scan (JPG),Cascade,decrypt,10.3304
+KTP scan (JPG),Cascade,decrypt,11.1132
+KTP scan (JPG),Cascade,decrypt,10.2433
+KTP scan (JPG),Cascade,decrypt,12.0345
+KTP scan (JPG),Cascade,decrypt,15.9406
+KTP scan (JPG),Cascade,decrypt,10.2107
+KTP scan (JPG),Cascade,decrypt,10.2654
+KTP scan (JPG),Cascade,decrypt,10.6525
+KTP scan (JPG),Cascade,decrypt,11.0772
+KTP scan (JPG),Cascade,decrypt,14.8838
+KTP scan (JPG),Cascade,decrypt,10.5382
+KTP scan (JPG),Cascade,decrypt,10.7279
+KTP scan (JPG),Cascade,decrypt,10.5583
+KTP scan (JPG),Cascade,decrypt,10.3149
+KTP scan (JPG),Cascade,decrypt,10.1273
+KTP scan (JPG),Cascade,decrypt,10.4123
+KTP scan (JPG),Cascade,decrypt,10.3777
+KTP scan (JPG),Cascade,decrypt,10.2557
+KTP scan (JPG),Cascade,decrypt,10.9643
+KTP scan (JPG),Cascade,decrypt,10.6352
+KTP scan (JPG),Cascade,decrypt,10.0575
+KTP scan (JPG),Cascade,decrypt,10.7891
+KTP scan (JPG),Cascade,decrypt,13.9487
+KTP scan (JPG),Cascade,decrypt,12.6811
+KTP scan (JPG),Cascade,decrypt,11.0507
+KTP scan (JPG),Cascade,decrypt,10.4362
+KTP scan (JPG),Cascade,decrypt,11.1619
+KTP scan (JPG),Cascade,decrypt,10.4107
+KTP scan (JPG),Cascade,decrypt,10.4293
+KTP scan (JPG),Cascade,decrypt,10.9555
+KTP scan (JPG),Cascade,decrypt,10.0812
+KTP scan (JPG),Cascade,decrypt,10.777
+KTP scan (JPG),Cascade,decrypt,12.6035
+Lab result (PDF),AES-256-GCM,encrypt,1.1435
+Lab result (PDF),AES-256-GCM,encrypt,0.8369
+Lab result (PDF),AES-256-GCM,encrypt,1.282
+Lab result (PDF),AES-256-GCM,encrypt,1.3461
+Lab result (PDF),AES-256-GCM,encrypt,1.0095
+Lab result (PDF),AES-256-GCM,encrypt,1.015
+Lab result (PDF),AES-256-GCM,encrypt,0.8445
+Lab result (PDF),AES-256-GCM,encrypt,1.2107
+Lab result (PDF),AES-256-GCM,encrypt,0.8341
+Lab result (PDF),AES-256-GCM,encrypt,0.8842
+Lab result (PDF),AES-256-GCM,encrypt,1.0237
+Lab result (PDF),AES-256-GCM,encrypt,0.8402
+Lab result (PDF),AES-256-GCM,encrypt,0.8388
+Lab result (PDF),AES-256-GCM,encrypt,1.0959
+Lab result (PDF),AES-256-GCM,encrypt,1.2109
+Lab result (PDF),AES-256-GCM,encrypt,1.4412
+Lab result (PDF),AES-256-GCM,encrypt,0.8608
+Lab result (PDF),AES-256-GCM,encrypt,1.0837
+Lab result (PDF),AES-256-GCM,encrypt,1.1432
+Lab result (PDF),AES-256-GCM,encrypt,0.8315
+Lab result (PDF),AES-256-GCM,encrypt,0.8496
+Lab result (PDF),AES-256-GCM,encrypt,0.8366
+Lab result (PDF),AES-256-GCM,encrypt,1.4615
+Lab result (PDF),AES-256-GCM,encrypt,0.9105
+Lab result (PDF),AES-256-GCM,encrypt,1.0468
+Lab result (PDF),AES-256-GCM,encrypt,1.3282
+Lab result (PDF),AES-256-GCM,encrypt,1.3849
+Lab result (PDF),AES-256-GCM,encrypt,0.8136
+Lab result (PDF),AES-256-GCM,encrypt,1.2093
+Lab result (PDF),AES-256-GCM,encrypt,0.8829
+Lab result (PDF),AES-256-GCM,encrypt,1.0423
+Lab result (PDF),AES-256-GCM,encrypt,0.85
+Lab result (PDF),AES-256-GCM,encrypt,0.8533
+Lab result (PDF),AES-256-GCM,encrypt,1.072
+Lab result (PDF),AES-256-GCM,encrypt,0.8253
+Lab result (PDF),AES-256-GCM,encrypt,1.1099
+Lab result (PDF),AES-256-GCM,encrypt,1.0177
+Lab result (PDF),AES-256-GCM,encrypt,1.1832
+Lab result (PDF),AES-256-GCM,encrypt,1.1216
+Lab result (PDF),AES-256-GCM,encrypt,0.8603
+Lab result (PDF),AES-256-GCM,decrypt,1.2417
+Lab result (PDF),AES-256-GCM,decrypt,1.2249
+Lab result (PDF),AES-256-GCM,decrypt,1.1678
+Lab result (PDF),AES-256-GCM,decrypt,0.8698
+Lab result (PDF),AES-256-GCM,decrypt,1.0308
+Lab result (PDF),AES-256-GCM,decrypt,0.9132
+Lab result (PDF),AES-256-GCM,decrypt,0.8541
+Lab result (PDF),AES-256-GCM,decrypt,1.5417
+Lab result (PDF),AES-256-GCM,decrypt,1.2926
+Lab result (PDF),AES-256-GCM,decrypt,1.015
+Lab result (PDF),AES-256-GCM,decrypt,0.8238
+Lab result (PDF),AES-256-GCM,decrypt,0.861
+Lab result (PDF),AES-256-GCM,decrypt,1.4577
+Lab result (PDF),AES-256-GCM,decrypt,0.8686
+Lab result (PDF),AES-256-GCM,decrypt,1.0335
+Lab result (PDF),AES-256-GCM,decrypt,1.0551
+Lab result (PDF),AES-256-GCM,decrypt,1.4262
+Lab result (PDF),AES-256-GCM,decrypt,0.9016
+Lab result (PDF),AES-256-GCM,decrypt,0.972
+Lab result (PDF),AES-256-GCM,decrypt,1.3669
+Lab result (PDF),AES-256-GCM,decrypt,0.878
+Lab result (PDF),AES-256-GCM,decrypt,1.0282
+Lab result (PDF),AES-256-GCM,decrypt,1.8302
+Lab result (PDF),AES-256-GCM,decrypt,1.0112
+Lab result (PDF),AES-256-GCM,decrypt,0.8219
+Lab result (PDF),AES-256-GCM,decrypt,0.894
+Lab result (PDF),AES-256-GCM,decrypt,1.0104
+Lab result (PDF),AES-256-GCM,decrypt,1.0161
+Lab result (PDF),AES-256-GCM,decrypt,0.9954
+Lab result (PDF),AES-256-GCM,decrypt,1.0397
+Lab result (PDF),AES-256-GCM,decrypt,0.9254
+Lab result (PDF),AES-256-GCM,decrypt,1.0991
+Lab result (PDF),AES-256-GCM,decrypt,1.379
+Lab result (PDF),AES-256-GCM,decrypt,1.3009
+Lab result (PDF),AES-256-GCM,decrypt,0.8262
+Lab result (PDF),AES-256-GCM,decrypt,0.8824
+Lab result (PDF),AES-256-GCM,decrypt,1.1821
+Lab result (PDF),AES-256-GCM,decrypt,1.0339
+Lab result (PDF),AES-256-GCM,decrypt,0.8275
+Lab result (PDF),AES-256-GCM,decrypt,1.0488
+Lab result (PDF),DES-CBC,encrypt,81.9224
+Lab result (PDF),DES-CBC,encrypt,82.2408
+Lab result (PDF),DES-CBC,encrypt,81.4539
+Lab result (PDF),DES-CBC,encrypt,88.9583
+Lab result (PDF),DES-CBC,encrypt,91.2317
+Lab result (PDF),DES-CBC,encrypt,79.0906
+Lab result (PDF),DES-CBC,encrypt,84.4028
+Lab result (PDF),DES-CBC,encrypt,82.5792
+Lab result (PDF),DES-CBC,encrypt,81.0905
+Lab result (PDF),DES-CBC,encrypt,80.341
+Lab result (PDF),DES-CBC,encrypt,84.4169
+Lab result (PDF),DES-CBC,encrypt,80.5437
+Lab result (PDF),DES-CBC,encrypt,89.7813
+Lab result (PDF),DES-CBC,encrypt,79.2637
+Lab result (PDF),DES-CBC,encrypt,82.0288
+Lab result (PDF),DES-CBC,encrypt,85.6838
+Lab result (PDF),DES-CBC,encrypt,78.7759
+Lab result (PDF),DES-CBC,encrypt,78.9747
+Lab result (PDF),DES-CBC,encrypt,83.0237
+Lab result (PDF),DES-CBC,encrypt,81.026
+Lab result (PDF),DES-CBC,encrypt,92.8818
+Lab result (PDF),DES-CBC,encrypt,84.9825
+Lab result (PDF),DES-CBC,encrypt,84.225
+Lab result (PDF),DES-CBC,encrypt,80.2704
+Lab result (PDF),DES-CBC,encrypt,83.8134
+Lab result (PDF),DES-CBC,encrypt,80.6092
+Lab result (PDF),DES-CBC,encrypt,80.5857
+Lab result (PDF),DES-CBC,encrypt,85.4957
+Lab result (PDF),DES-CBC,encrypt,88.3409
+Lab result (PDF),DES-CBC,encrypt,86.5756
+Lab result (PDF),DES-CBC,encrypt,81.8506
+Lab result (PDF),DES-CBC,encrypt,78.6921
+Lab result (PDF),DES-CBC,encrypt,95.2064
+Lab result (PDF),DES-CBC,encrypt,86.5153
+Lab result (PDF),DES-CBC,encrypt,85.1636
+Lab result (PDF),DES-CBC,encrypt,79.8338
+Lab result (PDF),DES-CBC,encrypt,81.4889
+Lab result (PDF),DES-CBC,encrypt,81.5448
+Lab result (PDF),DES-CBC,encrypt,90.7795
+Lab result (PDF),DES-CBC,encrypt,91.7374
+Lab result (PDF),DES-CBC,decrypt,80.5171
+Lab result (PDF),DES-CBC,decrypt,86.3079
+Lab result (PDF),DES-CBC,decrypt,80.5304
+Lab result (PDF),DES-CBC,decrypt,82.6173
+Lab result (PDF),DES-CBC,decrypt,94.1768
+Lab result (PDF),DES-CBC,decrypt,82.3344
+Lab result (PDF),DES-CBC,decrypt,87.237
+Lab result (PDF),DES-CBC,decrypt,80.0586
+Lab result (PDF),DES-CBC,decrypt,91.5678
+Lab result (PDF),DES-CBC,decrypt,83.221
+Lab result (PDF),DES-CBC,decrypt,77.4299
+Lab result (PDF),DES-CBC,decrypt,85.721
+Lab result (PDF),DES-CBC,decrypt,80.8251
+Lab result (PDF),DES-CBC,decrypt,88.6165
+Lab result (PDF),DES-CBC,decrypt,82.5553
+Lab result (PDF),DES-CBC,decrypt,88.3762
+Lab result (PDF),DES-CBC,decrypt,77.6112
+Lab result (PDF),DES-CBC,decrypt,82.644
+Lab result (PDF),DES-CBC,decrypt,78.2111
+Lab result (PDF),DES-CBC,decrypt,77.7531
+Lab result (PDF),DES-CBC,decrypt,88.9905
+Lab result (PDF),DES-CBC,decrypt,83.8647
+Lab result (PDF),DES-CBC,decrypt,94.4148
+Lab result (PDF),DES-CBC,decrypt,85.3133
+Lab result (PDF),DES-CBC,decrypt,79.7837
+Lab result (PDF),DES-CBC,decrypt,79.6119
+Lab result (PDF),DES-CBC,decrypt,78.9927
+Lab result (PDF),DES-CBC,decrypt,79.198
+Lab result (PDF),DES-CBC,decrypt,84.7848
+Lab result (PDF),DES-CBC,decrypt,78.8869
+Lab result (PDF),DES-CBC,decrypt,80.4889
+Lab result (PDF),DES-CBC,decrypt,76.934
+Lab result (PDF),DES-CBC,decrypt,87.8252
+Lab result (PDF),DES-CBC,decrypt,86.3622
+Lab result (PDF),DES-CBC,decrypt,80.2513
+Lab result (PDF),DES-CBC,decrypt,81.649
+Lab result (PDF),DES-CBC,decrypt,76.4618
+Lab result (PDF),DES-CBC,decrypt,89.2354
+Lab result (PDF),DES-CBC,decrypt,88.549
+Lab result (PDF),DES-CBC,decrypt,84.5076
+Lab result (PDF),RC4-drop3072,encrypt,5.9983
+Lab result (PDF),RC4-drop3072,encrypt,5.8067
+Lab result (PDF),RC4-drop3072,encrypt,6.0644
+Lab result (PDF),RC4-drop3072,encrypt,7.0883
+Lab result (PDF),RC4-drop3072,encrypt,5.846
+Lab result (PDF),RC4-drop3072,encrypt,6.3552
+Lab result (PDF),RC4-drop3072,encrypt,6.15
+Lab result (PDF),RC4-drop3072,encrypt,6.0454
+Lab result (PDF),RC4-drop3072,encrypt,6.0302
+Lab result (PDF),RC4-drop3072,encrypt,6.3193
+Lab result (PDF),RC4-drop3072,encrypt,5.8513
+Lab result (PDF),RC4-drop3072,encrypt,7.4578
+Lab result (PDF),RC4-drop3072,encrypt,7.5834
+Lab result (PDF),RC4-drop3072,encrypt,6.0374
+Lab result (PDF),RC4-drop3072,encrypt,7.2299
+Lab result (PDF),RC4-drop3072,encrypt,6.3655
+Lab result (PDF),RC4-drop3072,encrypt,6.5944
+Lab result (PDF),RC4-drop3072,encrypt,5.571
+Lab result (PDF),RC4-drop3072,encrypt,5.8976
+Lab result (PDF),RC4-drop3072,encrypt,6.2046
+Lab result (PDF),RC4-drop3072,encrypt,6.2779
+Lab result (PDF),RC4-drop3072,encrypt,6.0846
+Lab result (PDF),RC4-drop3072,encrypt,6.9814
+Lab result (PDF),RC4-drop3072,encrypt,7.1707
+Lab result (PDF),RC4-drop3072,encrypt,6.3007
+Lab result (PDF),RC4-drop3072,encrypt,6.5685
+Lab result (PDF),RC4-drop3072,encrypt,5.8457
+Lab result (PDF),RC4-drop3072,encrypt,6.7587
+Lab result (PDF),RC4-drop3072,encrypt,5.8245
+Lab result (PDF),RC4-drop3072,encrypt,6.33
+Lab result (PDF),RC4-drop3072,encrypt,6.0818
+Lab result (PDF),RC4-drop3072,encrypt,5.8188
+Lab result (PDF),RC4-drop3072,encrypt,6.1837
+Lab result (PDF),RC4-drop3072,encrypt,6.592
+Lab result (PDF),RC4-drop3072,encrypt,6.2312
+Lab result (PDF),RC4-drop3072,encrypt,8.6139
+Lab result (PDF),RC4-drop3072,encrypt,5.8859
+Lab result (PDF),RC4-drop3072,encrypt,5.9813
+Lab result (PDF),RC4-drop3072,encrypt,6.1814
+Lab result (PDF),RC4-drop3072,encrypt,6.9424
+Lab result (PDF),RC4-drop3072,decrypt,5.821
+Lab result (PDF),RC4-drop3072,decrypt,6.4278
+Lab result (PDF),RC4-drop3072,decrypt,7.0516
+Lab result (PDF),RC4-drop3072,decrypt,6.0708
+Lab result (PDF),RC4-drop3072,decrypt,9.9222
+Lab result (PDF),RC4-drop3072,decrypt,5.9318
+Lab result (PDF),RC4-drop3072,decrypt,5.9983
+Lab result (PDF),RC4-drop3072,decrypt,6.2586
+Lab result (PDF),RC4-drop3072,decrypt,5.7955
+Lab result (PDF),RC4-drop3072,decrypt,6.1517
+Lab result (PDF),RC4-drop3072,decrypt,7.2006
+Lab result (PDF),RC4-drop3072,decrypt,5.8313
+Lab result (PDF),RC4-drop3072,decrypt,6.096
+Lab result (PDF),RC4-drop3072,decrypt,6.0048
+Lab result (PDF),RC4-drop3072,decrypt,7.1047
+Lab result (PDF),RC4-drop3072,decrypt,6.0179
+Lab result (PDF),RC4-drop3072,decrypt,5.8795
+Lab result (PDF),RC4-drop3072,decrypt,5.8734
+Lab result (PDF),RC4-drop3072,decrypt,6.0661
+Lab result (PDF),RC4-drop3072,decrypt,6.1186
+Lab result (PDF),RC4-drop3072,decrypt,6.032
+Lab result (PDF),RC4-drop3072,decrypt,7.8029
+Lab result (PDF),RC4-drop3072,decrypt,7.6491
+Lab result (PDF),RC4-drop3072,decrypt,5.9632
+Lab result (PDF),RC4-drop3072,decrypt,6.1305
+Lab result (PDF),RC4-drop3072,decrypt,6.2904
+Lab result (PDF),RC4-drop3072,decrypt,5.8626
+Lab result (PDF),RC4-drop3072,decrypt,5.8724
+Lab result (PDF),RC4-drop3072,decrypt,5.7812
+Lab result (PDF),RC4-drop3072,decrypt,6.0606
+Lab result (PDF),RC4-drop3072,decrypt,6.3908
+Lab result (PDF),RC4-drop3072,decrypt,6.205
+Lab result (PDF),RC4-drop3072,decrypt,6.0031
+Lab result (PDF),RC4-drop3072,decrypt,6.2856
+Lab result (PDF),RC4-drop3072,decrypt,5.8415
+Lab result (PDF),RC4-drop3072,decrypt,6.4705
+Lab result (PDF),RC4-drop3072,decrypt,6.1061
+Lab result (PDF),RC4-drop3072,decrypt,6.0931
+Lab result (PDF),RC4-drop3072,decrypt,7.2761
+Lab result (PDF),RC4-drop3072,decrypt,7.7851
+Lab result (PDF),Cascade,encrypt,93.165
+Lab result (PDF),Cascade,encrypt,103.7695
+Lab result (PDF),Cascade,encrypt,100.1944
+Lab result (PDF),Cascade,encrypt,94.7804
+Lab result (PDF),Cascade,encrypt,100.0893
+Lab result (PDF),Cascade,encrypt,89.692
+Lab result (PDF),Cascade,encrypt,91.3628
+Lab result (PDF),Cascade,encrypt,92.8134
+Lab result (PDF),Cascade,encrypt,95.2534
+Lab result (PDF),Cascade,encrypt,96.7345
+Lab result (PDF),Cascade,encrypt,94.6634
+Lab result (PDF),Cascade,encrypt,92.1119
+Lab result (PDF),Cascade,encrypt,98.7302
+Lab result (PDF),Cascade,encrypt,90.6709
+Lab result (PDF),Cascade,encrypt,99.334
+Lab result (PDF),Cascade,encrypt,90.6378
+Lab result (PDF),Cascade,encrypt,103.8636
+Lab result (PDF),Cascade,encrypt,97.3423
+Lab result (PDF),Cascade,encrypt,93.688
+Lab result (PDF),Cascade,encrypt,102.5509
+Lab result (PDF),Cascade,encrypt,103.6702
+Lab result (PDF),Cascade,encrypt,105.4775
+Lab result (PDF),Cascade,encrypt,100.5209
+Lab result (PDF),Cascade,encrypt,96.755
+Lab result (PDF),Cascade,encrypt,91.1479
+Lab result (PDF),Cascade,encrypt,92.8204
+Lab result (PDF),Cascade,encrypt,104.9772
+Lab result (PDF),Cascade,encrypt,90.1374
+Lab result (PDF),Cascade,encrypt,95.3453
+Lab result (PDF),Cascade,encrypt,94.4489
+Lab result (PDF),Cascade,encrypt,94.245
+Lab result (PDF),Cascade,encrypt,102.7467
+Lab result (PDF),Cascade,encrypt,108.9383
+Lab result (PDF),Cascade,encrypt,104.2512
+Lab result (PDF),Cascade,encrypt,102.6718
+Lab result (PDF),Cascade,encrypt,100.661
+Lab result (PDF),Cascade,encrypt,90.3052
+Lab result (PDF),Cascade,encrypt,95.5258
+Lab result (PDF),Cascade,encrypt,96.3458
+Lab result (PDF),Cascade,encrypt,89.8395
+Lab result (PDF),Cascade,decrypt,87.2213
+Lab result (PDF),Cascade,decrypt,95.0303
+Lab result (PDF),Cascade,decrypt,95.9271
+Lab result (PDF),Cascade,decrypt,96.5015
+Lab result (PDF),Cascade,decrypt,96.3274
+Lab result (PDF),Cascade,decrypt,95.8469
+Lab result (PDF),Cascade,decrypt,96.1144
+Lab result (PDF),Cascade,decrypt,92.5517
+Lab result (PDF),Cascade,decrypt,97.7398
+Lab result (PDF),Cascade,decrypt,95.4713
+Lab result (PDF),Cascade,decrypt,100.2169
+Lab result (PDF),Cascade,decrypt,90.6581
+Lab result (PDF),Cascade,decrypt,92.5766
+Lab result (PDF),Cascade,decrypt,92.6472
+Lab result (PDF),Cascade,decrypt,98.4089
+Lab result (PDF),Cascade,decrypt,93.9456
+Lab result (PDF),Cascade,decrypt,89.4112
+Lab result (PDF),Cascade,decrypt,90.0091
+Lab result (PDF),Cascade,decrypt,97.7991
+Lab result (PDF),Cascade,decrypt,96.4947
+Lab result (PDF),Cascade,decrypt,98.5069
+Lab result (PDF),Cascade,decrypt,96.3653
+Lab result (PDF),Cascade,decrypt,91.6856
+Lab result (PDF),Cascade,decrypt,86.0087
+Lab result (PDF),Cascade,decrypt,89.3595
+Lab result (PDF),Cascade,decrypt,89.5472
+Lab result (PDF),Cascade,decrypt,94.8902
+Lab result (PDF),Cascade,decrypt,94.3678
+Lab result (PDF),Cascade,decrypt,89.9509
+Lab result (PDF),Cascade,decrypt,85.9634
+Lab result (PDF),Cascade,decrypt,92.2
+Lab result (PDF),Cascade,decrypt,88.6746
+Lab result (PDF),Cascade,decrypt,98.7404
+Lab result (PDF),Cascade,decrypt,96.9669
+Lab result (PDF),Cascade,decrypt,92.1656
+Lab result (PDF),Cascade,decrypt,89.7159
+Lab result (PDF),Cascade,decrypt,97.2669
+Lab result (PDF),Cascade,decrypt,89.6691
+Lab result (PDF),Cascade,decrypt,98.5435
+Lab result (PDF),Cascade,decrypt,90.8984
+Video 30 s (MP4),AES-256-GCM,encrypt,11.6479
+Video 30 s (MP4),AES-256-GCM,encrypt,9.6529
+Video 30 s (MP4),AES-256-GCM,encrypt,10.9592
+Video 30 s (MP4),AES-256-GCM,encrypt,10.4905
+Video 30 s (MP4),AES-256-GCM,encrypt,11.037
+Video 30 s (MP4),AES-256-GCM,encrypt,9.8307
+Video 30 s (MP4),AES-256-GCM,encrypt,10.8309
+Video 30 s (MP4),AES-256-GCM,encrypt,9.3417
+Video 30 s (MP4),AES-256-GCM,encrypt,9.054
+Video 30 s (MP4),AES-256-GCM,encrypt,9.3171
+Video 30 s (MP4),AES-256-GCM,encrypt,10.3242
+Video 30 s (MP4),AES-256-GCM,encrypt,11.4446
+Video 30 s (MP4),AES-256-GCM,decrypt,9.1942
+Video 30 s (MP4),AES-256-GCM,decrypt,9.6455
+Video 30 s (MP4),AES-256-GCM,decrypt,9.7162
+Video 30 s (MP4),AES-256-GCM,decrypt,9.1312
+Video 30 s (MP4),AES-256-GCM,decrypt,8.9758
+Video 30 s (MP4),AES-256-GCM,decrypt,10.1054
+Video 30 s (MP4),AES-256-GCM,decrypt,10.3481
+Video 30 s (MP4),AES-256-GCM,decrypt,8.9538
+Video 30 s (MP4),AES-256-GCM,decrypt,10.3149
+Video 30 s (MP4),AES-256-GCM,decrypt,9.809
+Video 30 s (MP4),AES-256-GCM,decrypt,9.8093
+Video 30 s (MP4),AES-256-GCM,decrypt,10.4292
+Video 30 s (MP4),DES-CBC,encrypt,735.6411
+Video 30 s (MP4),DES-CBC,encrypt,687.9019
+Video 30 s (MP4),DES-CBC,encrypt,717.4701
+Video 30 s (MP4),DES-CBC,encrypt,715.0042
+Video 30 s (MP4),DES-CBC,encrypt,721.8025
+Video 30 s (MP4),DES-CBC,encrypt,696.1972
+Video 30 s (MP4),DES-CBC,encrypt,714.6167
+Video 30 s (MP4),DES-CBC,encrypt,696.1863
+Video 30 s (MP4),DES-CBC,encrypt,726.5384
+Video 30 s (MP4),DES-CBC,encrypt,698.5604
+Video 30 s (MP4),DES-CBC,encrypt,691.3181
+Video 30 s (MP4),DES-CBC,encrypt,712.545
+Video 30 s (MP4),DES-CBC,decrypt,718.6419
+Video 30 s (MP4),DES-CBC,decrypt,711.9228
+Video 30 s (MP4),DES-CBC,decrypt,711.9356
+Video 30 s (MP4),DES-CBC,decrypt,676.3681
+Video 30 s (MP4),DES-CBC,decrypt,711.8709
+Video 30 s (MP4),DES-CBC,decrypt,684.0184
+Video 30 s (MP4),DES-CBC,decrypt,698.4944
+Video 30 s (MP4),DES-CBC,decrypt,681.3435
+Video 30 s (MP4),DES-CBC,decrypt,700.6726
+Video 30 s (MP4),DES-CBC,decrypt,714.9302
+Video 30 s (MP4),DES-CBC,decrypt,706.677
+Video 30 s (MP4),DES-CBC,decrypt,679.7506
+Video 30 s (MP4),RC4-drop3072,encrypt,59.2049
+Video 30 s (MP4),RC4-drop3072,encrypt,52.2692
+Video 30 s (MP4),RC4-drop3072,encrypt,53.627
+Video 30 s (MP4),RC4-drop3072,encrypt,55.2513
+Video 30 s (MP4),RC4-drop3072,encrypt,52.6482
+Video 30 s (MP4),RC4-drop3072,encrypt,51.6722
+Video 30 s (MP4),RC4-drop3072,encrypt,53.4854
+Video 30 s (MP4),RC4-drop3072,encrypt,50.534
+Video 30 s (MP4),RC4-drop3072,encrypt,53.9603
+Video 30 s (MP4),RC4-drop3072,encrypt,55.2522
+Video 30 s (MP4),RC4-drop3072,encrypt,52.7767
+Video 30 s (MP4),RC4-drop3072,encrypt,61.4468
+Video 30 s (MP4),RC4-drop3072,decrypt,51.9831
+Video 30 s (MP4),RC4-drop3072,decrypt,52.5845
+Video 30 s (MP4),RC4-drop3072,decrypt,51.6953
+Video 30 s (MP4),RC4-drop3072,decrypt,53.6531
+Video 30 s (MP4),RC4-drop3072,decrypt,65.5259
+Video 30 s (MP4),RC4-drop3072,decrypt,52.7743
+Video 30 s (MP4),RC4-drop3072,decrypt,54.5795
+Video 30 s (MP4),RC4-drop3072,decrypt,51.6679
+Video 30 s (MP4),RC4-drop3072,decrypt,52.4218
+Video 30 s (MP4),RC4-drop3072,decrypt,52.8977
+Video 30 s (MP4),RC4-drop3072,decrypt,58.6192
+Video 30 s (MP4),RC4-drop3072,decrypt,52.4005
+Video 30 s (MP4),Cascade,encrypt,815.0012
+Video 30 s (MP4),Cascade,encrypt,856.4194
+Video 30 s (MP4),Cascade,encrypt,833.8397
+Video 30 s (MP4),Cascade,encrypt,861.4095
+Video 30 s (MP4),Cascade,encrypt,830.1083
+Video 30 s (MP4),Cascade,encrypt,854.8029
+Video 30 s (MP4),Cascade,encrypt,830.0255
+Video 30 s (MP4),Cascade,encrypt,830.2536
+Video 30 s (MP4),Cascade,encrypt,822.0264
+Video 30 s (MP4),Cascade,encrypt,838.4553
+Video 30 s (MP4),Cascade,encrypt,865.3986
+Video 30 s (MP4),Cascade,encrypt,831.9209
+Video 30 s (MP4),Cascade,decrypt,802.6696
+Video 30 s (MP4),Cascade,decrypt,800.9253
+Video 30 s (MP4),Cascade,decrypt,773.4166
+Video 30 s (MP4),Cascade,decrypt,803.1611
+Video 30 s (MP4),Cascade,decrypt,792.1232
+Video 30 s (MP4),Cascade,decrypt,807.6575
+Video 30 s (MP4),Cascade,decrypt,769.8093
+Video 30 s (MP4),Cascade,decrypt,770.3395
+Video 30 s (MP4),Cascade,decrypt,772.6387
+Video 30 s (MP4),Cascade,decrypt,786.711
+Video 30 s (MP4),Cascade,decrypt,838.8124
+Video 30 s (MP4),Cascade,decrypt,813.0036
+Video 3 min (MP4),AES-256-GCM,encrypt,62.3494
+Video 3 min (MP4),AES-256-GCM,encrypt,62.8583
+Video 3 min (MP4),AES-256-GCM,encrypt,56.1207
+Video 3 min (MP4),AES-256-GCM,encrypt,65.481
+Video 3 min (MP4),AES-256-GCM,encrypt,58.6642
+Video 3 min (MP4),AES-256-GCM,encrypt,91.422
+Video 3 min (MP4),AES-256-GCM,encrypt,98.9176
+Video 3 min (MP4),AES-256-GCM,decrypt,58.2557
+Video 3 min (MP4),AES-256-GCM,decrypt,58.0028
+Video 3 min (MP4),AES-256-GCM,decrypt,82.2263
+Video 3 min (MP4),AES-256-GCM,decrypt,68.6754
+Video 3 min (MP4),AES-256-GCM,decrypt,64.3836
+Video 3 min (MP4),AES-256-GCM,decrypt,103.0207
+Video 3 min (MP4),AES-256-GCM,decrypt,103.5854
+Video 3 min (MP4),DES-CBC,encrypt,4338.1956
+Video 3 min (MP4),DES-CBC,encrypt,4403.4131
+Video 3 min (MP4),DES-CBC,encrypt,4321.0219
+Video 3 min (MP4),DES-CBC,encrypt,4332.3768
+Video 3 min (MP4),DES-CBC,encrypt,4405.6046
+Video 3 min (MP4),DES-CBC,encrypt,7366.828
+Video 3 min (MP4),DES-CBC,encrypt,7284.075
+Video 3 min (MP4),DES-CBC,decrypt,4307.0198
+Video 3 min (MP4),DES-CBC,decrypt,4181.8879
+Video 3 min (MP4),DES-CBC,decrypt,5343.6319
+Video 3 min (MP4),DES-CBC,decrypt,4204.6416
+Video 3 min (MP4),DES-CBC,decrypt,4150.0593
+Video 3 min (MP4),DES-CBC,decrypt,6591.442
+Video 3 min (MP4),DES-CBC,decrypt,7086.1025
+Video 3 min (MP4),RC4-drop3072,encrypt,343.0858
+Video 3 min (MP4),RC4-drop3072,encrypt,326.6751
+Video 3 min (MP4),RC4-drop3072,encrypt,337.72
+Video 3 min (MP4),RC4-drop3072,encrypt,339.2052
+Video 3 min (MP4),RC4-drop3072,encrypt,350.3243
+Video 3 min (MP4),RC4-drop3072,encrypt,578.8781
+Video 3 min (MP4),RC4-drop3072,encrypt,536.2974
+Video 3 min (MP4),RC4-drop3072,decrypt,320.4852
+Video 3 min (MP4),RC4-drop3072,decrypt,327.3034
+Video 3 min (MP4),RC4-drop3072,decrypt,381.348
+Video 3 min (MP4),RC4-drop3072,decrypt,334.1451
+Video 3 min (MP4),RC4-drop3072,decrypt,321.9447
+Video 3 min (MP4),RC4-drop3072,decrypt,554.7172
+Video 3 min (MP4),RC4-drop3072,decrypt,559.0003
+Video 3 min (MP4),Cascade,encrypt,5169.1855
+Video 3 min (MP4),Cascade,encrypt,5109.1925
+Video 3 min (MP4),Cascade,encrypt,5024.228
+Video 3 min (MP4),Cascade,encrypt,5105.4037
+Video 3 min (MP4),Cascade,encrypt,5340.3493
+Video 3 min (MP4),Cascade,encrypt,8627.7925
+Video 3 min (MP4),Cascade,encrypt,8421.765
+Video 3 min (MP4),Cascade,decrypt,4813.0927
+Video 3 min (MP4),Cascade,decrypt,4750.6078
+Video 3 min (MP4),Cascade,decrypt,4670.3032
+Video 3 min (MP4),Cascade,decrypt,4808.6808
+Video 3 min (MP4),Cascade,decrypt,4686.7045
+Video 3 min (MP4),Cascade,decrypt,8022.3419
+Video 3 min (MP4),Cascade,decrypt,7904.1301
