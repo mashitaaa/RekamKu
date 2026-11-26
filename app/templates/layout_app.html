@@ -19,6 +19,14 @@
         <span class="dot dot--{{ key }}"></span>{{ label }}<span class="count">{{ nav_counts.get(key, 0) }}</span></a>
       {% endfor %}
 
+      <span class="nav__label">Sharing</span>
+      <a href="{{ url_for('sharing.inbox') }}" {% if request.endpoint in ('sharing.inbox', 'sharing.review', 'sharing.approve', 'sharing.show_key') %}aria-current="page"{% endif %}>
+        {{ icon('inbox') }}Requests to me{% if nav_counts.get('requests') %}<span class="count count--alert">{{ nav_counts.requests }}</span>{% endif %}</a>
+      <a href="{{ url_for('sharing.mine') }}" {% if request.endpoint in ('sharing.mine', 'sharing.view', 'sharing.shared_file') %}aria-current="page"{% endif %}>
+        {{ icon('share') }}Shared with me</a>
+      <a href="{{ url_for('keys.index') }}" {% if request.blueprint == 'keys' %}aria-current="page"{% endif %}>
+        {{ icon('key') }}My keys</a>
+
       <span class="nav__label">Me</span>
       <a href="{{ url_for('profile.edit') }}" {% if request.blueprint == 'profile' %}aria-current="page"{% endif %}>
         {{ icon('heart') }}Health profile</a>
@@ -67,6 +75,7 @@
     <a href="{{ url_for('vault.folder', category='identity') }}" {% if active_folder == 'identity' %}aria-current="page"{% endif %}>{{ icon('identity') }}Identity</a>
     <a href="{{ url_for('vault.folder', category='documents') }}" {% if active_folder == 'documents' %}aria-current="page"{% endif %}>{{ icon('documents') }}Documents</a>
     <a href="{{ url_for('vault.folder', category='videos') }}" {% if active_folder == 'videos' %}aria-current="page"{% endif %}>{{ icon('videos') }}Videos</a>
+    <a href="{{ url_for('sharing.inbox') }}" {% if request.blueprint in ('sharing', 'keys') %}aria-current="page"{% endif %}>{{ icon('share') }}Sharing</a>
     <a href="{{ url_for('profile.edit') }}" {% if request.blueprint == 'profile' %}aria-current="page"{% endif %}>{{ icon('heart') }}Profile</a>
   </nav>
 </div>

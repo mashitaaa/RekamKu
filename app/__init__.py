@@ -32,6 +32,8 @@ def create_app(overrides: dict | None = None) -> Flask:
         "SESSION_COOKIE_NAME": "rk_session",
         "PERMANENT_SESSION_LIFETIME": timedelta(hours=8),
         "MAX_CONTENT_LENGTH": 210 * 1024 * 1024,
+        "RSA_BITS": 3072,
+        "SHARE_DAYS": (1, 7, 30, 90),
     }
     cfg.update(overrides or {})
     app.config.update(cfg)
@@ -48,8 +50,8 @@ def create_app(overrides: dict | None = None) -> Flask:
     app.after_request(security.after_request)
     app.teardown_appcontext(db.close_db)
 
-    from .views import account, auth, pages, profile, vault
-    for bp in (auth.bp, vault.bp, profile.bp, account.bp, pages.bp):
+    from .views import account, auth, keys, pages, profile, sharing, vault
+    for bp in (auth.bp, vault.bp, profile.bp, account.bp, pages.bp, sharing.bp, keys.bp):
         app.register_blueprint(bp)
 
     @app.template_filter("size")
@@ -81,6 +83,9 @@ def create_app(overrides: dict | None = None) -> Flask:
         if g.get("uid"):
             from .views.vault import list_files
             ctx["nav_counts"] = {k: len(v) for k, v in list_files(g.uid, g.umk).items()}
+            from .db import get_db
+            ctx["nav_counts"]["requests"] = get_db().execute(
+                "SELECT COUNT(*) FROM shares WHERE owner_id=? AND status='pending'", (g.uid,)).fetchone()[0]
             from .views.profile import load_profile
             name = load_profile(g.uid, g.umk).get("name", "")
             initials = "".join(w[0] for w in name.split()[:2]).upper() or "Me"
