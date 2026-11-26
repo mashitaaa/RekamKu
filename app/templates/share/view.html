@@ -1,0 +1,41 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "_macros.html" import ext_tile with context %}
+{% block title %}Records of {{ grant.owner }} - RekamKu{% endblock %}
+{% block heading %}Records of {{ grant.owner }}{% endblock %}
+{% block subheading %}Shared with you until {{ grant.expires|date(true) }}. Read only.{% endblock %}
+{% block content %}
+<a class="crumb" href="{{ url_for('sharing.mine') }}">{{ icon('arrow-left', 'i--sm') }}Back to Shared with me</a>
+<p class="howto">{{ icon('lock', 'i--sm') }}<span>Opened with the share key {{ grant.owner }} sent you. It is stored wrapped by your account key; every file key here is wrapped by the share key. Your views are logged in {{ grant.owner }}'s activity log.</span></p>
+
+{% if grant.profile %}
+<section class="card mt-1" aria-labelledby="prof-title">
+  <div class="card__head"><div class="card__title"><span class="ico ico--violet">{{ icon('heart') }}</span><h2 id="prof-title">Health profile</h2></div>
+    <span class="muted small">copy taken {{ grant.approved|date(true) }}</span></div>
+  <dl class="facts facts--3">
+    {% for key, label, grp, cls, basis, hint, kind in fields %}
+      {% if grant.profile.get(key) %}<div><dt>{{ label }}</dt><dd>{{ grant.profile[key] }}</dd></div>{% endif %}
+    {% endfor %}
+  </dl>
+</section>
+{% endif %}
+
+<section class="mt-1" aria-labelledby="files-title">
+  <h2 id="files-title" class="section-title">Files ({{ n_files }})</h2>
+  {% for key, cat in categories.items() %}{% if groups[key] %}
+  <div class="card mb-1">
+    <h3>{{ cat.title }}</h3>
+    <ul class="rows">
+      {% for f in groups[key] %}
+      <li class="row">{{ ext_tile(f.ext, key) }}
+        <div><a class="row__name" href="{{ url_for('sharing.shared_file', sid=sid, fid=f.id) }}">{{ f.name }}</a>
+          <div class="row__meta"><span>{{ f.uploaded|date }}</span><span class="num">{{ f.size|size }}</span>{% if f.desc %}<span>{{ f.desc }}</span>{% endif %}</div></div>
+        <a class="btn btn--sm btn--light" href="{{ url_for('sharing.shared_file', sid=sid, fid=f.id) }}">{{ icon('eye', 'i--sm') }}Open</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}{% endfor %}
+  {% if not n_files %}<p class="muted">No files were shared, only the health profile.</p>{% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "_art.html" import doc_preview %}
+{% from "_macros.html" import ext_tile with context %}
+{% block title %}{{ f.name }} - RekamKu{% endblock %}
+{% block heading %}Shared by {{ grant.owner }}{% endblock %}
+{% block subheading %}{{ cat.title }}{% endblock %}
+{% block content %}
+<a class="crumb" href="{{ url_for('sharing.view', sid=sid) }}">{{ icon('arrow-left', 'i--sm') }}Back to {{ grant.owner }}'s records</a>
+<div class="detail banner--{{ f.category }}">
+  <section class="card">
+    <div class="detail__head">{{ ext_tile(f.ext, f.category) }}
+      <div><h2>{{ f.name }}</h2>{% if f.desc %}<p class="muted small">{{ f.desc }}</p>{% endif %}</div></div>
+    {% set src = url_for('sharing.shared_content', sid=sid, fid=f.id) %}
+    {% if inline and f.ext in ['jpg','jpeg','png'] %}
+      <img class="preview" src="{{ src }}" alt="Scan of {{ f.name }}">
+    {% elif inline %}
+      <video class="preview" src="{{ src }}" controls preload="metadata" playsinline></video>
+    {% else %}
+      <div class="preview preview--doc">{{ doc_preview(f.ext) }}<p class="small">Download the file to open it on your device.</p></div>
+    {% endif %}
+    <div class="actions">
+      <a class="btn" href="{{ url_for('sharing.shared_content', sid=sid, fid=f.id, download=1) }}">{{ icon('download', 'i--sm') }}Download</a>
+    </div>
+  </section>
+  <aside class="card">
+    <div class="card__head"><h2>About this file</h2><span class="chip chip--ok">{{ icon('lock', 'i--sm') }}Shared</span></div>
+    <dl class="facts">
+      <div><dt>Type</dt><dd>{{ f.ext|upper }}</dd></div>
+      <div><dt>Size</dt><dd class="num">{{ f.size|size }}</dd></div>
+      <div class="wide"><dt>Uploaded by {{ grant.owner }}</dt><dd>{{ f.uploaded|date(true) }}</dd></div>
+      <div class="wide"><dt>SHA-256</dt><dd class="mono small">{{ f.sha256 }}</dd></div>
+    </dl>
+  </aside>
+</div>
+{% endblock %}

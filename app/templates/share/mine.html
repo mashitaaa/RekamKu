@@ -1,0 +1,92 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "_macros.html" import csrf with context %}
+{% from "share/_status.html" import status_chip %}
+{% block title %}Shared with me - RekamKu{% endblock %}
+{% block heading %}Shared with me{% endblock %}
+{% block subheading %}Ask a patient for access to their records, then open what they share with you.{% endblock %}
+{% from "share/_subnav.html" import subnav with context %}
+{% block content %}
+{{ subnav() }}
+<ol class="flow" aria-label="How sharing works">
+  <li><b>1. You ask</b><span>Send a request with the patient's username and your reason.</span></li>
+  <li><b>2. The patient approves</b><span>They choose what to share. RekamKu generates a new symmetric share key.</span></li>
+  <li><b>3. The key travels by WhatsApp or e-mail</b><span>It is encrypted with your RSA public key, so only your account can open it.</span></li>
+  <li><b>4. You paste it here</b><span>Your private key decrypts it and the key is stored encrypted in your account.</span></li>
+</ol>
+
+<div class="settings">
+  <section class="card" aria-labelledby="req-title">
+    <div class="card__head"><div class="card__title"><span class="ico ico--brand">{{ icon('send') }}</span><h2 id="req-title">Request access</h2></div></div>
+    <form method="post" action="{{ url_for('sharing.create_request') }}" novalidate>
+      {{ csrf() }}
+      <div class="field">
+        <label for="username">Patient's RekamKu username</label>
+        <input id="username" name="username" maxlength="64" autocomplete="off" required value="{{ form.get('username', '') }}" placeholder="e.g. siti_demo">
+      </div>
+      <div class="field">
+        <label for="reason">Why do you need access?</label>
+        <textarea id="reason" name="reason" maxlength="300" rows="3" required placeholder="e.g. Neurology follow-up on 20 November, I need the seizure video and the last lab result.">{{ form.get('reason', '') }}</textarea>
+      </div>
+      <fieldset class="wants">
+        <legend>What do you need?</legend>
+        {% for key, label in wants.items() %}
+        <label class="want"><input type="checkbox" name="wants" value="{{ key }}" {% if key != 'identity' %}checked{% endif %}><span>{{ label }}</span></label>
+        {% endfor %}
+      </fieldset>
+      <button class="btn">{{ icon('send', 'i--sm') }}Send request</button>
+    </form>
+  </section>
+
+  <section class="card" aria-labelledby="key-title">
+    <div class="card__head"><div class="card__title"><span class="ico ico--sun">{{ icon('key') }}</span><h2 id="key-title">Add a share key</h2></div></div>
+    <p>Paste the key the patient sent you. It starts with <code>RKS1.</code></p>
+    <form method="post" action="{{ url_for('sharing.redeem') }}" novalidate>
+      {{ csrf() }}
+      <div class="field">
+        <label for="token">Encrypted share key</label>
+        <textarea id="token" name="token" rows="5" class="mono" required spellcheck="false" autocomplete="off"></textarea>
+      </div>
+      <button class="btn btn--sun">{{ icon('key', 'i--sm') }}Unlock with my private key</button>
+    </form>
+    <div class="fpr-box">
+      <span>Your public key fingerprint</span>
+      <p class="hash">{{ my_fpr }}</p>
+      <small>The patient may ask you to read this out over the phone, to be sure the key they encrypt for is really yours. It is computed from your own private key, so it cannot be faked by changing the database.</small>
+      {% if not key_intact %}<p class="key-alert">The public key stored for your account does not match your private key. Do not ask for new shares, and tell the patient not to send keys until this is fixed.</p>{% endif %}
+    </div>
+  </section>
+
+  <section class="card wide" aria-labelledby="list-title">
+    <div class="card__head"><div class="card__title"><span class="ico ico--documents">{{ icon('share') }}</span><h2 id="list-title">My requests</h2></div></div>
+    {% if items %}
+    <div class="table-wrap">
+      <table class="table">
+        <thead><tr><th scope="col">Patient</th><th scope="col">Requested</th><th scope="col">Data</th><th scope="col">Status</th><th scope="col"></th></tr></thead>
+        <tbody>
+        {% for it in items %}
+          <tr>
+            <th scope="row">{{ it.to }}<span class="muted small block">{{ it.reason }}</span></th>
+            <td>{{ it.at|date(true) }}</td>
+            <td>{% for w in it.wants %}<span class="chip">{{ wants[w] }}</span> {% endfor %}</td>
+            <td>{{ status_chip(it.status) }}
+              {% if it.grant %}<span class="muted small block">{{ it.n_files }} file{{ 's' if it.n_files != 1 }}{{ ' + profile' if it.grant.profile }}, until {{ it.grant.expires|date(true) }}</span>{% endif %}
+              {% if it.status == 'approved' %}<span class="muted small block">Paste the key the patient sent you above.</span>{% endif %}</td>
+            <td class="cell-actions">
+              {% if it.status == 'active' %}<a class="btn btn--sm" href="{{ url_for('sharing.view', sid=it.id) }}">{{ icon('eye', 'i--sm') }}Open</a>{% endif %}
+              {% if it.status in ('pending', 'approved', 'active') %}
+              <form method="post" action="{{ url_for('sharing.withdraw', sid=it.id) }}">{{ csrf() }}
+                <button class="btn btn--sm btn--light">{{ 'Cancel' if it.status == 'pending' else 'Stop' }}</button></form>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="muted">You have not requested access to anyone's records yet.</p>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}

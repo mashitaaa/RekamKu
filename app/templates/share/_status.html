@@ -1,0 +1,6 @@
+{% macro status_chip(st) -%}
+{% set m = {'pending': ('Waiting for approval', 'warn'), 'approved': ('Approved, key not added yet', 'info'),
+            'active': ('Active', 'ok'), 'declined': ('Declined', 'muted'), 'revoked': ('Revoked', 'muted'),
+            'expired': ('Expired', 'muted'), 'withdrawn': ('Withdrawn', 'muted')} %}
+{% set v = m.get(st, (st, 'muted')) %}<span class="chip chip--{{ v[1] }}">{{ v[0] }}</span>
+{%- endmacro %}

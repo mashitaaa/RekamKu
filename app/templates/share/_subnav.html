@@ -1,0 +1,7 @@
+{% macro subnav() -%}
+<nav class="subnav" aria-label="Sharing">
+  <a href="{{ url_for('sharing.inbox') }}" {% if request.endpoint == 'sharing.inbox' %}aria-current="page"{% endif %}>Requests to me{% if nav_counts.get('requests') %} ({{ nav_counts.requests }}){% endif %}</a>
+  <a href="{{ url_for('sharing.mine') }}" {% if request.endpoint == 'sharing.mine' %}aria-current="page"{% endif %}>Shared with me</a>
+  <a href="{{ url_for('keys.index') }}" {% if request.blueprint == 'keys' %}aria-current="page"{% endif %}>My keys</a>
+</nav>
+{%- endmacro %}
