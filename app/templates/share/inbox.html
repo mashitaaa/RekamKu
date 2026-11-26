@@ -1,0 +1,74 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "_macros.html" import csrf with context %}
+{% from "share/_status.html" import status_chip %}
+{% block title %}Requests to me - RekamKu{% endblock %}
+{% block heading %}Requests to me{% endblock %}
+{% block subheading %}People who asked to see your records, and what you are sharing now.{% endblock %}
+{% from "share/_subnav.html" import subnav with context %}
+{% block content %}
+{{ subnav() }}
+<section class="card mb-2" aria-labelledby="pend-title">
+  <div class="card__head"><div class="card__title"><span class="ico ico--sun">{{ icon('inbox') }}</span><h2 id="pend-title">Waiting for your decision</h2></div>
+    <span class="chip chip--warn">{{ pending|length }}</span></div>
+  {% if pending %}
+  <ul class="reqs">
+    {% for it in pending %}
+    <li class="req">
+      <div class="req__who"><span class="avatar">{{ it['from'][:2]|upper }}</span>
+        <div><b>{{ it['from'] }}</b><span class="muted small block">asked {{ it.at|ago }}</span></div></div>
+      <p class="req__reason">&ldquo;{{ it.reason }}&rdquo;</p>
+      <div class="req__wants">{% for w in it.wants %}<span class="chip">{{ wants[w] }}</span>{% endfor %}</div>
+      <div class="req__actions">
+        <a class="btn btn--sm" href="{{ url_for('sharing.review', sid=it.id) }}">{{ icon('eye', 'i--sm') }}Review and decide</a>
+        <form method="post" action="{{ url_for('sharing.decline', sid=it.id) }}">{{ csrf() }}
+          <button class="btn btn--sm btn--light">Decline</button></form>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="muted">No open requests. When a doctor or family member asks for your records, it appears here.</p>
+  {% endif %}
+</section>
+
+<section class="card mb-2" aria-labelledby="cur-title">
+  <div class="card__head"><div class="card__title"><span class="ico ico--brand">{{ icon('share') }}</span><h2 id="cur-title">What you are sharing</h2></div></div>
+  {% if current %}
+  <div class="table-wrap">
+    <table class="table">
+      <thead><tr><th scope="col">With</th><th scope="col">Shared</th><th scope="col">Until</th><th scope="col">Status</th><th scope="col"></th></tr></thead>
+      <tbody>
+      {% for it in current %}
+        <tr>
+          <th scope="row">{{ it['from'] }}<span class="muted small block">{{ it.reason }}</span></th>
+          <td>{{ it.n_files }} file{{ 's' if it.n_files != 1 }}{{ ' + health profile' if it.grant and it.grant.profile }}</td>
+          <td>{{ it.grant.expires|date(true) if it.grant }}</td>
+          <td>{{ status_chip(it.status) }}</td>
+          <td class="cell-actions">
+            {% if it.status == 'approved' %}<a class="btn btn--sm btn--light" href="{{ url_for('sharing.show_key', sid=it.id) }}">{{ icon('key', 'i--sm') }}Show key again</a>{% endif %}
+            <form method="post" action="{{ url_for('sharing.revoke', sid=it.id) }}">{{ csrf() }}
+              <button class="btn btn--sm btn--danger-ghost">{{ icon('x', 'i--sm') }}Revoke</button></form>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="muted">You are not sharing anything right now.</p>
+  {% endif %}
+</section>
+
+{% if closed %}
+<section class="card" aria-labelledby="hist-title">
+  <div class="card__head"><div class="card__title"><span class="ico ico--documents">{{ icon('clock') }}</span><h2 id="hist-title">History</h2></div></div>
+  <ul class="timeline">
+    {% for it in closed %}
+    <li><span class="tdot tdot--info"></span><span><b>{{ it['from'] }}</b> &middot; {{ it.reason }}</span>{{ status_chip(it.status) }}</li>
+    {% endfor %}
+  </ul>
+  <p class="muted small mt-1">For closed requests the share key and every file key wrapped with it have been deleted.</p>
+</section>
+{% endif %}
+{% endblock %}

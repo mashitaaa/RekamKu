@@ -1,0 +1,34 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% block title %}Share key - RekamKu{% endblock %}
+{% block heading %}Send the share key{% endblock %}
+{% block subheading %}{{ 'Request approved. ' if first }}Now send this key to {{ item['from'] }} yourself.{% endblock %}
+{% block content %}
+<a class="crumb" href="{{ url_for('sharing.inbox') }}">{{ icon('arrow-left', 'i--sm') }}Back to requests</a>
+<div class="detail">
+  <section class="card recovery">
+    <span class="ico ico--sun mb-1">{{ icon('key') }}</span>
+    <h2>Encrypted share key for {{ item['from'] }}</h2>
+    <p class="muted small">A new 256-bit symmetric key was generated for this share. Below it is encrypted with
+      {{ item['from'] }}'s RSA-3072 public key (RSA-OAEP, SHA-256). Only their private key can decrypt it.</p>
+    <p class="token" id="token">{{ token }}</p>
+    <div class="actions">
+      <button type="button" class="btn" data-copy="token">{{ icon('copy', 'i--sm') }}<span>Copy key</span></button>
+      <a class="btn btn--light" href="{{ wa }}" target="_blank" rel="noopener noreferrer">{{ icon('send', 'i--sm') }}Send by WhatsApp</a>
+      <a class="btn btn--light" href="{{ mail }}">{{ icon('send', 'i--sm') }}Send by e-mail</a>
+    </div>
+    <p class="small muted">RekamKu does not send this key for you. Even if someone else reads the message, they cannot use it without {{ item['from'] }}'s private key.</p>
+  </section>
+  <aside class="card">
+    <div class="card__head"><h2>What you shared</h2></div>
+    <dl class="facts">
+      <div><dt>With</dt><dd>{{ item['from'] }}</dd></div>
+      <div><dt>Files</dt><dd class="num">{{ item.n_files }}</dd></div>
+      <div><dt>Health profile</dt><dd>{{ 'Yes' if item.grant and item.grant.profile else 'No' }}</dd></div>
+      <div><dt>Until</dt><dd>{{ item.grant.expires|date(true) }}</dd></div>
+      <div class="wide"><dt>Encrypted for public key</dt><dd class="mono small">{{ fpr }}</dd></div>
+    </dl>
+    <p class="small muted mt-1">Stored in RekamKu: the share key wrapped with your account key, each shared file key wrapped with the share key, and later the share key wrapped with {{ item['from'] }}'s account key. The share key itself is never stored in the clear.</p>
+  </aside>
+</div>
+{% endblock %}

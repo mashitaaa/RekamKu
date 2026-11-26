@@ -1,0 +1,58 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "_macros.html" import csrf, ext_tile with context %}
+{% block title %}Review request - RekamKu{% endblock %}
+{% block heading %}Review request{% endblock %}
+{% block subheading %}Choose exactly what {{ item['from'] }} may see.{% endblock %}
+{% block content %}
+<a class="crumb" href="{{ url_for('sharing.inbox') }}">{{ icon('arrow-left', 'i--sm') }}Back to requests</a>
+
+<form method="post" action="{{ url_for('sharing.approve', sid=item.id) }}" class="review" novalidate>
+  {{ csrf() }}
+  <section class="card">
+    <div class="req__who"><span class="avatar">{{ item['from'][:2]|upper }}</span>
+      <div><b>{{ item['from'] }}</b><span class="muted small block">asked {{ item.at|date(true) }}</span></div></div>
+    <p class="req__reason">&ldquo;{{ item.reason }}&rdquo;</p>
+    <p class="small muted">Asked for: {% for w in item.wants %}<span class="chip">{{ wants[w] }}</span> {% endfor %}</p>
+
+    <h3 class="mt-1">Choose what to share</h3>
+    {% if has_profile %}
+    <label class="pick"><input type="checkbox" name="profile" value="1" {% if 'profile' in item.wants %}checked{% endif %}>
+      <span class="ico ico--violet">{{ icon('heart') }}</span><span><b>Health profile</b><small>A copy of your profile as it is now: name, NIK, conditions, medication, allergies, emergency contact.</small></span></label>
+    {% endif %}
+    {% for key, cat in categories.items() %}
+      {% if files[key] %}
+      <p class="pick-group">{{ cat.title }}</p>
+      {% for f in files[key] %}
+      <label class="pick"><input type="checkbox" name="files" value="{{ f.id }}" {% if key in item.wants %}checked{% endif %}>
+        {{ ext_tile(f.ext, key) }}<span><b>{{ f.name }}</b><small>{{ f.size|size }} &middot; {{ f.created_at|date }}{% if f.desc %} &middot; {{ f.desc }}{% endif %}</small></span></label>
+      {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  <aside class="side-stack">
+    <section class="card">
+      <h3>How long?</h3>
+      <div class="field">
+        <label for="days">Access ends after</label>
+        <select id="days" name="days">
+          {% for d in days %}<option value="{{ d }}" {% if d == 7 %}selected{% endif %}>{{ d }} day{{ 's' if d != 1 }}</option>{% endfor %}
+        </select>
+      </div>
+      <p class="small muted">You can revoke access at any time before that.</p>
+    </section>
+    <section class="card">
+      <h3>{{ icon('key', 'i--sm') }} Check who you are sharing with</h3>
+      {% if fpr %}
+      <p class="small">The share key will be encrypted with this RSA public key of <b>{{ item['from'] }}</b>:</p>
+      <p class="hash">{{ fpr }}</p>
+      <p class="small muted">If you can, ask {{ item['from'] }} to read the fingerprint from their "Shared with me" page. If it matches, nobody swapped the key on the server.</p>
+      {% else %}
+      <p class="small">{{ item['from'] }} has no encryption key yet. Ask them to sign in once.</p>
+      {% endif %}
+    </section>
+    <button class="btn btn--block" {% if not fpr %}disabled{% endif %}>{{ icon('lock', 'i--sm') }}Generate share key and approve</button>
+  </aside>
+</form>
+{% endblock %}
