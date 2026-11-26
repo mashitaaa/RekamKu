@@ -1,0 +1,32 @@
+{% extends "layout_app.html" %}
+{% from "_icons.html" import icon %}
+{% from "share/_subnav.html" import subnav with context %}
+{% block title %}My keys - RekamKu{% endblock %}
+{% block heading %}My keys{% endblock %}
+{% block subheading %}How your keys protect what you store and what you share.{% endblock %}
+{% block content %}
+{{ subnav() }}
+<div class="settings">
+  <section class="card" aria-labelledby="enc-title">
+    <div class="card__head"><div class="card__title"><span class="ico ico--brand">{{ icon('lock') }}</span><h2 id="enc-title">Encryption key pair</h2></div>
+      <span class="chip chip--ok">Active</span></div>
+    <p>RSA-3072 with OAEP padding. When a patient shares records with you, the share key is encrypted with this public key before it is sent to you by WhatsApp or e-mail.</p>
+    <dl class="facts">
+      <div class="wide"><dt>Public key fingerprint (SHA-256)</dt><dd class="mono small">{{ fpr }}</dd></div>
+      <div><dt>Shares you hold</dt><dd class="num">{{ shares.held }}</dd></div>
+      <div><dt>Shares you give</dt><dd class="num">{{ shares.given }}</dd></div>
+    </dl>
+    <p class="small muted mt-1">The private key is stored encrypted with your account key, which only your password or recovery code can unlock.</p>
+  </section>
+
+  <section class="card" aria-labelledby="where-title">
+    <div class="card__head"><div class="card__title"><span class="ico ico--sun">{{ icon('key') }}</span><h2 id="where-title">Where each key lives</h2></div></div>
+    <dl class="def-grid">
+      <div><dt>Account key (UMK)</dt><dd>Random 256-bit key, wrapped by a key derived from your password (scrypt + server pepper) and by your recovery code.</dd></div>
+      <div><dt>File keys</dt><dd>One random key per file, wrapped by your account key.</dd></div>
+      <div><dt>Share keys</dt><dd>One random 256-bit key per approved request. Stored only wrapped: by the patient's account key and, after the key is added, by the requester's account key. File keys you share are wrapped by it.</dd></div>
+      <div><dt>Your RSA private key</dt><dd>Stored encrypted with your account key. It is used only to open share keys sent to you.</dd></div>
+    </dl>
+  </section>
+</div>
+{% endblock %}
