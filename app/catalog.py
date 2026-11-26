@@ -116,6 +116,11 @@ NOT_ENCRYPTED = [
      "password hash, they are not secret and reveal nothing."),
     ("Public half of the activity-log key (X25519)", "Lets the server record events such as a failed sign-in "
      "while the vault is locked. It is public by definition; only the owner's private key can read the log."),
+    ("Public half of your RSA encryption key", "Others need it to send you a share key. Public keys are meant to "
+     "be published; the private half is stored encrypted with your account key."),
+    ("Share bookkeeping: random share ID, the two account IDs and the status", "Lets the server show a request "
+     "to the right patient and block access once it is revoked or expired. Who asked, why, which files and the "
+     "share key itself are all encrypted."),
     ("Size of each encrypted file on disk", "Inherent to storing a file. Padding every video to a fixed size "
      "would waste a lot of storage; the size alone does not reveal what the file contains."),
 ]

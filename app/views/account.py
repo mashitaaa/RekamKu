@@ -28,6 +28,22 @@ EVENTS = {
     "integrity_checked": ("Integrity checked", "ok"),
     "integrity_failed": ("File failed verification", "warn"),
     "log_damaged": ("Log entry could not be verified", "warn"),
+    "encryption_key_created": ("Encryption key pair (RSA) created", "info"),
+    "share_requested": ("You requested access to someone's records", "info"),
+    "share_request_received": ("Someone requested access to your records", "warn"),
+    "share_approved": ("You approved a request and created a share key", "info"),
+    "share_request_approved": ("Your access request was approved", "ok"),
+    "share_declined": ("You declined an access request", "info"),
+    "share_request_declined": ("Your access request was declined", "info"),
+    "share_key_redeemed": ("You added a share key", "ok"),
+    "share_key_used": ("Your share key was added by the requester", "info"),
+    "share_revoked": ("You revoked someone's access", "info"),
+    "share_revoked_by_owner": ("A patient revoked your access", "info"),
+    "share_withdrawn": ("You withdrew from a share", "info"),
+    "share_withdrawn_by_requester": ("A requester withdrew from a share", "info"),
+    "shared_file_opened": ("You opened a shared file", "info"),
+    "shared_file_opened_by_requester": ("A shared file was opened by the requester", "warn"),
+    "shared_file_downloaded_by_requester": ("A shared file was downloaded by the requester", "warn"),
 }
 
 
