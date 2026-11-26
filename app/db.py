@@ -11,30 +11,52 @@ from .crypto.keys import open_from, seal_to, unwrap
 SCHEMA = """
 PRAGMA foreign_keys = ON;
 CREATE TABLE IF NOT EXISTS users(
-    id            TEXT PRIMARY KEY,          -- random UUID
-    username_idx  BLOB NOT NULL UNIQUE,      -- HMAC-SHA256(server key, username), for sign-in lookup
-    kdf           TEXT NOT NULL,             -- scrypt parameters, e.g. scrypt$n=131072$r=8$p=1
+    id            TEXT PRIMARY KEY,
+    username_idx  BLOB NOT NULL UNIQUE,
+    kdf           TEXT NOT NULL,
     pw_salt       BLOB NOT NULL,
-    umk_by_pw     BLOB NOT NULL,             -- UMK wrapped by the password KEK
+    umk_by_pw     BLOB NOT NULL,
     rc_salt       BLOB NOT NULL,
-    umk_by_rc     BLOB NOT NULL,             -- UMK wrapped by the recovery-code KEK
-    account       BLOB NOT NULL,             -- encrypted {username, created} (UMK)
-    log_pub       BLOB NOT NULL,             -- X25519 public key: lets the server append log entries
-    log_priv      BLOB NOT NULL,             -- matching private key, wrapped by the UMK
-    profile       BLOB                       -- encrypted profile JSON (UMK)
+    umk_by_rc     BLOB NOT NULL,
+    account       BLOB NOT NULL,
+    log_pub       BLOB NOT NULL,
+    log_priv      BLOB NOT NULL,
+    profile       BLOB,
+    enc_pub       BLOB,
+    enc_priv      BLOB
 );
 CREATE TABLE IF NOT EXISTS files(
-    id            TEXT PRIMARY KEY,          -- random UUID
+    id            TEXT PRIMARY KEY,
     user_id       TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    fek           BLOB NOT NULL,             -- file key wrapped by the UMK
-    meta          BLOB NOT NULL,             -- encrypted {name, note, category, size, SHA-256, uploaded}
-    blob_name     TEXT NOT NULL UNIQUE       -- random name of the ciphertext file in storage/
+    fek           BLOB NOT NULL,
+    meta          BLOB NOT NULL,
+    blob_name     TEXT NOT NULL UNIQUE
 );
 CREATE INDEX IF NOT EXISTS files_by_owner ON files(user_id);
+CREATE TABLE IF NOT EXISTS shares(
+    id            TEXT PRIMARY KEY,
+    owner_id      TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    requester_id  TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    status        TEXT NOT NULL,
+    request       BLOB NOT NULL,
+    outbox        BLOB NOT NULL,
+    grant_info    BLOB,
+    key_owner     BLOB,
+    key_requester BLOB
+);
+CREATE INDEX IF NOT EXISTS shares_by_owner ON shares(owner_id);
+CREATE INDEX IF NOT EXISTS shares_by_requester ON shares(requester_id);
+CREATE TABLE IF NOT EXISTS shared_files(
+    share_id      TEXT NOT NULL REFERENCES shares(id) ON DELETE CASCADE,
+    file_id       TEXT NOT NULL REFERENCES files(id) ON DELETE CASCADE,
+    fek           BLOB NOT NULL,
+    meta          BLOB NOT NULL,
+    PRIMARY KEY (share_id, file_id)
+);
 CREATE TABLE IF NOT EXISTS activity(
     id       INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id  TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    entry    BLOB NOT NULL                   -- {event, time} sealed to the user's log_pub
+    entry    BLOB NOT NULL
 );
 """
 
@@ -57,8 +79,17 @@ def close_db(_exc=None):
         db.close()
 
 
+USER_COLUMNS = ("enc_pub", "enc_priv")
+
+
 def init_db(path: str):
     con = sqlite3.connect(path)
+    have = {r[1] for r in con.execute("PRAGMA table_info(users)")}
+    if have:
+        for col in USER_COLUMNS:
+            if col not in have:
+                con.execute(f"ALTER TABLE users ADD COLUMN {col} BLOB")
+        con.commit()
     con.executescript(SCHEMA)
     con.close()
 
