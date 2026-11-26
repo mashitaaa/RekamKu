@@ -39,6 +39,8 @@ def start_session(uid: str, umk: bytes):
     session["csrf"] = secrets.token_urlsafe(32)
     session["uid"] = uid
     session["sid"] = current_app.extensions["keys"].put(uid, umk)
+    from ..keyring import ensure_encryption_keys
+    ensure_encryption_keys(uid, umk)
 
 
 def create_user(username: str, password: str) -> tuple[str, str, bytes]:

@@ -22,7 +22,8 @@ MP4 = b"\x00\x00\x00\x20ftypisom" + os.urandom(3 * 1024 * 1024 + 12345)
 def make_app(**extra):
     d = tempfile.mkdtemp()
     cfg = {"INSTANCE_DIR": d, "DB_PATH": os.path.join(d, "t.db"), "STORAGE_DIR": os.path.join(d, "storage"),
-           "SERVER_KEY_PATH": os.path.join(d, "server.key"), "KDF": KdfParams(n=2 ** 12, r=8, p=1)}
+           "SERVER_KEY_PATH": os.path.join(d, "server.key"), "KDF": KdfParams(n=2 ** 12, r=8, p=1),
+           "RSA_BITS": 2048}
     cfg.update(extra)
     return create_app(cfg), d
 
@@ -263,7 +264,7 @@ class NothingInPlaintext(AppTestBase):
 
 
 class EverythingStoredIsEncrypted(AppTestBase):
-    READABLE = {"users": {"id", "username_idx", "kdf", "pw_salt", "rc_salt", "log_pub"},
+    READABLE = {"users": {"id", "username_idx", "kdf", "pw_salt", "rc_salt", "log_pub", "enc_pub"},
                 "files": {"id", "user_id", "blob_name"},
                 "activity": {"id", "user_id"}}
 
