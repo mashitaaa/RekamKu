@@ -1,0 +1,16 @@
+scenario,attacker,expected,observed,result
+Token intercepted on WhatsApp and pasted by another user,"has the token, own account","refused, nothing opened",refused,as expected
+Interceptor tries to decrypt the token offline,token + any RSA private key except dr_budi's,RSA-OAEP decryption fails,decryption failed,as expected
+Token changed by one character in transit,can edit the message,refused,refused,as expected
+Token for one request used for another request,requester with two shares,refused,refused,as expected
+Correct requester adds the token,dr_budi,accepted,accepted,as expected
+Requester asks for a file the patient did not choose (KTP),"dr_budi, edits the URL",HTTP 404,HTTP 404,as expected
+Third user opens the share or the owner's review page,"mallory, knows the share ID",no access,HTTP 404 / 404,as expected
+Database file stolen while the share is active,full copy of rekamku.db,no share key or plaintext,found: nothing,as expected
+Requester keeps using the share after the patient revokes it,dr_budi,"no access, keys deleted","HTTP 404, keys deleted: True",as expected
+Old token pasted again after revocation,dr_budi,refused,refused,as expected
+Requester opens a share after it expired (1 day),dr_budi,"no access, keys deleted","HTTP 410, status expired",as expected
+Server admin swaps dr_budi's public key in the database,write access to the database,attacker gets the share key,share key and file key recovered (32-byte FEK),as expected
+Same swap: fingerprints read out by phone,same,"fingerprints differ, requester warned","differ: True, warning shown: True",as expected
+Requester downloaded the file before revocation,dr_budi,copy stays with the requester,downloaded copy identical to original: True,as expected
+Guessing usernames with the request form,any signed-in user,tells whether a username exists,reveals it,as expected

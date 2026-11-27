@@ -1,0 +1,9 @@
+{
+  "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+  "cores": 16,
+  "python": "3.13.3",
+  "os": "Windows-11-10.0.26300-SP0",
+  "cryptography": "50.0.2",
+  "date": "2026-11-26 16:47",
+  "quick": false
+}

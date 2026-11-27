@@ -1,0 +1,13 @@
+operation,median_ms,q1_ms,q3_ms,n
+RSA-3072 key pair generation (once per account),160.07,82.35,268.74,20
+Encrypt share key with RSA-OAEP,0.07,0.07,0.07,200
+Decrypt share key with RSA-OAEP,122.28,119.69,125.93,200
+"Approve request, lab PDF (1.8 MB)",22.72,20.8,24.98,15
+"Add share key (requester), lab PDF (1.8 MB)",139.83,137.43,144.45,15
+"Requester opens first 1 MiB of shared file, lab PDF (1.8 MB)",77.94,76.93,79.89,15
+"Baseline: re-encrypt the same files with the cascade, lab PDF (1.8 MB)",71.64,71.32,71.99,5
+"Approve request, PDF + KTP + 3-min video (92 MB)",23.07,22.35,25.99,15
+"Add share key (requester), PDF + KTP + 3-min video (92 MB)",142.72,140.2,144.94,15
+"Requester opens first 1 MiB of shared file, PDF + KTP + 3-min video (92 MB)",46.98,45.87,49.12,15
+"Baseline: re-encrypt the same files with the cascade, PDF + KTP + 3-min video (92 MB)",4075.91,4055.9,4212.8,5
+Token length in characters,550,550,550,1
