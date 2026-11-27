@@ -43,11 +43,11 @@ This file describes how we used AI tools in each assignment of this project: wha
 
 1. **Claude (Anthropic)**
    View AI Conversation: https://claude.ai/share/ceab0f74-1dba-4ecc-af8b-272af4fb9da4
-   ![Claude conversation 1](ai/screenshotclaude_a2_1.png)
+   ![Claude conversation 1](ai/screenshotclaude_a2_1.jpeg)
 
 2. **Claude (Anthropic)**
    View AI Conversation: https://claude.ai/share/cbcfcb71-d8f9-4a6c-bd26-9f57a9d6ad8a
-   ![Claude conversation 2](ai/screenshotclaude_a2_2.png)
+   ![Claude conversation 2](ai/screenshotclaude_a2_2.jpeg)
 
 ### What the AI helped with
 
