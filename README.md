@@ -13,7 +13,10 @@ In RekamKu a patient stores a health profile, scanned identity documents (KTP, B
 AES-256-GCM. Only the owner can open their files after signing in, and a file that was changed on disk is refused
 instead of being shown.
 
-This is Assignment 1 (Symmetric Encryption) for the Information Security course.
+This started as Assignment 1 (Symmetric Encryption) for the Information Security course. Assignment 2 (Key
+Management) adds sharing: a doctor or relative can request access to a patient's records, the patient approves
+and RekamKu generates a symmetric share key, and the patient sends that key to them by WhatsApp or e-mail,
+encrypted with their RSA public key. Design details are in [`docs/KEY_MANAGEMENT.md`](docs/KEY_MANAGEMENT.md).
 
 Live demo: https://rekamku.pythonanywhere.com/ (use fictional data only).
 
@@ -65,9 +68,10 @@ python bench/make_samples.py
 python bench/benchmark.py
 python bench/plots.py
 python bench/compare.py
+python bench/share_bench.py
 ```
 
-There are 49 tests. They check the ciphers against official test vectors, try to open another user's file,
+There are 74 tests (49 from Assignment 1 and 25 for sharing in `tests/test_sharing.py`). They check the ciphers against official test vectors, try to open another user's file,
 flip bits in stored files, cut files short, swap files between users, and check that nothing personal is stored
 in plain text.
 
@@ -75,6 +79,10 @@ The benchmark encrypts fictional sample files that look like what a patient woul
 PDF, a DOCX, an XLSX and two videos) and writes the results to `bench/results/`. It takes about 15 minutes. We ran
 it twice on our laptop: the first run is in `bench/results_1/`, the second in `bench/results/`, and
 `bench/compare.py` shows how much the two runs differ.
+
+`bench/share_bench.py` (Assignment 2) measures the cost of sharing and runs 15 attack scenarios against the
+sharing feature (intercepted or edited tokens, revoked and expired shares, a stolen database, a swapped public key).
+It writes `bench/results/e8_share_cost.csv` and `bench/results/e9_share_attacks.csv`. Run `make_samples.py` first.
 
 ## Results of the cipher comparison
 
@@ -139,3 +147,8 @@ activity log while the user is signed out. A test checks every database column f
 * An old but valid copy of a record could be put back (rollback) without being noticed, because the chunks do not
   carry a version number.
 * `run.py` uses Flask's development server. A real deployment should run behind a proper WSGI server with HTTPS.
+* Sharing: public keys come from the server, so someone who can write to the database could swap them. The
+  requester's own fingerprint is computed from their private key, so a swap shows up as a mismatch and a warning,
+  but only if the two sides compare fingerprints over the phone. A request for a username that does not exist is
+  answered with an error, so the form reveals which usernames exist. Revoking stops access through RekamKu, but cannot take back a
+  file the requester already downloaded. The shared health profile is a copy taken at approval time.
