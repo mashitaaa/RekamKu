@@ -9,10 +9,11 @@
 <div class="settings">
   <section class="card" aria-labelledby="enc-title">
     <div class="card__head"><div class="card__title"><span class="ico ico--brand">{{ icon('lock') }}</span><h2 id="enc-title">Encryption key pair</h2></div>
-      <span class="chip chip--ok">Active</span></div>
+      {% if intact %}<span class="chip chip--ok">Active</span>{% else %}<span class="chip chip--warn">Mismatch</span>{% endif %}</div>
     <p>RSA-3072 with OAEP padding. When a patient shares records with you, the share key is encrypted with this public key before it is sent to you by WhatsApp or e-mail.</p>
+    {% if not intact %}<p class="key-alert">The public key stored for your account does not match your private key. Someone may have replaced it on the server, so patients could be encrypting share keys for someone else.</p>{% endif %}
     <dl class="facts">
-      <div class="wide"><dt>Public key fingerprint (SHA-256)</dt><dd class="mono small">{{ fpr }}</dd></div>
+      <div class="wide"><dt>Public key fingerprint (SHA-256, from your private key)</dt><dd class="mono small">{{ fpr }}</dd></div>
       <div><dt>Shares you hold</dt><dd class="num">{{ shares.held }}</dd></div>
       <div><dt>Shares you give</dt><dd class="num">{{ shares.given }}</dd></div>
     </dl>
