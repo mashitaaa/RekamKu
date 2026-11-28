@@ -264,7 +264,7 @@ class NothingInPlaintext(AppTestBase):
 
 
 class EverythingStoredIsEncrypted(AppTestBase):
-    READABLE = {"users": {"id", "username_idx", "kdf", "pw_salt", "rc_salt", "log_pub", "enc_pub"},
+    READABLE = {"users": {"id", "username_idx", "kdf", "pw_salt", "rc_salt", "log_pub", "enc_pub", "sig_fpr"},
                 "files": {"id", "user_id", "blob_name"},
                 "activity": {"id", "user_id"}}
 

@@ -23,7 +23,10 @@ CREATE TABLE IF NOT EXISTS users(
     log_priv      BLOB NOT NULL,
     profile       BLOB,
     enc_pub       BLOB,
-    enc_priv      BLOB
+    enc_priv      BLOB,
+    sig_priv      BLOB,
+    sig_cert      BLOB,
+    sig_fpr       BLOB
 );
 CREATE TABLE IF NOT EXISTS files(
     id            TEXT PRIMARY KEY,
@@ -79,7 +82,7 @@ def close_db(_exc=None):
         db.close()
 
 
-USER_COLUMNS = ("enc_pub", "enc_priv")
+USER_COLUMNS = ("enc_pub", "enc_priv", "sig_priv", "sig_cert", "sig_fpr")
 
 
 def init_db(path: str):
