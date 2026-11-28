@@ -1,0 +1,10 @@
+{
+  "cpu": "x86_64",
+  "cores": 16,
+  "python": "3.14.7",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cryptography": "50.0.2",
+  "pypdf": "7.1.1",
+  "date": "2026-11-26 19:52",
+  "quick": false
+}

@@ -1,0 +1,13 @@
+scenario,attacker,expected,rekamku,poppler_pdfsig,result
+Untouched signed PDF,-,"valid, owner key","valid, owner key: True",Total document signed; Signature is Valid.,as expected
+One bit flipped inside a page content stream,can edit the file,invalid,"invalid, owner key: True",Total document signed; Digest Mismatch.,as expected
+New content added as an incremental update after signing,can edit the file,"signature still valid, change reported","modified, owner key: True",Not total document signed; Signature is Valid.,as expected
+Document changed and re-signed with a new key whose certificate also says CN=siti,"own key pair, copies the name",valid but NOT the owner's key,"valid, owner key: False",Total document signed; Signature is Valid.,as expected
+Signature removed by cutting the last revision off,can edit the file,reported as unsigned,unsigned,no signature reported,as expected
+Signature value copied from another signed document,has another signed PDF,invalid,"invalid, owner key: True",Total document signed; Digest Mismatch.,as expected
+ByteRange edited so the last 200 bytes are no longer covered,can edit the file,invalid,"invalid, owner key: True",Not total document signed; Digest Mismatch.,as expected
+Extra bytes hidden inside the unsigned signature gap,can edit the file,invalid,"invalid, owner key: False",Not total document signed; Signature is Valid.,as expected
+Signed twice by the owner (second revision),-,"both valid, latest covers the file","valid, owner key: True",Not total document signed; Signature is Valid.; Total document signed; Signature is Valid.,as expected
+Another user tries to sign the patient's PDF,"signed-in user, knows the file ID",HTTP 404,HTTP 404,-,as expected
+Database file stolen after signing,copy of rekamku.db,private key and certificate encrypted,sig_priv starts with b'RKU1'; plaintext found: none,-,as expected
+Password-protected PDF,-,"refused, file unchanged",refused,-,as expected

@@ -1,0 +1,14 @@
+operation,median_ms_or_bytes,q1,q3,n
+RSA-3072 key pair + self-signed certificate (once per user),236.57,167.18,371.25,10
+Our RSA-3072 PKCS#1 v1.5 signature (CRT + blinding),29.35,27.89,30.34,100
+"Library RSA-3072 signature, for comparison",2.28,2.15,2.55,100
+Our RSA signature verification,0.42,0.4,0.44,100
+"Sign in memory, 1-page PDF",29.22,28.43,30.76,20
+"Verify in memory, 1-page PDF",0.83,0.72,0.89,20
+"Bytes added by the signature, 1-page PDF",17650,17650,17650,1
+"Sign in memory, lab result PDF, 1.8 MB",36.17,34.56,37.44,20
+"Verify in memory, lab result PDF, 1.8 MB",4.66,4.24,5.05,20
+"Bytes added by the signature, lab result PDF, 1.8 MB",17979,17979,17979,1
+"App: first signature incl. key generation, lab PDF",428.65,428.65,428.65,1
+"App: sign (decrypt, sign, re-encrypt, update shares), lab PDF",412.83,399.02,434.35,9
+"App: verify (decrypt + verify), lab PDF",109.83,103.41,128.61,10
