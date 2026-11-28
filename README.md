@@ -18,6 +18,14 @@ Management) adds sharing: a doctor or relative can request access to a patient's
 and RekamKu generates a symmetric share key, and the patient sends that key to them by WhatsApp or e-mail,
 encrypted with their RSA public key. Design details are in [`docs/KEY_MANAGEMENT.md`](docs/KEY_MANAGEMENT.md).
 
+Assignment 3 (Digital Signature) lets a patient sign their PDF documents with their own private key. The
+signature is embedded in the PDF as a standard PDF signature, so RekamKu, a doctor the file is shared with, and
+third-party readers such as Adobe Acrobat or poppler's `pdfsig` can all verify it. The DER, X.509, CMS and RSA
+PKCS#1 v1.5 code that builds and checks the signature is our own; libraries are only used to generate keys, to
+hash, and to read the PDF structure. Design details are in [`docs/DIGITAL_SIGNATURES.md`](docs/DIGITAL_SIGNATURES.md).
+
+![Signing a PDF](docs/screenshots/sign-detail.png)
+
 Live demo: https://rekamku.pythonanywhere.com/ (use fictional data only).
 
 ## Team 10
@@ -69,9 +77,12 @@ python bench/benchmark.py
 python bench/plots.py
 python bench/compare.py
 python bench/share_bench.py
+python bench/sign_bench.py
+python bench/plot_sign.py
 ```
 
-There are 74 tests (49 from Assignment 1 and 25 for sharing in `tests/test_sharing.py`). They check the ciphers against official test vectors, try to open another user's file,
+There are 99 tests (49 from Assignment 1, 27 for sharing in `tests/test_sharing.py` and 23 for signatures in
+`tests/test_signatures.py`). They check the ciphers against official test vectors, try to open another user's file,
 flip bits in stored files, cut files short, swap files between users, and check that nothing personal is stored
 in plain text.
 
@@ -83,6 +94,11 @@ it twice on our laptop: the first run is in `bench/results_1/`, the second in `b
 `bench/share_bench.py` (Assignment 2) measures the cost of sharing and runs 15 attack scenarios against the
 sharing feature (intercepted or edited tokens, revoked and expired shares, a stolen database, a swapped public key).
 It writes `bench/results/e8_share_cost.csv` and `bench/results/e9_share_attacks.csv`. Run `make_samples.py` first.
+
+`bench/sign_bench.py` (Assignment 3) measures signing and verification and runs 12 attack scenarios against signed
+PDFs (a flipped bit, content added after signing, a forged signature under the same name, a removed or transplanted
+signature, an edited byte range, a stolen database), comparing RekamKu's verdict with poppler `pdfsig`. It writes
+`bench/results/e10_sign_cost.csv` and `bench/results/e11_sign_attacks.csv`.
 
 ## Results of the cipher comparison
 
@@ -97,13 +113,22 @@ app/
   crypto/primitives.py   AES-256-GCM, DES-CBC and RC4 (using the cryptography library)
   crypto/cascade.py      the encrypted file format: 1 MiB chunks, DES-CBC -> RC4 -> AES-GCM
   crypto/keys.py         password hashing (scrypt), key wrapping, recovery codes
+  crypto/asym.py         RSA-OAEP share-key tokens (Assignment 2)
+  crypto/der.py          DER encoder and decoder (Assignment 3)
+  crypto/rsasig.py       RSA PKCS#1 v1.5 signatures with CRT and blinding (Assignment 3)
+  crypto/x509.py         self-signed X.509 certificates (Assignment 3)
+  crypto/cms.py          CMS SignedData, detached (Assignment 3)
+  crypto/pdfsign.py      PDF signing as an incremental update, and verification (Assignment 3)
   views/auth.py          register, sign in, sign out, recover with a recovery code
   views/vault.py         dashboard, folders, upload, download, video seeking, integrity check, delete
   views/profile.py       health profile
   views/account.py       change password, new recovery code, activity log, delete account
+  views/sharing.py       access requests, share keys, shared records (Assignment 2)
+  views/keys.py          My keys page (Assignment 2 and 3)
+  views/signing.py       sign a PDF, verify signatures, signing key and certificate (Assignment 3)
   catalog.py             file categories and profile fields with their UU PDP classification
   templates/, static/    pages, CSS, JavaScript, font
-tests/                   test_crypto.py (20 tests), test_app.py (29 tests)
+tests/                   test_crypto.py (20), test_app.py (29), test_sharing.py (27), test_signatures.py (23)
 bench/                   benchmark scripts and results
 docs/                    report, AI usage, AI screenshots, app screenshots
 ```
@@ -149,6 +174,9 @@ activity log while the user is signed out. A test checks every database column f
 * `run.py` uses Flask's development server. A real deployment should run behind a proper WSGI server with HTTPS.
 * Sharing: public keys come from the server, so someone who can write to the database could swap them. The
   requester's own fingerprint is computed from their private key, so a swap shows up as a mismatch and a warning,
-  but only if the two sides compare fingerprints over the phone. A request for a username that does not exist is
-  answered with an error, so the form reveals which usernames exist. Revoking stops access through RekamKu, but cannot take back a
+  but only if the two sides compare fingerprints over the phone. Revoking stops access through RekamKu, but cannot take back a
   file the requester already downloaded. The shared health profile is a copy taken at approval time.
+* Signatures: the signing key is a self-signed certificate, so readers outside RekamKu show the signer's identity as
+  unknown until they trust the certificate (download it from My keys). The signing time comes from the server clock,
+  not from a trusted timestamp. The private key is kept encrypted on the server, so a compromised server could sign
+  while the patient is signed in. There is no way to revoke a signing key yet.
