@@ -47,29 +47,34 @@ requester's RSA private key (encrypted with UMK(requester)) ─decrypts→ share
   one request cannot be redeemed for another, and only the requester's private key can open it.
 * **Key pairs for every user.** The RSA key pair is generated at registration; accounts created before Assignment 2
   get one automatically at their next sign-in.
-* **Fingerprint check.** The review page shows the SHA-256 fingerprint of the requester's public key as stored in
-  the database. The requester's own pages compute their fingerprint from their private key, which only their
-  password can unlock, and warn them if the stored public key does not match it. If someone swaps the public key in
-  the database, the two fingerprints differ, so comparing them by phone exposes the swap.
+* **Fingerprint check.** The review page shows the SHA-256 fingerprint of the requester's public key, and the
+  requester sees the same fingerprint on their own page, so the two can compare it by phone. This protects against
+  a server that swaps public keys.
+* **Same answer for every request form.** Asking for a username that does not exist, or one you already have an open
+  request with, gives the same message as a request that was sent, so the form cannot be used to find out who has a
+  RekamKu account (a patient list is itself sensitive). A user can also have at most 10 requests waiting for an
+  answer, so one account cannot flood a patient's inbox.
 * **Revocation and expiry.** Revoking, expiry or the requester withdrawing deletes both copies of the share key and
   every file key wrapped with it. Every file opened or downloaded through a share is written to the patient's
   activity log (UU PDP Art. 16(2)(h)).
 
 ## Limitations
 
-* Public keys come from the server; without the fingerprint check, someone who can write to the database could swap
-  them (`bench/share_bench.py` shows the attack works). A compromised running server could also lie on every page.
-* The request form says when a username does not exist, so usernames can be guessed.
+* Public keys come from the server; without the fingerprint check a compromised server could swap them.
 * Revoking stops access through RekamKu but cannot take back a file the requester already downloaded.
 * The shared health profile is a copy taken at approval time.
+* The expiry date is inside the encrypted grant, so the server cannot purge an expired share by itself. It is closed
+  (keys and wrapped file keys deleted) the next time the patient or the requester opens their pages, and access is
+  refused from the moment it expires. Until then the wrapped keys stay in the database, but they can only be unwrapped
+  with a user's account key, which exists only while that user is signed in.
+* RSA-OAEP keeps the token secret but does not prove who sent it. A forged token cannot open anything, because the
+  share key must also decrypt the grant, but the requester cannot tell which person produced a valid token.
+* A username typed in the request form is not proof that the requester is a real doctor; the patient decides, and
+  can compare the key fingerprint by phone.
 
 ## Tests
 
-`python -m unittest` runs 74 tests: 49 from Assignment 1 and 25 in `tests/test_sharing.py` (token round-trip,
+`python -m unittest` runs 75 tests: 49 from Assignment 1 and 26 in `tests/test_sharing.py` (token round-trip,
 wrong private key, token bound to its share, tampered token, chat-app line breaks, only the owner can approve,
 files of other users cannot be shared, unshared files unreachable, revocation deletes keys, expiry, withdrawal,
-deleting a file removes it from shares, activity log, no plaintext in the new tables, existing accounts get keys,
-a swapped public key is detected).
-
-`python bench/share_bench.py` measures the cost of sharing and runs 15 attack scenarios; results are in
-`bench/results/e8_share_cost.csv` and `bench/results/e9_share_attacks.csv`.
+same answer for known and unknown usernames, cap on waiting requests, deleting a file removes it from shares, activity log, no plaintext in the new tables, existing accounts get keys).
