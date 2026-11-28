@@ -44,6 +44,10 @@ EVENTS = {
     "shared_file_opened": ("You opened a shared file", "info"),
     "shared_file_opened_by_requester": ("A shared file was opened by the requester", "warn"),
     "shared_file_downloaded_by_requester": ("A shared file was downloaded by the requester", "warn"),
+    "signing_key_created": ("Signing key pair and certificate created", "info"),
+    "file_signed": ("A PDF was signed with your private key", "ok"),
+    "signature_checked": ("A PDF signature was verified", "info"),
+    "signature_failed": ("A PDF signature did not verify", "warn"),
 }
 
 

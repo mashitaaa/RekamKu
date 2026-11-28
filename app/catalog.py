@@ -118,6 +118,8 @@ NOT_ENCRYPTED = [
      "while the vault is locked. It is public by definition; only the owner's private key can read the log."),
     ("Public half of your RSA encryption key", "Others need it to send you a share key. Public keys are meant to "
      "be published; the private half is stored encrypted with your account key."),
+    ("SHA-256 fingerprint of your signing certificate", "Lets someone you shared a signed PDF with check that it "
+     "was signed with your registered key. The certificate and the private signing key themselves are encrypted."),
     ("Share bookkeeping: random share ID, the two account IDs and the status", "Lets the server show a request "
      "to the right patient and block access once it is revoked or expired. Who asked, why, which files and the "
      "share key itself are all encrypted."),
