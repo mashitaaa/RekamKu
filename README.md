@@ -26,7 +26,7 @@ hash, and to read the PDF structure. Design details are in [`docs/DIGITAL_SIGNAT
 
 ![Signing a PDF](docs/screenshots/sign-detail.png)
 
-Live demo: https://rekamku.pythonanywhere.com/ (use fictional data only).
+Live demo: https://rekamku26.pythonanywhere.com/ (use fictional data only).
 
 ## Team 10
 
@@ -66,7 +66,7 @@ keys of signed-in users are kept in that process's memory. Set `REKAMKU_HTTPS=1`
 
 ## Deployment
 
-The live demo runs on a free PythonAnywhere account. Its WSGI configuration file sets `REKAMKU_HTTPS=1`, `REKAMKU_BEHIND_PROXY=1` and `REKAMKU_SERVER_KEY` as environment variables and then loads the app with `create_app()`. A free account runs a single worker and must be renewed every month. RekamKu needs a single process anyway, because signed-in users' keys are kept in memory. The server key must never be committed to git.
+The live demo runs on a free PythonAnywhere account. Its WSGI configuration file sets `REKAMKU_HTTPS=1` and `REKAMKU_SERVER_KEY` as environment variables and then loads the app with `create_app()`. A free account runs a single worker and must be renewed every month. RekamKu needs a single process anyway, because signed-in users' keys are kept in memory. The server key must never be committed to git.
 
 ## Tests and benchmark
 
