@@ -15,6 +15,7 @@ from ..catalog import CATEGORIES, INLINE, MIME, sniff
 from ..crypto import BlobReader, IntegrityError, encrypt_stream, seal, unseal
 from ..crypto.keys import new_key, unwrap, wrap
 from ..db import get_db, log_activity, now, read_activity
+from ..keyring import signing_fingerprint
 from ..security import login_required
 from .profile import load_profile
 
@@ -118,7 +119,8 @@ def detail(fid):
     m = file_meta(row)
     log_activity(g.uid, "file_viewed")
     return render_template("vault/detail.html", f=m, row=row, key=m["category"], cat=CATEGORIES[m["category"]],
-                           inline=m["ext"] in INLINE, mime=MIME.get(m["ext"], ""), active_folder=m["category"])
+                           inline=m["ext"] in INLINE, mime=MIME.get(m["ext"], ""), active_folder=m["category"],
+                           has_sig_key=signing_fingerprint(g.uid) is not None)
 
 
 @bp.post("/files/upload")

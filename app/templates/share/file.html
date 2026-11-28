@@ -1,7 +1,7 @@
 {% extends "layout_app.html" %}
 {% from "_icons.html" import icon %}
 {% from "_art.html" import doc_preview %}
-{% from "_macros.html" import ext_tile with context %}
+{% from "_macros.html" import csrf, ext_tile with context %}
 {% block title %}{{ f.name }} - RekamKu{% endblock %}
 {% block heading %}Shared by {{ grant.owner }}{% endblock %}
 {% block subheading %}{{ cat.title }}{% endblock %}
@@ -31,6 +31,15 @@
       <div class="wide"><dt>Uploaded by {{ grant.owner }}</dt><dd>{{ f.uploaded|date(true) }}</dd></div>
       <div class="wide"><dt>SHA-256</dt><dd class="mono small">{{ f.sha256 }}</dd></div>
     </dl>
+    {% if f.ext == 'pdf' %}
+    <section class="integrity signature" aria-labelledby="sig-title">
+      <h3 id="sig-title">{{ icon('pen', 'i--sm') }}Digital signature</h3>
+      <p>Check whether {{ grant.owner }} signed this PDF with their registered signing key and whether it changed after signing.</p>
+      {{ csrf() }}
+      <button type="button" class="btn btn--sm btn--light" data-verify-sig="{{ url_for('signing.verify_shared', sid=sid, fid=f.id) }}">{{ icon('shield', 'i--sm') }}Verify signature</button>
+      <div class="sig-result" aria-live="polite"></div>
+    </section>
+    {% endif %}
   </aside>
 </div>
 {% endblock %}

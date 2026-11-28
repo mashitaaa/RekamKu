@@ -54,6 +54,26 @@
       <button type="button" class="btn btn--sm" data-verify="{{ url_for('vault.verify', fid=row.id) }}">{{ icon('refresh', 'i--sm') }}Check integrity now</button>
       <p class="integrity__result" aria-live="polite"></p>
     </section>
+
+    {% if f.ext == 'pdf' %}
+    <section class="integrity signature" aria-labelledby="sig-title">
+      <h3 id="sig-title">{{ icon('pen', 'i--sm') }}Digital signature</h3>
+      {% if f.signatures %}
+      <p>Signed with your private key on {{ f.signatures[-1].at|date(true) }}. The signature is embedded in the PDF, so it can also be checked outside RekamKu.</p>
+      {% else %}
+      <p>Not signed yet. Signing embeds a signature made with your private key in the PDF. Anyone who receives it can check that it came from your key and has not changed since.</p>
+      {% endif %}
+      {% if not has_sig_key %}<p class="small muted">You do not have a signing key pair yet. RekamKu generates one (RSA-3072 with a certificate in your name) the first time you sign.</p>{% endif %}
+      <div class="actions actions--tight">
+        <form method="post" action="{{ url_for('signing.sign', fid=row.id) }}">
+          {{ csrf() }}
+          <button class="btn btn--sm">{{ icon('pen', 'i--sm') }}{% if f.signatures %}Sign again{% else %}Sign with my private key{% endif %}</button>
+        </form>
+        <button type="button" class="btn btn--sm btn--light" data-verify-sig="{{ url_for('signing.verify', fid=row.id) }}">{{ icon('shield', 'i--sm') }}Verify signature</button>
+      </div>
+      <div class="sig-result" aria-live="polite"></div>
+    </section>
+    {% endif %}
   </aside>
 </div>
 
