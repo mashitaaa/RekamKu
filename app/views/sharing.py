@@ -23,7 +23,7 @@ bp = Blueprint("sharing", __name__)
 WANTS = {"profile": "Health profile", "identity": "Identity documents", "documents": "Medical documents",
          "videos": "Medical videos"}
 OPEN = ("pending", "approved", "active")
-SHARED_META = ("name", "desc", "ext", "category", "size", "sha256", "uploaded")
+SHARED_META = ("name", "desc", "ext", "category", "size", "sha256", "uploaded", "signatures")
 
 
 def utcnow() -> datetime:
@@ -117,22 +117,30 @@ def create_request():
     owner = _user_by_name(username) if username else None
     if not username:
         errs.append("Enter the username of the patient whose records you want to see.")
-    elif owner is None:
-        errs.append("There is no RekamKu account with that username. Check the spelling with the patient.")
-    elif owner["id"] == g.uid:
+    elif owner is not None and owner["id"] == g.uid:
         errs.append("You cannot request access to your own records.")
     if len(reason) < 5:
         errs.append("Tell the patient why you need access (at least a few words).")
     if not wants:
         errs.append("Choose at least one kind of data you need.")
     if not errs and get_db().execute(
-            f"SELECT 1 FROM shares WHERE owner_id=? AND requester_id=? AND status IN ({','.join('?' * len(OPEN))})",
-            (owner["id"], g.uid, *OPEN)).fetchone():
-        errs.append("You already have an open request or share with this patient.")
+            "SELECT COUNT(*) FROM shares WHERE requester_id=? AND status='pending'",
+            (g.uid,)).fetchone()[0] >= current_app.config.get("MAX_OPEN_REQUESTS", 10):
+        errs.append("You have too many requests waiting for an answer. Wait for a reply or withdraw one first.")
     if errs:
         for e in errs:
             flash(e, "error")
         return redirect(url_for("sharing.mine", username=username, reason=reason))
+
+    # The answer is the same whether or not the account exists (or already has an open request from
+    # this user), so the form cannot be used to find out who has a RekamKu account.
+    sent = (f"If an account named {username} exists, your request was sent. When the patient approves it, they will "
+            f"send you an encrypted key by WhatsApp or e-mail. Paste it here to open the records.")
+    if owner is None or get_db().execute(
+            f"SELECT 1 FROM shares WHERE owner_id=? AND requester_id=? AND status IN ({','.join('?' * len(OPEN))})",
+            (owner["id"], g.uid, *OPEN)).fetchone():
+        flash(sent, "ok")
+        return redirect(url_for("sharing.mine"))
 
     sid = uuid.uuid4().hex
     me = username_of(g.uid, g.umk)
@@ -146,8 +154,7 @@ def create_request():
     db.commit()
     log_activity(g.uid, "share_requested")
     log_activity(owner["id"], "share_request_received")
-    flash(f"Request sent to {username}. When they approve it, they will send you an encrypted key "
-          f"by WhatsApp or e-mail. Paste it here to open the records.", "ok")
+    flash(sent, "ok")
     return redirect(url_for("sharing.mine"))
 
 

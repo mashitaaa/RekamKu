@@ -52,8 +52,8 @@
     <div class="fpr-box">
       <span>Your public key fingerprint</span>
       <p class="hash">{{ my_fpr }}</p>
-      <small>The patient may ask you to read this out over the phone, to be sure the key they encrypt for is really yours. It is computed from your own private key, so it cannot be faked by changing the database.</small>
-      {% if not key_intact %}<p class="key-alert">The public key stored for your account does not match your private key. Do not ask for new shares, and tell the patient not to send keys until this is fixed.</p>{% endif %}
+      {% if not key_intact %}<p class="key-alert">The public key stored for your account does not match your private key. Someone may have replaced it on the server, so patients could be encrypting share keys for someone else.</p>{% endif %}
+      <small>The patient may ask you to read this out over the phone, to be sure the key they encrypt for is really yours.</small>
     </div>
   </section>
 

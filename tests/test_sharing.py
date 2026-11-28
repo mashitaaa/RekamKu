@@ -106,6 +106,26 @@ class SharingBase(AppTestBase):
 
 
 class RequestFlow(SharingBase):
+    def test_unknown_and_known_usernames_get_the_same_answer(self):
+        def answer(to):
+            r = self.b.post("/shared/request", username=to, reason=REASON, wants=["profile"])
+            self.assertEqual(r.status_code, 302)
+            page = self.b.c.get("/shared").get_data(as_text=True)
+            return re.sub(re.escape(to), "NAME", page)
+        unknown = answer("nobody_here")
+        known = answer("siti_a")
+        self.assertIn("If an account named NAME exists", unknown)
+        self.assertIn("If an account named NAME exists", known)
+        self.assertNotIn("no RekamKu account", unknown)
+
+    def test_pending_requests_per_user_are_capped(self):
+        self.app.config["MAX_OPEN_REQUESTS"] = 1
+        other = Client(self.app)
+        other.register("dr_ani", PW_C)
+        self.request()
+        self.request(to="dr_ani")
+        self.assertEqual(self.db().execute("SELECT COUNT(*) FROM shares").fetchone()[0], 1)
+
     def test_owner_sees_request_with_requester_and_reason(self):
         self.request()
         row = self.last_share()
@@ -263,7 +283,7 @@ class SharedDataStaysEncrypted(SharingBase):
         self.active_share()
         readable = {"shares": {"id", "owner_id", "requester_id", "status"},
                     "shared_files": {"share_id", "file_id"},
-                    "users": {"id", "username_idx", "kdf", "pw_salt", "rc_salt", "log_pub", "enc_pub"}}
+                    "users": {"id", "username_idx", "kdf", "pw_salt", "rc_salt", "log_pub", "enc_pub", "sig_fpr"}}
         con = self.db()
         for table, ok in readable.items():
             cols = [c[1] for c in con.execute(f"PRAGMA table_info({table})")]
@@ -294,6 +314,10 @@ class ExistingAccountsGetKeys(AppTestBase):
         self.a.login("siti_a", PW_A)
         self.assertIsNotNone(con.execute("SELECT enc_pub FROM users").fetchone()[0])
         con.close()
+
+
+if __name__ == "__main__":
+    unittest.main()
 
 
 class SwappedPublicKey(SharingBase):
