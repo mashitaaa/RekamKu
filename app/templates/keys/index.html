@@ -1,6 +1,7 @@
 {% extends "layout_app.html" %}
 {% from "_icons.html" import icon %}
 {% from "share/_subnav.html" import subnav with context %}
+{% from "_macros.html" import csrf %}
 {% block title %}My keys - RekamKu{% endblock %}
 {% block heading %}My keys{% endblock %}
 {% block subheading %}How your keys protect what you store and what you share.{% endblock %}
@@ -20,6 +21,30 @@
     <p class="small muted mt-1">The private key is stored encrypted with your account key, which only your password or recovery code can unlock.</p>
   </section>
 
+  <section class="card" aria-labelledby="sig-key-title">
+    <div class="card__head"><div class="card__title"><span class="ico ico--sun">{{ icon('pen') }}</span><h2 id="sig-key-title">Signing key pair</h2></div>
+      {% if cert %}<span class="chip chip--ok">Active</span>{% else %}<span class="chip chip--warn">Not created</span>{% endif %}</div>
+    {% if cert %}
+    <p>RSA-{{ cert.bits }} key with a self-signed X.509 certificate. It signs your PDF documents; the signature and this certificate are embedded in the PDF.</p>
+    <dl class="facts">
+      <div class="wide"><dt>Certificate subject</dt><dd class="small">{{ cert.subject }}</dd></div>
+      <div><dt>Valid from</dt><dd>{{ cert.not_before.isoformat()|date }}</dd></div>
+      <div><dt>Valid until</dt><dd>{{ cert.not_after.isoformat()|date }}</dd></div>
+      <div class="wide"><dt>Certificate fingerprint (SHA-256)</dt><dd class="mono small">{{ cert.fingerprint }}</dd></div>
+    </dl>
+    <div class="cert-actions">
+      <a class="btn btn--sm" href="{{ url_for('signing.certificate') }}">{{ icon('download', 'i--sm') }}Download certificate (.cer)</a>
+    </div>
+    <p class="small muted mt-1">PDF readers such as Adobe Acrobat show a RekamKu signature as "identity unknown" until the reader trusts this certificate. Send the .cer file to the person who checks your documents, or read them the fingerprint, so they can add it as a trusted certificate.</p>
+    {% else %}
+    <p>You do not have a signing key pair yet. It is generated automatically the first time you sign a PDF, or you can create it now.</p>
+    <form method="post" action="{{ url_for('signing.create_key') }}" class="mt-1">
+      {{ csrf() }}
+      <button class="btn btn--sm">{{ icon('key', 'i--sm') }}Generate signing key pair</button>
+    </form>
+    {% endif %}
+  </section>
+
   <section class="card" aria-labelledby="where-title">
     <div class="card__head"><div class="card__title"><span class="ico ico--sun">{{ icon('key') }}</span><h2 id="where-title">Where each key lives</h2></div></div>
     <dl class="def-grid">
@@ -27,6 +52,7 @@
       <div><dt>File keys</dt><dd>One random key per file, wrapped by your account key.</dd></div>
       <div><dt>Share keys</dt><dd>One random 256-bit key per approved request. Stored only wrapped: by the patient's account key and, after the key is added, by the requester's account key. File keys you share are wrapped by it.</dd></div>
       <div><dt>Your RSA private key</dt><dd>Stored encrypted with your account key. It is used only to open share keys sent to you.</dd></div>
+      <div><dt>Your signing key</dt><dd>A separate RSA key pair, also stored encrypted with your account key. It is used only to sign PDFs, never to decrypt.</dd></div>
     </dl>
   </section>
 </div>
