@@ -168,6 +168,65 @@
     });
   });
 
+  const sigLine = (s, i, n) => {
+    const li = document.createElement("li");
+    li.className = s.valid && (s.whole || s.followed) ? "is-ok" : "is-bad";
+    const who = s.signer ? `Signed by ${s.signer}` : "Signature";
+    const when = s.time ? ` on ${new Date(s.time).toLocaleString()}` : "";
+    const head = document.createElement("strong");
+    head.textContent = n > 1 ? `${i + 1}. ${who}${when}` : `${who}${when}`;
+    li.append(head);
+    const parts = [];
+    if (!s.valid) parts.push(`Not valid: ${s.errors.length ? s.errors.join("; ") : "the content or the signature does not match"}.`);
+    else {
+      parts.push(`The ${s.hash} hash and the RSA signature check out.`);
+      parts.push(s.owner_key ? "It was made with the owner's registered signing key." : "It was NOT made with the owner's registered signing key.");
+      if (s.whole) parts.push("Nothing was changed after this signature.");
+      else if (s.followed) parts.push("Later revisions were added and signed again.");
+      else parts.push("The file was changed after it was signed.");
+    }
+    if (s.fingerprint) parts.push(`Certificate ${s.fingerprint}`);
+    const p = document.createElement("span");
+    p.textContent = " " + parts.join(" ");
+    li.append(p);
+    return li;
+  };
+
+  $$("[data-verify-sig]").forEach((btn) => {
+    const out = $(".sig-result", btn.closest("section"));
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      out.replaceChildren();
+      out.className = "sig-result";
+      out.textContent = "Decrypting the PDF and checking its signatures...";
+      try {
+        const r = await fetch(btn.dataset.verifySig, { method: "POST", headers: { "X-CSRF-Token": csrf() } });
+        const d = await r.json();
+        out.textContent = "";
+        const title = document.createElement("p");
+        const labels = {
+          valid: "Valid signature.",
+          modified: "Signed, but the file was changed after the last signature.",
+          invalid: "A signature is NOT valid. Do not trust this copy.",
+          unsigned: "This PDF has no digital signature.",
+          error: d.error || "The check could not run.",
+        };
+        title.textContent = labels[d.status] || labels.error;
+        out.classList.add(d.status === "valid" ? "is-ok" : d.status === "unsigned" ? "is-none" : "is-bad");
+        out.append(title);
+        if (d.signatures && d.signatures.length) {
+          const ul = document.createElement("ul");
+          d.signatures.forEach((s, i) => ul.append(sigLine(s, i, d.signatures.length)));
+          out.append(ul);
+        }
+      } catch (_) {
+        out.classList.add("is-bad");
+        out.textContent = "The check could not run. Reload the page and try again.";
+      }
+      btn.disabled = false;
+    });
+  });
+
   $$("[data-open-dialog]").forEach((btn) => {
     const dlg = document.getElementById(btn.dataset.openDialog);
     btn.addEventListener("click", () => dlg.showModal());

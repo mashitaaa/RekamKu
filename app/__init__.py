@@ -34,6 +34,7 @@ def create_app(overrides: dict | None = None) -> Flask:
         "MAX_CONTENT_LENGTH": 210 * 1024 * 1024,
         "RSA_BITS": 3072,
         "SHARE_DAYS": (1, 7, 30, 90),
+        "SIGN_RSA_BITS": 3072,
     }
     cfg.update(overrides or {})
     app.config.update(cfg)
@@ -50,8 +51,8 @@ def create_app(overrides: dict | None = None) -> Flask:
     app.after_request(security.after_request)
     app.teardown_appcontext(db.close_db)
 
-    from .views import account, auth, keys, pages, profile, sharing, vault
-    for bp in (auth.bp, vault.bp, profile.bp, account.bp, pages.bp, sharing.bp, keys.bp):
+    from .views import account, auth, keys, pages, profile, sharing, signing, vault
+    for bp in (auth.bp, vault.bp, profile.bp, account.bp, pages.bp, sharing.bp, keys.bp, signing.bp):
         app.register_blueprint(bp)
 
     @app.template_filter("size")
